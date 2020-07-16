@@ -1,0 +1,21 @@
+$include /etc/inputrc
+
+# Search through history based on typed characters
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+
+# Display a list of the matching files
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+
+# Perform partial completion on the first Tab press,
+# only start cycling full results on the second Tab press
+set menu-complete-display-prefix On
+
+# If there are multiple matches for completion, Tab should cycle through them
+TAB: menu-complete
+"\e[Z": menu-complete-backward
+
+set colored-stats On
+set completion-ignore-case On
+set visible-stats On
