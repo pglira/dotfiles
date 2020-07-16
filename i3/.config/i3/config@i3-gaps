@@ -1,0 +1,10 @@
+workspace_layout default
+
+for_window [class=".*"] border pixel 4
+
+gaps inner 16
+hide_edge_borders smart_no_gaps
+
+bindsym $mod+plus gaps inner current plus 2
+bindsym $mod+minus gaps inner current minus 2
+
