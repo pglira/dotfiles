@@ -1,0 +1,13 @@
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+map D toggle_page_mode
+map r reload
+map R rotate
+map i recolor
+map n next
+map p previous
+map <C-j> scroll half-down
+map <C-k> scroll half-up
+map <C-p> print

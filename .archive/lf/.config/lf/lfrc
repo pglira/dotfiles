@@ -1,0 +1,304 @@
+#" Notes
+# - ! (shell-wait) is very useful to debug shell commands
+
+# Missing features
+# - history of dirs
+# - auto-refresh
+# - built-in filter
+
+# ToDo
+# - copy, move in new tmux-window (with rsync?)
+# - time format in right column
+
+cmd showhelp ${{
+    notify-send \
+"
+CUSTOM BINDINGS:
+f1  : single pane
+f2  : rename with vidir
+f3  : view in glogg
+f4  : edit in new tmux window
+f7  : mkdir
+f8  : trash
+f9  : full path to clipboard
+f10 : dir path to clipboard
+f11 : basename to clipboard
+f12 : dual pane with preview
+=   : select with fzf in current folder
+?   : show lf docs
+b   : shell
+H   : show/hide hidden files
+i   : invert
+O   : mimeopen with selection of application
+o   : mimeopen with standard application
+P   : paste in new tmux window
+r   : simple rename
+v   : view
+x   : execute
+X   : execute and wait
+esc : unselect
+a-b : go to entry of $BOOKMARKS
+a-r : broot
+a-u : show occupied space with ncdu
+
+ADDITIONAL CUSTOM COMMANDS:
+adddate      : add current date at ^ of file
+backup       : make zip archive in \$BACKUPDIR
+chmod+x      : make file executable
+editlfrc     : edit lfrc in new tmux window
+extract      : extract archive in new tmux window
+grep-rec     : grep all files in wd and subfolders
+pdfgrep-rec  : grep pdfs in wd and subfolders
+pdfgrep-wd   : grep pdfs in wd
+rd           : select with fzf from all recursive dirs
+rf           : select with fzf from all recursive files
+rename-paper : rename paper
+tar          : make tar archive
+touch        : create file
+zip          : make zip archive
+"
+}}
+
+# # interpreter for shell commands (needs to be POSIX compatible)
+set shell sh
+
+# set '-eu' options for shell commands
+# These options are used to have safer shell commands. Option '-e' is used to
+# exit on error and option '-u' is used to give error for unset variables.
+# Option '-f' disables pathname expansion which can be useful when $f, $fs, and
+# $fx variables contain names with '*' or '?' characters. However, this option
+# is used selectively within individual commands as it can be limiting at
+# times.
+set shellopts '-eu'
+
+# set internal field separator (IFS) to "\n" for shell commands
+# This is useful to automatically split file names in $fs and $fx properly
+# since default file separator used in these variables (i.e. 'filesep' option)
+# is newline. You need to consider the values of these options and create your
+# commands accordingly.
+set ifs "\n"
+
+# leave some space at the top and the bottom of the screen
+set scrolloff 10
+
+# define a custom 'open' command
+# This command is called when current file is not a directory. You may want to
+# use either file extensions and/or mime types here. Below uses an editor for
+# text files and a file opener for the rest.
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        text/*) $EDITOR $fx;;
+        application/pdf) $PDFVIEWER $f > /dev/null 2> /dev/null &;;
+        image/*) setsid vifm_sxiv2.sh $f > /dev/null 2> /dev/null &;;
+        video/*) setsid mpv $f > /dev/null 2> /dev/null &;;
+        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+    xdotool key Super_L+space
+}}
+
+# define a custom 'rename' command without prompt for overwrite
+cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+
+# make sure trash folder exists
+%mkdir -p ~/.trash
+
+# move current file or selected files to trash folder
+# (also see 'man mv' for backup/overwrite options)
+# cmd trash %set -f; mv $fx ~/.trash
+
+cmd trash ${{
+    set -f
+    printf "$fx\n"
+    printf "put into trash? [y/n] "
+    read ans
+    [ $ans = "y" ] && trash-put -rf $fx
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+
+# compress current file or selected files with zip and copy to $BACKUPDIR
+cmd backup !{{
+    set -f
+
+    name=$1
+    today=$(date +"%Y-%m-%d")
+    zipfile="$BACKUPDIR/${name}_${today}.zip"
+
+    if [ -d /tmp/${name} ]; then rm -rf /tmp/${name}; fi
+    mkdir /tmp/${name}
+    cp -r $fx /tmp/${name}
+    zip -r "${zipfile}" /tmp/${name}
+    rm -rf /tmp/${name}
+
+    lf -remote "send $id echo Backup ${zipfile} finished!"
+}}
+
+# fzf: files and dirs in current folder
+cmd fzf_files-and-dirs ${{
+    res="$(find . -maxdepth 1 | sort | fzf --height=100% --reverse --header='Jump to location')"
+    # lf -remote "send $id push :reload<enter>"
+    lf -remote "send $id select \"$res\""
+}}
+
+# fzf: all recursive dirs
+cmd fzf_recursive-dirs ${{
+    res="$(find . -type d | sort | fzf --height=100% --reverse --header='Jump to location')"
+    # lf -remote "send $id push :reload<enter>"
+    lf -remote "send $id select \"$res\""
+}}
+
+# fzf: all recursive files
+cmd fzf_recursive-files ${{
+    res="$(find . -type f | sort | fzf --height=100% --reverse --header='Jump to location')"
+    # lf -remote "send $id push :reload<enter>"
+    lf -remote "send $id select \"$res\""
+}}
+
+cmd rf fzf_recursive-files
+cmd rd fzf_recursive-dirs
+
+cmd fzf_bookmarks ${{
+    res="$(cat $BOOKMARKS | fzf --height=100% --reverse --header='Select bookmark')"
+    lf -remote "send $id select \"$res\"" && lf -remote "send $id push l"
+}}
+
+cmd broot ${{
+  f=$(mktemp)
+  res="$(broot --outcmd $f && cat $f | sed 's/cd //')"
+  rm -f "$f"
+  lf -remote "send $id select \"$res\""
+}}
+
+cmd paste-async &{{
+    load=$(lf -remote 'load')
+    mode=$(echo "$load" | sed -n '1p')
+    list=$(echo "$load" | sed '1d')
+    if [ $mode = 'copy' ]; then
+        cp -rn $list .
+    elif [ $mode = 'move' ]; then
+        mv -n $list .
+    fi
+    lf -remote 'send load'
+    lf -remote 'send clear'
+}}
+
+# creates dir with spaces and immediately selects it
+cmd mkdir ${{
+    dir=$(echo $* | tr ' ' '\ ')
+    mkdir -p "$dir" && lf -remote "send $id push :reload<enter>" && lf -remote "send $id select \"$(pwd)//${dir}\""
+}}
+
+# creates file with spaces and immediately selects it
+# cmd touch ${{
+#     file=$(echo $* | tr ' ' '\ ')
+#     touch "$file" && lf -remote "send $id push :reload<enter>" && lf -remote "send $id select \"$(pwd)//${file}\""
+# }}
+cmd touch %{{
+    file=$(echo $* | tr ' ' '\ ')
+    touch "$file"
+    lf -remote "send $id load"
+    lf -remote "send $id select \"$(pwd)//${file}\""
+}}
+
+cmd chmod+x %chmod +x $f
+
+cmd adddate %add_date.sh $f
+
+cmd extract %setsid tmux new-window -n extract "extract.sh $f"
+
+cmd diff %setsid meld $fx
+
+cmd pdfgrep-wd ${{
+    tmux new-window -n pdfgrep
+    tmux send-keys "pdfgrep -i $1 *.pdf" C-m
+}}
+
+cmd pdfgrep-rec ${{
+    tmux new-window -n pdfgrep
+    tmux send-keys "find . -name '*.pdf' -print0 | xargs -0 pdfgrep -i '$1'" C-m
+}}
+
+cmd grep-rec ${{
+    tmux new-window -n grep
+    tmux send-keys "rg --hidden $1" C-m
+}}
+
+cmd editlfrc ${{
+    tmux new-window -n lfrc
+    tmux send-keys "$EDITOR ~/.config/lf/lfrc" C-m
+}}
+
+cmd rename-paper ${{
+    rename-paper.sh $f
+}}
+
+# set some options
+set hidden
+set nopreview
+set ratios 1
+set info size:time
+set color256 on
+set drawbox on
+set incsearch on
+# set globsearch on
+set ignorecase on
+set dircounts
+
+# delete default mapping
+map i
+map gh
+
+# new mappings
+map <c-j> push 5j
+map <c-k> push 5k
+map <f-1> :set nopreview; set ratios 1
+map <f-2> $printf "%s\n" $fx | vidir -
+map <f-3> $setsid glogg $f > /dev/null 2> /dev/null & xdotool key Super_L+space
+map <f-4> $setsid tmux new-window -n $(basename $f) "$EDITOR $f"
+# map <f-7> push %mkdir<space>""<left>
+map <f-7> push :mkdir<space>
+map <f-8> trash
+map <f-9> $printf "\n%s" $fx | tail -c+2 | xclip -selection clipboard
+map <f-10> $dirname $f | tail -c+1 | xclip -selection clipboard
+map <f-11> $basename $f | tail -c+1 | xclip -selection clipboard
+map <f-12> :set ratios 1:2; set preview on; reload
+map i invert
+map v $$PAGER $f
+map b $$SHELL
+map g top
+map r push :rename<space>""<left>
+# map A $lf -remote "send $id push :rename<space>\"$f\"<left>"
+map <enter> push l
+map x $$f
+map X !$f
+map o &mimeopen $f
+# map O $mimeopen --ask $f
+map O $setsid tmux new-window -n mimeopen "mimeopen --ask $f"
+map H set hidden!
+map <a-u> $ncdu
+map <a-r> :broot
+map <a-b> :fzf_bookmarks
+map = :fzf_files-and-dirs
+map P paste-async
+map <esc> :unselect; clear
+map ? $lf -doc | less
+cmap <up> cmd-history-prev
+cmap <down> cmd-history-next
+cmap <c-b> cmd-word-back
+map <bs> showhelp
