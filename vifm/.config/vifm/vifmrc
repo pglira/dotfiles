@@ -1,0 +1,6 @@
+source ~/.config/vifm/vifmrc_settings
+source ~/.config/vifm/vifmrc_commands
+source ~/.config/vifm/vifmrc_filetype
+source ~/.config/vifm/vifmrc_bindings
+
+colorscheme pg

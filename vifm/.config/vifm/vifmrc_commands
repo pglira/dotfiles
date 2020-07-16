@@ -1,0 +1,42 @@
+" :com[mand][!] command_name action
+" The following macros can be used in a command
+" %a is replaced with the user arguments
+" %c the current file under the cursor
+" %C the current file under the cursor in the other directory
+" %f the current selected file, or files
+" %F the current selected file, or files in the other directory
+" %b same as %f %F
+" %d the current directory name
+" %D the other window directory name
+" %m run the command in a menu window
+
+command! df df -h %m 2> /dev/null
+command! diffmeld meld %f %F &
+command! diffpdf diffpdf %f %F &
+command! diffvim vim -d %f %F
+command! fzfdirbookmarks :set noquickview | :execute 'cd "'.system('cat $DIR_BOOKMARKS | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! fzffilebookmarks :set noquickview | :execute 'goto "'.system('cat $FILE_BOOKMARKS | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! rf :set noquickview | :execute 'goto "'.system('find . -type f | sort | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! rd :set noquickview | :execute 'cd "'.system('find . -type d | sort | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! ln !ln -s %d/%f %D
+command! mpv mpv %f %i &
+command! reload :write | restart
+command! run !! ./%f
+command! v tmux new-window -n %f vim %f %i &
+command! vgrep vim "+grep %a"
+command! zip zip -r %a.zip %f
+command! adddate add_date.sh %f
+command! extract tmux new-window -n extract "extract.sh %f && echo "Finished!" && read"
+command! x :extract
+command! pdfgrepwd tmux new-window -n pdfgrep && tmux send-keys "pdfgrep -i \"%a\" *.pdf" C-m
+command! pdfgreprec tmux new-window -n pdfgrep && tmux send-keys "find . -name '*.pdf' -print0 | xargs -0 pdfgrep -i \"%a\"" C-m
+command! greprec tmux new-window -n grep && tmux send-keys "rg --hidden \"%a\"" C-m
+command! renamepaper tmux new-window -n rename-paper rename-paper.sh %f
+command! mkcd :mkdir! %a | cd %a
+command! backup tmux new-window -n backup-to-backupdir backup-to-backupdir.sh %f %a
+command! dragon xdotool key Super_L+space & dragon -x %f
+command! handbrake tmux new-window -n handbrake "handbrake_convert-for-cellphone.sh %D %f"
+" command! cp tmux new-window -n cp "cp -v -r %f %D && echo "Finished!" && read"
+command! cp tmux new-window -n cp "rsync -vv --stats --progress -a %f %D && echo "Finished!" && read"
+command! mv tmux new-window -n mv "mv -v %f %D && echo "Finished!" && read"
+command! rm tmux new-window -n rm "rm -v -r -f %f && echo "Finished!" && read"

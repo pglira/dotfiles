@@ -1,0 +1,154 @@
+" For mapping the colors from .dircolors to this file:
+" 1. delete all lines after the line containg "colors from .dircolors"
+" 2. run vifm-convert-dircolors -e >> /home/philipp/Dropbox/dot/.vifm/colors/pg.vifm
+
+" Available style values (some of them can be combined): 
+" - bold 
+" - underline 
+" - reverse or inverse 
+" - standout 
+" - italic (on unsupported systems becomes reverse) 
+" - none
+ 
+" Available group-name values: 
+" - Win - color of all windows (views, dialogs, menus) and default color for their content (e.g. regular files in views) 
+" - AuxWin - color of auxiliary areas of windows 
+" - Border - color of vertical parts of the border 
+" - TabLine - tab line color 
+" - TabLineSel - color of the tip of selected tab 
+" - TopLineSel - top line color of the current pane 
+" - TopLine - top line color of the other pane 
+" - CmdLine - the command line/status bar color 
+" - ErrorMsg - color of error messages in the status bar 
+" - StatusLine - color of the line above the status bar 
+" - JobLine - color of job line that appears above the status line 
+" - WildMenu - color of the wild menu items 
+" - SuggestBox - color of key suggestion box 
+" - CurrLine - line at cursor position in active view 
+" - OtherLine - line at cursor position in inactive view 
+" - Selected - color of selected files 
+" - Directory - color of directories 
+" - Link - color of symbolic links in the views 
+" - BrokenLink - color of broken symbolic links 
+" - Socket - color of sockets 
+" - Device - color of block and character devices 
+" - Executable - color of executable files 
+" - Fifo - color of fifo pipes 
+" - CmpMismatch - color of mismatched files in side-by-side comparison by path 
+" - User1..User9 - 9 colors which can be used via %* 'statusline' macro
+ 
+" Available colors: 
+" - -1 or default or none - default or transparent 
+" - black and lightblack 
+" - red and lightred 
+" - green and lightgreen 
+" - yellow and lightyellow 
+" - blue and lightblue 
+" - magenta and lightmagenta 
+" - cyan and lightcyan 
+" - white and lightwhite 
+" - 0-255 - corresponding colors from 256-color palette 
+
+" Reset all styles first
+highlight clear
+
+highlight Border cterm=none ctermfg=0 ctermbg=238
+
+highlight TopLine cterm=none ctermfg=15 ctermbg=238
+highlight TopLineSel cterm=none ctermfg=15 ctermbg=238
+
+highlight CurrLine cterm=bold ctermfg=15 ctermbg=33
+highlight OtherLine cterm=none ctermfg=15 ctermbg=237
+highlight Selected cterm=bold ctermfg=0 ctermbg=15
+
+highlight JobLine cterm=none ctermfg=15 ctermbg=0
+highlight StatusLine cterm=none ctermfg=15 ctermbg=238
+highlight ErrorMsg cterm=none ctermfg=115 ctermbg=0
+highlight WildMenu cterm=none ctermfg=15 ctermbg=33
+highlight CmdLine cterm=none ctermfg=15 ctermbg=0
+
+highlight TabLine cterm=none ctermfg=15 ctermbg=8
+highlight TabLineSel cterm=none ctermfg=15 ctermbg=33
+
+highlight SuggestBox cterm=none ctermfg=15 ctermbg=0
+
+" The rest is from ls-based.vifm
+" (generated with vifm-convert-dircolors ~/.dircolors > ~/Dropbox/dot/.config/vifm/colors/ls-based.vifm)
+
+" generic file types
+highlight BrokenLink cterm=bold ctermfg=232 ctermbg=196
+highlight Device cterm=bold ctermfg=113 ctermbg=default
+highlight Directory cterm=bold ctermfg=30 ctermbg=default
+highlight Executable cterm=bold ctermfg=208 ctermbg=default
+highlight Fifo cterm=none ctermfg=126 ctermbg=default
+highlight Link cterm=bold ctermfg=15 ctermbg=22
+highlight Socket cterm=none ctermfg=197 ctermbg=default
+highlight Win cterm=none ctermfg=default ctermbg=default
+
+" file name specific highlight
+highlight /^.*(\.entitlements|\.ini|\.pcf|\.plist|\.psf|\.strings|\.viminfo|\.xcconfig|\.xcsettings|authorized_keys|cfg|conf|config|known_hosts|rc)$/I cterm=bold ctermfg=default ctermbg=default
+highlight /^.*\.(coffee|java|js|jsm|jsp|mjs)$/I cterm=bold ctermfg=074 ctermbg=default
+highlight /^.*\.(rproj|shp)$/I cterm=none ctermfg=11 ctermbg=default
+highlight /^.*\.(agdai|h|h++|hi|hpp|hxx|ii|m|s|tcc)$/I cterm=none ctermfg=110 ctermbg=default
+highlight /^.*\.(doc|docx|odb|odt|rtf)$/I cterm=none ctermfg=111 ctermbg=default
+highlight /^.*\.(docm)$/I cterm=underline ctermfg=111 ctermbg=default
+highlight /^.*\.(allow|ods|xls|xlsx)$/I cterm=none ctermfg=112 ctermbg=default
+highlight /^.*\.(xlsxm)$/I cterm=underline ctermfg=112 ctermbg=default
+highlight /^.*\.(avi|divx|ifo|m2v|m4v|mkv|mov|mp4|mpeg|mpg|ogm|rmvb|sample|wmv)$/I cterm=none ctermfg=114 ctermbg=default
+highlight /^.*\.(3g2|3gp|asf|f4v|flv|gp3|gp4|ogv|ts|webm)$/I cterm=none ctermfg=115 ctermbg=default
+highlight /^.*\.(vob)$/I cterm=bold ctermfg=115 ctermbg=default
+highlight /^.*\.(application|cue|description|directory|m3u|m3u8|md5|properties|sfv|srt|sub|theme|torrent|urlview)$/I cterm=none ctermfg=116 ctermbg=default
+highlight /^.*\.(bin|dmg|iso|nrg|qcow|sparseimage|toast|vcd|vmdk)$/I cterm=none ctermfg=124 ctermbg=default
+highlight /^.*\.(css|eml|htm|html|jhtm|less|mht|mustache|sass|scss)$/I cterm=bold ctermfg=125 ctermbg=default
+highlight /^.*\.(aiff|alac|ape|cda|flac|midi|pcm|wav|wv|wvc)$/I cterm=bold ctermfg=136 ctermbg=default
+highlight /^.*\.(3ga|aac|au|dat|dts|fcm|m4a|mid|mod|mp3|mp4a|oga|ogg|opus|s3m|sid|wma)$/I cterm=bold ctermfg=137 ctermbg=default
+highlight /^.*\.(cbr|cbz|chm|djvu|epub|mobi|pdf)$/I cterm=none ctermfg=141 ctermbg=default
+highlight /^.*(\.nix|\.rake|dockerfile|makefile)$/I cterm=none ctermfg=155 ctermbg=default
+highlight /^.*\.(pl)$/I cterm=none ctermfg=160 ctermbg=default
+highlight /^.*\.(err|error|stderr)$/I cterm=bold ctermfg=160 ctermbg=default
+highlight /^.*\.(iml|odp|pps|ppt|ppts|pptx)$/I cterm=none ctermfg=166 ctermbg=default
+highlight /^.*\.(pptsm|pptxm)$/I cterm=underline ctermfg=166 ctermbg=default
+highlight /^.*\.(tf|tfstate|tfvars)$/I cterm=none ctermfg=168 ctermbg=default
+highlight /^.*\.(awk|bash|bat|sed|sh|vim|zsh)$/I cterm=none ctermfg=172 ctermbg=default
+highlight /^.*\.(bib|dhall|json|jsonl|msg|pgn|rdata|rss|toml|xml|yaml|yml)$/I cterm=none ctermfg=178 ctermbg=default
+highlight /^.*\.(etx|info|markdown|md|mkd|nfo|rst|tex|textile)$/I cterm=none ctermfg=184 ctermbg=default
+highlight /^.*\.(log)$/I cterm=none ctermfg=190 ctermbg=default
+highlight /^.*(\.asc|\.bfe|\.enc|\.gpg|\.p12|\.p7s|\.pem|\.pgp|\.sig|\.signature|id_dsa|id_ecdsa|id_ed25519|id_rsa)$/I cterm=reverse ctermfg=192 ctermbg=default
+highlight /^.*\.(deny|storyboard)$/I cterm=none ctermfg=196 ctermbg=default
+highlight /^.*\.(git)$/I cterm=none ctermfg=197 ctermbg=default
+highlight /^.*\.(xib)$/I cterm=none ctermfg=208 ctermbg=default
+highlight /^.*\.(32x|a00|a52|a64|a78|adf|atr|cdi|fm2|gb|gba|gbc|gel|gg|ggl|ipk|j64|nds|nes|rom|sav|sms|st)$/I cterm=none ctermfg=213 ctermbg=default
+highlight /^.*\.(apk|bsp|cab|deb|jad|jar|pak|pk3|rpm|vdf|vpk)$/I cterm=none ctermfg=215 ctermbg=default
+highlight /^.*\.(swift)$/I cterm=none ctermfg=219 ctermbg=default
+highlight /^.*(authors|changes|contributors|copying|copyright|history|install|license|notice|patents|readme|readme.md|readme.rst|version)$/I cterm=bold ctermfg=220 ctermbg=default
+highlight /^.*\.(msql|mysql|pgsql|sql)$/I cterm=none ctermfg=222 ctermbg=default
+highlight /^.*\.(cfusertextencoding|ds_store|localized|part|r[0-9]{0,2}|z[0-9]{0,2}|zx[0-9]{0,2})$/I cterm=none ctermfg=239 ctermbg=default
+highlight /^.*(\.dockerignore|\.gitattributes|\.gitignore|\.gitmodules|\.pyc|pm_to_blib)$/I cterm=none ctermfg=240 ctermbg=default
+highlight /^.*(\.aria2|\.bak|\.bup|\.dump|\.o|\.orig|\.rlib|\.stackdump|\.un~|\.zcompdump|\.zwc|core)$/I cterm=none ctermfg=241 ctermbg=default
+highlight /^.*\.(am|hin|in|m4|old|out|scan)$/I cterm=none ctermfg=242 ctermbg=default
+highlight /^.*(manifest)$/I cterm=none ctermfg=243 ctermbg=default
+highlight /^.*\.(sassc|skip|swo|swp|tmp)$/I cterm=none ctermfg=244 ctermbg=default
+highlight /^.*(\.pid|\.state|lock|lockfile)$/I cterm=none ctermfg=248 ctermbg=default
+highlight /^.*\.(txt)$/I cterm=none ctermfg=253 ctermbg=default
+highlight /^.*\.(cap|dmp|pcap)$/I cterm=none ctermfg=29 ctermbg=default
+highlight /^.*\.(pacnew)$/I cterm=none ctermfg=33 ctermbg=default
+highlight /^.*\.(7z|a|arj|bz2|cpio|gz|lrz|lz|lzma|lzo|rar|s7z|sz|tar|tgz|xz|z|zip|zipx|zoo|zpaq|zz)$/I cterm=none ctermfg=40 ctermbg=default
+highlight /^.*\.(ahk|clj|cljc|cljs|cljw|gemspec|ipynb|py|rb|scala)$/I cterm=none ctermfg=41 ctermbg=default
+highlight /^.*(@.service|\.automount|\.device|\.mount|\.path|\.service|\.snapshot|\.socket|\.swap|\.target|\.timer)$/I cterm=none ctermfg=45 ctermbg=default
+highlight /^.*\.(r)$/I cterm=none ctermfg=49 ctermbg=default
+highlight /^.*\.(dart)$/I cterm=none ctermfg=51 ctermbg=default
+highlight /^.*\.(accdb|accde|accdr|accdt|db|fmp12|fp7|localstorage|mdb|mde|nc|sqlite|typelib)$/I cterm=none ctermfg=60 ctermbg=default
+highlight /^.*\.(las|laz|odm|ply|xyz)$/I cterm=none ctermfg=63 ctermbg=default
+highlight /^.*\.(tcl)$/I cterm=bold ctermfg=64 ctermbg=default
+highlight /^.*\.(afm|fnt|fon|otf|pfa|pfb|pfm|ttf)$/I cterm=none ctermfg=66 ctermbg=default
+highlight /^.*\.(1p|3p|cnc|def|ex|example|feature|gbr|ger|map|mf|mfasl|mi|mm|mtx|pc|pcb|pi|plt|pm|pod|pot|rdf|ru|sch|scm|sis|spl|sty|sug|t|tdy|tfm|tfnt|tg|vcard|vcf|xcf|xln)$/I cterm=none ctermfg=7 ctermbg=default
+highlight /^.*\.(xltx)$/I cterm=none ctermfg=73 ctermbg=default
+highlight /^.*\.(xltm)$/I cterm=underline ctermfg=73 ctermbg=default
+highlight /^.*\.(xla)$/I cterm=none ctermfg=76 ctermbg=default
+highlight /^.*\.(csv)$/I cterm=none ctermfg=78 ctermbg=default
+highlight /^.*\.(agda|asm|c|c++|cc|cl|cp|cpp|cr|cs|ctp|cxx|f|f03|f08|f90|f95|for|ftn|go|gs|hs|lagda|lagda.md|lagda.rst|lagda.tex|lhs|lisp|lua|moon|nim|nimble|php|rs|sx|twig|vala|vapi|vb|vba|vbs)$/I cterm=none ctermfg=81 ctermbg=default
+highlight /^.*\.(bmp|cdr|dicom|flif|gif|ico|jpeg|jpg|nth|png|psd|tif|tiff|webp|xpm)$/I cterm=none ctermfg=97 ctermbg=default
+highlight /^.*\.(ai|drw|eps|epsf|ps|svg)$/I cterm=none ctermfg=99 ctermbg=default
+highlight /^.*\.(diff)$/I cterm=none ctermfg=232 ctermbg=197
+highlight /^.*\.(patch)$/I cterm=bold ctermfg=232 ctermbg=197
+highlight /^.*(ls_colors)$/I cterm=bold,reverse,underline,reverse ctermfg=197 ctermbg=89
