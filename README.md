@@ -2,7 +2,7 @@
 
 Just my dotfiles. Feel free to use them.
 
-- **Operating system**: Mostly Ubuntu
+- **Operating system**: mostly Ubuntu
 - **WM**: i3 (with i3blocks)
 - **Shell**: bash
 - **Terminal**: alacritty (with tmux)
