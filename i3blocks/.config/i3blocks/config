@@ -1,0 +1,90 @@
+command=~/Dropbox/scripts/statusbar/$BLOCK_NAME.sh
+markup=pango
+text_color="#ffffff"
+bg_default_color="#222222"
+bg_warning_color="#D79921"
+bg_ok_color="#689D6A"
+separator=false
+separator_block_width=1
+
+# [window]
+# interval=persist
+
+[cpu]
+interval=1
+
+[mem]
+instance=mem;free
+interval=30
+
+[hdd]
+instance=/;free
+interval=30
+
+[trash]
+interval=10
+
+# [ip-address]
+# label=ip: 
+# interval=60
+
+# [ssid]
+# label=ssid: 
+# interval=10
+
+# [wlan]
+# label=wlanqlt: 
+# INTERFACE=wlan0
+# interval=10
+
+# [bandwidth]
+# interval=1
+# #INTERFACE=eth0
+# INLABEL=down: 
+# OUTLABEL=up: 
+# #TREAT_UNKNOWN_AS_UP=0
+
+[bri]
+interval=once
+signal=12
+# signal no. must correspond to no. in i3-config
+
+[vol]
+interval=once
+signal=11
+# signal no. must correspond to no. in i3-config
+#STEP=5%
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+
+[bat]
+# BAT_NUMBER=0
+interval=10
+
+# [bat2]
+# interval=1
+
+[bandwidth]
+interval=1
+
+[apt]
+signal=1
+interval=3600
+
+# [up]
+# interval=1
+
+[tmr]
+interval=1
+
+[gmail]
+interval=10
+
+# [td]
+# interval=1
+
+[clock]
+interval=1
+
+[notifications]
+interval=once
