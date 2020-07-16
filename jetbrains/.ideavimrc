@@ -1,0 +1,21 @@
+" This file should contain a subset of my .vimrc
+
+let mapleader =","
+
+nnoremap <C-k> 5k
+nnoremap <C-j> 5j
+vnoremap <C-k> 5k
+vnoremap <C-j> 5j
+
+map Y y$
+
+set scrolloff=1000
+
+set easymotion
+map <leader>s <Plug>(easymotion-bd-f)
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+nnoremap <space> :nohlsearch<CR>
