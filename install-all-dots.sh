@@ -9,10 +9,9 @@ case "$(hostname)" in
         ./install-program-dots.sh alacritty --merge-tags "lukesmith_colorscheme font-L1AS12"
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "L1AS12"
-        ./install-program-dots.sh clion
         ./install-program-dots.sh dunst
         ./install-program-dots.sh fonts
-        ./install-program-dots.sh i3
+        ./install-program-dots.sh i3 --merge-tags "work"
         ./install-program-dots.sh i3blocks
         ./install-program-dots.sh ipe
         ./install-program-dots.sh jetbrains
@@ -20,7 +19,7 @@ case "$(hostname)" in
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
         ./install-program-dots.sh newsboat
-        ./install-program-dots.sh passwords --merge-tags "ait"
+        ./install-program-dots.sh passwords --merge-tags "work"
         ./install-program-dots.sh readline
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh tmux
@@ -34,10 +33,9 @@ case "$(hostname)" in
         ./install-program-dots.sh alacritty --merge-tags "lukesmith_colorscheme font-N1AS21"
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "L1AS19"
-        ./install-program-dots.sh clion
         ./install-program-dots.sh dunst
         ./install-program-dots.sh fonts
-        ./install-program-dots.sh i3
+        ./install-program-dots.sh i3 --merge-tags "work"
         ./install-program-dots.sh i3blocks
         ./install-program-dots.sh ipe
         ./install-program-dots.sh jetbrains
@@ -45,7 +43,7 @@ case "$(hostname)" in
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
         ./install-program-dots.sh newsboat
-        ./install-program-dots.sh passwords --merge-tags "ait"
+        ./install-program-dots.sh passwords --merge-tags "work"
         ./install-program-dots.sh readline
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh tmux
