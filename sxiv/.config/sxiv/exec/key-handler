@@ -1,0 +1,156 @@
+#!/bin/bash
+
+case "$1" in
+
+    # Help
+    "C-h")
+        notify-send \
+"
+C-x C-l: Write path of images to a text file
+C-x M-c: Copy image to clipboard in image format
+C-x C-d: Delete images
+C-x C-m: Move images to temp folder
+C-x C-y: Copy images to temp folder
+C-x C-r: Rotate images
+C-x C-c: Copy image(s) to clipboard as files
+C-x C-x: Cut image(s) to clipboard as files
+C-x F9 : Copy image path to clipboard
+C-x C-w: Set wallpaper with nitrogen
+-------------------------------------------------
+C-x C-g: Open image in gimp
+C-x C-i: Open image in irfanview
+C-x C-n: Open image in nomacs
+C-x C-v: Open image in xnview
+"
+        ;;
+
+    # Write path of images to a text file
+    "C-l")
+        output_file=~/tmp/sxiv_selected_files.txt
+        rm $output_file
+        while read file; do
+            echo "$file" >> $output_file
+        done
+        notify-send "sxiv: Path of selected file(s) written to '$output_file'."
+        ;;
+
+    # Copy image to clipboard in image format
+    "M-c") # Alt-c
+        while read file; do
+            last_file=$file
+        done
+        extension="${last_file##*.}"
+        if [ "$extension" = "png" ]; then
+            xclip -selection clipboard -target image/png "$last_file"
+        fi
+        # This does not work yet - reason unknown
+        if [ "$extension" = "jpg" ]; then
+            xclip -selection clipboard -target image/jpeg "$last_file"
+        fi
+        notify-send "sxiv: Image '$last_file' copied to clipboard."
+        ;;
+
+    # Delete images
+    "C-d")
+        while read file; do
+            mv "$file" ~/.trash
+            notify-send "sxiv: Image '$file' deleted."
+        done
+        ;;
+
+    # Move images to temp folder
+    "C-m")
+        output_folder=~/tmp/sxiv
+        mkdir $output_folder
+        while read file; do
+            mv "$file" $output_folder
+            notify-send "sxiv: Image '$file' moved to '$output_folder'."
+        done
+        ;;
+
+    # Copy images to temp folder
+    "C-y")
+        output_folder=~/tmp/sxiv
+        mkdir $output_folder
+        while read file; do
+            cp "$file" $output_folder
+            notify-send "sxiv: Image '$file' copied to '$output_folder'."
+        done
+        ;;
+
+    # Rotate images
+    "C-r")
+        while read file; do
+            convert -rotate 90 "$file" "$file"
+            notify-send "sxiv: Image '$file' rotated."
+        done
+        ;;
+
+    # Copy image(s) to clipboard as files
+    "C-c")
+        tr '\n' '\0' | xargs -0 xclip-copyfile
+        notify-send "sxiv: Selected file(s) copied to clipboard."
+        ;;
+
+    # Cut image(s) to clipboard as files
+    "C-x")
+        tr '\n' '\0' | xargs -0 xclip-cutfile
+        notify-send "sxiv: Selected file(s) cut to clipboard."
+        ;;
+
+    # Copy image path to clipboard
+    "F9")
+        while read file; do
+            last_file=$file
+        done
+        pwd=$(pwd)
+        echo -n "${pwd}/${last_file}" | xclip -selection clipboard
+        notify-send "sxiv: Image path '${pwd}/${last_file}' copied to clipboard."
+        ;;
+
+    # Set wallpaper with nitrogen
+    "C-w")
+        while read file; do
+            last_file=$file
+        done
+        nitrogen --save --set-zoom-fill "$last_file"
+        notify-send "sxiv: Image '$last_file' set as wallpaper."
+        ;;
+
+    # Open image in Gimp
+    "C-g")
+        while read file; do
+            last_file=$file
+        done
+        gimp "$last_file" &
+        notify-send "sxiv: Open image '$last_file' in Gimp."
+        ;;
+
+    # Open image in irfanview
+    "C-i")
+        while read file; do
+            last_file=$file
+        done
+        irfanview "$last_file" &
+        notify-send "sxiv: Open image '$last_file' in irfanview."
+        ;;
+
+    # Open image in nomacs
+    "C-n")
+        while read file; do
+            last_file=$file
+        done
+        nomacs "$last_file" &
+        notify-send "sxiv: Open image '$last_file' in nomacs."
+        ;;
+
+    # Open image in xnview
+    "C-v")
+        while read file; do
+            last_file=$file
+        done
+        xnview.AppImage "$(pwd)/$last_file" &
+        notify-send "sxiv: Open image '$(pwd)/$last_file' in xnview."
+        ;;
+
+esac
