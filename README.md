@@ -18,4 +18,4 @@ Programs I don't use anymore are moved to ``.archive``.
 
 I use the shell scripts ``install-all-dots.sh`` and ``install-program-dots.sh`` to install my dotfiles across various PCs.
 
-Works on my machine ¯\_(ツ)_/¯
+Works on my machine ¯\\\_(ツ)_/¯
