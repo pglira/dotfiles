@@ -1,0 +1,16 @@
+clear lock
+keycode 66 = Escape
+
+! map altgr+hjkl to arrow keys (5th column for altgr modified from .Xmodmap generated with "xmodmap -pke > .Xmodmap")
+keycode  43 = h H h H Left Hstroke hstroke Hstroke
+keycode  44 = j J j J Down dead_abovedot dead_belowdot
+keycode  45 = k K k K Up ampersand kra
+keycode  46 = l L l L Right Lstroke lstroke Lstroke
+
+! curly/square/round brackets with altgr+c/s/r and altgr+v/d/t
+keycode  54 = c C c C braceleft copyright cent
+keycode  55 = v V v V braceright singlelowquotemark doublelowquotemark
+keycode  39 = s S s S bracketleft U1E9E U017F
+keycode  40 = d D d D bracketright ETH eth ETH d D eth ETH
+keycode  27 = r R r R parenleft registered paragraph
+keycode  28 = t T t T parenright Tslash tslash Tslash t T tslash Tslash
