@@ -83,7 +83,3 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse $FZF_COLORS"
 # https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
 [[ $- != *i* ]] && return
 [[ -z "$TMUX" ]] && exec tmux
-
-# matlab
-# This needs to be added to open files in vim remotely. Otherwise a problem with shared libraries occurs. Found in https://de.mathworks.com/matlabcentral/answers/451474-matlab-dgdb-doesn-t-work-on-ubuntu
-export LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libexpat.so:$LD_PRELOAD"
