@@ -13,6 +13,7 @@ Just my dotfiles. Feel free to use them.
 - **Music player**: moc
 - **Image viewer**: sxiv
 - **PDF viewer**: okular
+- **Browser**: vimb
 
 Programs I don't use anymore are moved to ``.archive``.
 

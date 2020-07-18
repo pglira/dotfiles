@@ -26,6 +26,7 @@ case "$(hostname)" in
         ./install-program-dots.sh veyon
         ./install-program-dots.sh vifm
         ./install-program-dots.sh vim
+        ./install-program-dots.sh vimb
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
         ;;
@@ -50,6 +51,7 @@ case "$(hostname)" in
         ./install-program-dots.sh veyon
         ./install-program-dots.sh vifm
         ./install-program-dots.sh vim
+        ./install-program-dots.sh vimb
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
         ;;

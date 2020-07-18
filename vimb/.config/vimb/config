@@ -1,0 +1,44 @@
+set user-agent="googlebot"
+# set user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
+set accelerated-2d-canvas=true
+set download-path=~/Downloads
+set editor-command=alacritty -t "vimb_editor" -e vim %s
+set home-page=www.google.at
+set incsearch=true
+set input-autohide=true
+set javascript-can-access-clipboard=true
+set monospace-font-size=12
+set monospace-font=JetBrains Mono
+set smooth-scrolling=true
+set spell-checking-languages=en,de
+set spell-checking=true
+set webgl=true
+set history-max-items=30000
+
+nmap + zI
+nmap - zO
+nmap 0 zz
+nmap <C-j> 5j
+nmap <C-k> 5k
+nnoremap b :open !
+nnoremap B :tabopen !
+nnoremap <C-y> Y
+
+shortcut-default goo
+shortcut-add goo=https://www.google.com/search?q=$0
+shortcut-add ddg=https://duckduckgo.com/lite/?q=$0
+shortcut-add map=https://maps.google.com/maps?saddr=$0
+shortcut-add git=https://github.com/search?q=$0
+shortcut-add imd=http://www.imdb.com/find?s=all&q=$0
+shortcut-add wik=http://en.wikipedia.org/w/index.php?title=Special:Search&search=$0
+shortcut-add you=http://www.youtube.com/results?search_query=$0
+
+# GUI colors
+set completion-css=color:#d3d0c8;background-color:#393939;font:11pt JetBrains Mono;
+set completion-hover-css=color:#d3d0c8;background-color:#393939;font:11pt JetBrains Mono;
+set completion-selected-css=color:#d3d0c8;background-color:#515151;font:11pt JetBrains Mono;
+set input-css=color:#d3d0c8;background-color:#393939;font:11pt JetBrains Mono;
+set input-error-css=color:#f2777a;background-color:#393939;font:11pt JetBrains Mono;
+set status-css=color:#ffcc66;background-color:#393939;font:11pt JetBrains Mono;
+set status-ssl-css=color:#99cc99;background-color:#393939;font:11pt JetBrains Mono;
+set status-ssl-invalid-css=color:#f2777a;background-color:#393939;font:11pt JetBrains Mono
