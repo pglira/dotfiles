@@ -18,7 +18,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 for_window [class=".*"] title_format " %class"
-# for_window [class=".*"] title_format " %class - %title"
+# for_window [class=".*"] title_format " %class / %title"
 # title_align center
 
 show_marks yes
