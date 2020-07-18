@@ -39,4 +39,4 @@ command! handbrake tmux new-window -n handbrake "handbrake_convert-for-cellphone
 " command! cp tmux new-window -n cp "cp -v -r %f %D && echo "Finished!" && read"
 command! cp tmux new-window -n cp "rsync -vv --stats --progress -a %f %D && echo "Finished!" && read"
 command! mv tmux new-window -n mv "mv -v %f %D && echo "Finished!" && read"
-command! rm tmux new-window -n rm "rm -v -r -f %f && echo "Finished!" && read"
+command! rm tmux new-window -n rm "rm -I -v -r %f && echo "Finished!" && read"
