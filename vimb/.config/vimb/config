@@ -34,11 +34,11 @@ shortcut-add wik=http://en.wikipedia.org/w/index.php?title=Special:Search&search
 shortcut-add you=http://www.youtube.com/results?search_query=$0
 
 # GUI colors
-set completion-css=color:#d3d0c8;background-color:#393939;font:11pt JetBrains Mono;
-set completion-hover-css=color:#d3d0c8;background-color:#393939;font:11pt JetBrains Mono;
+set completion-css=color:#d3d0c8;background-color:#444444;font:11pt JetBrains Mono;
+set completion-hover-css=color:#d3d0c8;background-color:#444444;font:11pt JetBrains Mono;
 set completion-selected-css=color:#d3d0c8;background-color:#515151;font:11pt JetBrains Mono;
-set input-css=color:#d3d0c8;background-color:#393939;font:11pt JetBrains Mono;
-set input-error-css=color:#f2777a;background-color:#393939;font:11pt JetBrains Mono;
-set status-css=color:#ffcc66;background-color:#393939;font:11pt JetBrains Mono;
-set status-ssl-css=color:#99cc99;background-color:#393939;font:11pt JetBrains Mono;
-set status-ssl-invalid-css=color:#f2777a;background-color:#393939;font:11pt JetBrains Mono
+set input-css=color:#d3d0c8;background-color:#444444;font:11pt JetBrains Mono;
+set input-error-css=color:#f2777a;background-color:#444444;font:11pt JetBrains Mono;
+set status-css=color:#ffcc66;background-color:#444444;font:11pt JetBrains Mono;
+set status-ssl-css=color:#99cc99;background-color:#444444;font:11pt JetBrains Mono;
+set status-ssl-invalid-css=color:#f2777a;background-color:#444444;font:11pt JetBrains Mono
