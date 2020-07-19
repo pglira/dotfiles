@@ -24,18 +24,10 @@ nmap - zO
 nmap 0 zz
 nmap <C-j> 5j
 nmap <C-k> 5k
-nnoremap b :open !
-nnoremap B :tabopen !
-nnoremap <C-y> Y
-
-shortcut-default goo
-shortcut-add goo=https://www.google.com/search?q=$0
-shortcut-add ddg=https://duckduckgo.com/lite/?q=$0
-shortcut-add map=https://maps.google.com/maps?saddr=$0
-shortcut-add git=https://github.com/search?q=$0
-shortcut-add imd=http://www.imdb.com/find?s=all&q=$0
-shortcut-add wik=http://en.wikipedia.org/w/index.php?title=Special:Search&search=$0
-shortcut-add you=http://www.youtube.com/results?search_query=$0
+nmap b :open !
+nmap B :tabopen !
+nmap <C-y> Y
+nmap <C-i> :set dark-mode!<CR>
 
 # GUI colors
 set completion-css=color:#d3d0c8;background-color:#444444;font:11pt JetBrains Mono;
