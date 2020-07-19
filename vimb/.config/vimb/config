@@ -2,7 +2,6 @@
 # set user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
 set user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.119 Safari/537.36"
 set accelerated-2d-canvas=true
-set download-path=~/Downloads
 set editor-command=alacritty -t "vimb_editor" -e vim %s
 set home-page=www.google.at
 set incsearch=true
