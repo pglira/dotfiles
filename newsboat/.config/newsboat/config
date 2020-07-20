@@ -1,0 +1,56 @@
+auto-reload yes
+reload-time 10
+
+show-keymap-hint no
+text-width 100
+goto-next-feed no
+confirm-exit yes
+
+browser newsboat_open-article.sh
+
+articlelist-format "%4i %f %D   %?T?|%-17T|  ?%t"
+feedlist-format "%4i %n %11u %t"
+datetime-format "%Y-%m-%d %R"
+
+# Key bindings
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key p prev-unread
+bind-key U show-urls
+bind-key x pb-delete
+bind-key S toggle-show-read-feeds
+
+# Colors
+color listnormal color15 color0
+color listnormal_unread color15 color0
+color listfocus color15 color33
+color listfocus_unread color15 color33
+color info color15 color238
+color background color15 color0
+color article color15 color0
+
+highlight article "(^Feed:.*|^Author:.*|^Link:.*|^Links:.*|^Date:.*)" color247 color0
+highlight article "(^Title:.*)" color33 color0
+highlight article "\\[[0-9][0-9]*\\]" color247 color0
+highlight article "\\[image [0-9][0-9]*\\]" color247 color0
+highlight article ":.*\\(link\\)$" color247 color0
+highlight article ":.*\\(image\\)$" color247 color0
+
+# Macros (call with <prefix>+character) - default <prefix> is ","
+macro y set browser "echo -n %u | xclip -selection clipboard"; open-in-browser ; set browser newsboat_open-article.sh
+macro r set browser "tmux split-window -h && tmux send-keys 'rtv -l %u && tmux kill-pane\n'"; open-in-browser ; set browser newsboat_open-article.sh
+macro s set browser "tmux new-window && tmux send-keys 'media-download.sh %u --target-dir $MEDIA_SYNC --set-filename --ask-convert-to-low-quality \n' && tmux last-window"; open-in-browser ; set browser newsboat_open-article.sh
+macro w set browser "tmux new-window && tmux send-keys 'media-download.sh %u --target-dir $MEDIA_WAIT --set-filename --ask-convert-to-low-quality \n' && tmux last-window"; open-in-browser ; set browser newsboat_open-article.sh
+macro m set browser "i3 exec mpv %u"; open-in-browser ; set browser newsboat_open-article.sh
