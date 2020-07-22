@@ -27,7 +27,7 @@ nmap <C-k> 5k
 nmap b :open !
 nmap B :tabopen !
 nmap <C-y> Y
-nmap <C-i> :set dark-mode!<CR>
+nmap <C-b> :set dark-mode!<CR>
 
 # GUI colors
 set completion-css=color:#d3d0c8;background-color:#444444;font:11pt JetBrains Mono;
