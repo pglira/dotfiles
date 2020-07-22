@@ -1,4 +1,8 @@
-##############################################################################
+# Please note that the $TERM variable must be set to "xterm-256color" for usage
+# of this theme with the alacritty terminal. Otherwise the custum color
+# definitions (colordef ...) do not work.
+#
+###############################################################################
 #
 # Thank you Gutterslob & pvsage from #! forums!
 #
