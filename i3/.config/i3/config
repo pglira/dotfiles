@@ -62,6 +62,7 @@ exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
 exec --no-startup-id redshift -l 48:16 -t 6500:5000
 exec --no-startup-id numlockx on
 exec --no-startup-id i3_focus-last-window.py
+exec --no-startup-id clipmenud
 
 # scratchpad applications
 exec $scratchpad_terminal
@@ -150,6 +151,7 @@ bindsym $mod+Mod1+t exec paste.sh
 bindsym $mod+Mod1+v exec open_video.sh
 bindsym $mod+Mod1+w exec dmenu_websearch.sh
 bindsym $mod+Mod1+x exec xmodmap $HOME/.Xmodmap
+bindsym $mod+Mod1+y exec clipmenu $DMENU_OPTIONS
 bindsym $mod+Mod1+z exec dunst_show_clipboard_contents.sh
 
 # Bindings: scratchpad ########################################################
