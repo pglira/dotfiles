@@ -22,10 +22,10 @@ case "$(hostname)" in
         ./install-program-dots.sh passwords --merge-tags "work"
         ./install-program-dots.sh readline
         ./install-program-dots.sh sxiv
+        ./install-program-dots.sh spacevim
         ./install-program-dots.sh tmux
         ./install-program-dots.sh veyon
         ./install-program-dots.sh vifm
-        ./install-program-dots.sh vim
         ./install-program-dots.sh vimb --merge-tags "bookmarks"
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
@@ -47,10 +47,10 @@ case "$(hostname)" in
         ./install-program-dots.sh passwords --merge-tags "work"
         ./install-program-dots.sh readline
         ./install-program-dots.sh sxiv
+        ./install-program-dots.sh spacevim
         ./install-program-dots.sh tmux
         ./install-program-dots.sh veyon
         ./install-program-dots.sh vifm
-        ./install-program-dots.sh vim
         ./install-program-dots.sh vimb --merge-tags "bookmarks"
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
