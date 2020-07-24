@@ -9,4 +9,6 @@ function! myconfig#after() abort
   nnoremap <C-j> 5j
   vnoremap <C-k> 5k
   vnoremap <C-j> 5j
+  nnoremap <C-h> :bprevious<CR>
+  nnoremap <C-l> :bnext<CR>
 endfunction
