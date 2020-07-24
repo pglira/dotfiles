@@ -14,6 +14,7 @@ case "$(hostname)" in
         ./install-program-dots.sh i3 --merge-tags "work"
         ./install-program-dots.sh i3blocks
         ./install-program-dots.sh ipe
+        ./install-program-dots.sh keepmenu
         ./install-program-dots.sh jetbrains
         ./install-program-dots.sh latex
         ./install-program-dots.sh moc
@@ -39,6 +40,7 @@ case "$(hostname)" in
         ./install-program-dots.sh i3 --merge-tags "work"
         ./install-program-dots.sh i3blocks
         ./install-program-dots.sh ipe
+        ./install-program-dots.sh keepmenu
         ./install-program-dots.sh jetbrains
         ./install-program-dots.sh latex
         ./install-program-dots.sh moc
