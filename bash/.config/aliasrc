@@ -18,6 +18,7 @@ alias c='cd $(vifm --choose-dir -)' \
     as="apt-cache search" \
     cp="cp -v" \
     mv="mv -v" \
-    rm="rm -v"
+    rm="rm -v" \
+    lg="lazygit"
 
 alias ros="ros_source-ws.sh"
