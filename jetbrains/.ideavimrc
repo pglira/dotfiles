@@ -1,6 +1,6 @@
 " This file should contain a subset of my .vimrc
 
-let mapleader =","
+let mapleader ="\<Space>"
 
 nnoremap <C-k> 5k
 nnoremap <C-j> 5j
@@ -18,4 +18,3 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
-nnoremap <space> :nohlsearch<CR>

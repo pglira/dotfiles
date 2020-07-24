@@ -49,6 +49,8 @@ highlight article ":.*\\(link\\)$" color247 color0
 highlight article ":.*\\(image\\)$" color247 color0
 
 # Macros (call with <prefix>+character) - default <prefix> is ","
+bind-key "SPACE" macro-prefix
+unbind-key ,
 macro y set browser "echo -n %u | xclip -selection clipboard"; open-in-browser ; set browser newsboat_open-article.sh
 macro r set browser "tmux split-window -h && tmux send-keys 'rtv -l %u && tmux kill-pane\n'"; open-in-browser ; set browser newsboat_open-article.sh
 macro s set browser "tmux new-window -t scratchpad_downloads && tmux send-keys -t scratchpad_downloads 'media-download.sh %u --target-dir $MEDIA_SYNC --set-filename --ask-convert-to-low-quality \n' && tmux last-window"; open-in-browser ; set browser newsboat_open-article.sh
