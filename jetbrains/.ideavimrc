@@ -12,7 +12,7 @@ map Y y$
 set scrolloff=1000
 
 set easymotion
-map <leader>s <Plug>(easymotion-bd-f)
+map <leader>jj <Plug>(easymotion-bd-f)
 
 set ignorecase
 set smartcase
