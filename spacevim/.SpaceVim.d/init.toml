@@ -40,3 +40,6 @@ name = 'colorscheme'
 [[layers]]
 name = 'lang#latex'
 
+[[custom_plugins]]
+repo = "vifm/vifm.vim"
+
