@@ -39,6 +39,7 @@ set $scratchpad_newsboat --no-startup-id $TERMINAL -t "scratchpad_newsboat" -e t
 set $scratchpad_moc --no-startup-id $TERMINAL -t "scratchpad_moc" -e tmux_start_scratchpad_moc.sh
 set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager" -e tmux_start_scratchpad_filemanager.sh
 set $scratchpad_systemmonitor --no-startup-id $TERMINAL -t "scratchpad_systemmonitor" -e tmux_start_scratchpad_systemmonitor.sh
+set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
 set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
 set $scratchpad_whatsapp --no-startup-id vimb --class=scratchpad_whatsapp web.whatsapp.com
@@ -71,6 +72,7 @@ exec $scratchpad_newsboat
 exec $scratchpad_moc
 exec $scratchpad_filemanager
 exec $scratchpad_systemmonitor
+exec $scratchpad_downloads
 exec $scratchpad_python
 exec $scratchpad_keepassxc
 exec $scratchpad_whatsapp
@@ -182,6 +184,10 @@ bindsym $mod+space [title="scratchpad_filemanager"] scratchpad show, resize set 
 for_window [title="scratchpad_systemmonitor"] floating enable, move scratchpad
 bindsym $mod+Shift+g exec $scratchpad_systemmonitor
 bindsym $mod+g [title="scratchpad_systemmonitor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+
+for_window [title="scratchpad_downloads"] floating enable, move scratchpad
+bindsym $mod+Shift+o exec $scratchpad_downloads
+bindsym $mod+o [title="scratchpad_downloads"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [class="KeePassXC" instance="keepassxc"] floating enable, move scratchpad
 bindsym $mod+Shift+x exec $scratchpad_keepassxc
