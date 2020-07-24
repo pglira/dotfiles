@@ -43,3 +43,5 @@ name = 'lang#latex'
 [[custom_plugins]]
 repo = "vifm/vifm.vim"
 
+[[custom_plugins]]
+repo = "ap/vim-css-color"
