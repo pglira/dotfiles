@@ -32,7 +32,7 @@ case "$(hostname)" in
         ./install-program-dots.sh xresources
         ;;
     L1AS19 )
-        ./install-program-dots.sh alacritty --merge-tags "lukesmith_colorscheme font-N1AS21"
+        ./install-program-dots.sh alacritty --merge-tags "font-N1AS21"
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "L1AS19"
         ./install-program-dots.sh dunst
