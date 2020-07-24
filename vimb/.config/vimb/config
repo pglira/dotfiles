@@ -26,6 +26,7 @@ nmap <C-j> 5j
 nmap <C-k> 5k
 nmap <C-y> Y
 nmap <C-b> :set dark-mode!<CR>
+nmap <F9> :shellcmd! /bin/sh -c 'echo -n "$VIMB_URI" | xclip -selection clipboard'<CR>
 nmap <Space>s :shellcmd! /bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "media-download.sh $VIMB_URI --target-dir $MEDIA_SYNC" C-m'<CR>
 nmap <Space>w :shellcmd! /bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "media-download.sh $VIMB_URI --target-dir $MEDIA_WAIT" C-m'<CR>
 
