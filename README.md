@@ -15,7 +15,7 @@ Just my dotfiles. Feel free to use them.
 - **PDF viewer**: [okular](https://okular.kde.org/)
 - **Web browser**: [vimb](https://github.com/fanglingsu/vimb)
 
-Programs I don't use anymore are moved to ``.archive``.
+Programs I don't use anymore are moved to [``.archive``](.archive).
 
 I use the shell scripts [``install-all-dots.sh``](install-all-dots.sh) and [``install-program-dots.sh``](install-program-dots.sh) to install my dotfiles across various PCs.
 
