@@ -94,6 +94,7 @@ colordef white = 1000 1000 1000
 colordef yellow = 1000 1000 0
 colordef red = 1000 0 0
 colordef green = 0 1000 0
+colordef black = 66 66 66
 
 background = white black
 frame = white black

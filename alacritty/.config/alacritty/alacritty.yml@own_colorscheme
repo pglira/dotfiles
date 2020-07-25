@@ -1,0 +1,4 @@
+colors:
+  # Default colors
+  primary:
+    background: '#111111'
