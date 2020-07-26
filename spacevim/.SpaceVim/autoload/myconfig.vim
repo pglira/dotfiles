@@ -1,6 +1,5 @@
 function! myconfig#before() abort
-  call SpaceVim#custom#SPCGroupName(['o'], '+Vifm')
-  call SpaceVim#custom#SPC('nore', ['o', 'o'], 'EditVifm', 'open file', 1)
+  call SpaceVim#custom#SPC('nore', ['f', 'f'], 'EditVifm', 'open file', 1)
 
   " Set black background (from https://vim.fandom.com/wiki/Override_Colors_in_a_Color_Scheme)
   augroup vimrc
