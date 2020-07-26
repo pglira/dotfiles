@@ -34,4 +34,8 @@ function! myconfig#after() abort
   " (https://vim.fandom.com/wiki/Keep_your_cursor_centered_vertically_on_the_screen)
   set scrolloff=1000
 
+  " Use case insensitive search, except when using capital letters
+  set ignorecase
+  set smartcase
+
 endfunction
