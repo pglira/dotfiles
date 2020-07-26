@@ -30,4 +30,8 @@ function! myconfig#after() abort
   " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy, which is the default
   map Y y$
 
+  " Current line always at the middle of the screen
+  " (https://vim.fandom.com/wiki/Keep_your_cursor_centered_vertically_on_the_screen)
+  set scrolloff=1000
+
 endfunction
