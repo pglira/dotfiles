@@ -22,4 +22,9 @@ function! myconfig#after() abort
   " Change buffers
   nnoremap <C-h> :bprevious<CR>
   nnoremap <C-l> :bnext<CR>
+
+  " Clipboard
+  vnoremap <C-y> "*y :let @+=@*<CR>
+  map <C-p> "*P
+
 endfunction
