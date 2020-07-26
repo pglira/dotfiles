@@ -42,6 +42,9 @@ name = 'colorscheme'
 [[layers]]
 name = 'lang#latex'
 
+[[layers]]
+name = "lang#julia"
+
 [[custom_plugins]]
 repo = "vifm/vifm.vim"
 
