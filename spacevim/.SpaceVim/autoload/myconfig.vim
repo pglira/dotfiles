@@ -7,14 +7,19 @@ function! myconfig#before() abort
       autocmd!
       autocmd ColorScheme * highlight Normal guibg=#111111
   augroup END
+
 endfunction
 
 function! myconfig#after() abort
   call SpaceVim#logger#info("bootstrap_after called")
+
+  " Move faster
   nnoremap <C-k> 5k
   nnoremap <C-j> 5j
   vnoremap <C-k> 5k
   vnoremap <C-j> 5j
+
+  " Change buffers
   nnoremap <C-h> :bprevious<CR>
   nnoremap <C-l> :bnext<CR>
 endfunction
