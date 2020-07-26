@@ -23,6 +23,9 @@ function! myconfig#after() abort
   nnoremap <C-h> :bprevious<CR>
   nnoremap <C-l> :bnext<CR>
 
+  " Copy filepath to clipboard
+  nnoremap <F9> :call SpaceVim#util#CopyToClipboard()<CR>
+
   " Clipboard
   vnoremap <C-y> "*y :let @+=@*<CR>
   map <C-p> "*P
