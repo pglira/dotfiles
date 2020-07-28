@@ -25,7 +25,6 @@ case "$(hostname)" in
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh spacevim
         ./install-program-dots.sh tmux
-        ./install-program-dots.sh veyon
         ./install-program-dots.sh vifm
         ./install-program-dots.sh vimb --merge-tags "bookmarks"
         ./install-program-dots.sh xmodmap
@@ -51,7 +50,6 @@ case "$(hostname)" in
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh spacevim
         ./install-program-dots.sh tmux
-        ./install-program-dots.sh veyon
         ./install-program-dots.sh vifm
         ./install-program-dots.sh vimb --merge-tags "bookmarks"
         ./install-program-dots.sh xmodmap
