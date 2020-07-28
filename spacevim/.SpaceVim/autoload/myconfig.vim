@@ -1,5 +1,8 @@
 function! myconfig#before() abort
-  call SpaceVim#custom#SPC('nore', ['f', 'f'], 'EditVifm', 'open file', 1)
+
+  " Open file with vifm
+  call SpaceVim#custom#SPC('nore', ['f', 'f'], 'EditVifm', 'Open file', 1)
+
   " Help
   call SpaceVim#custom#SPC('nore', ['h', 'h'], 'vertical botright help', 'Open VIM help file', 1)
 
