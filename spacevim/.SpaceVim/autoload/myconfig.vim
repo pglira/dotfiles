@@ -15,6 +15,12 @@ function! myconfig#after() abort
   vnoremap <C-k> 5k
   vnoremap <C-j> 5j
 
+  " Useful if soft wrap of lines is on
+  noremap <silent> k gk
+  noremap <silent> j gj
+  noremap <silent> 0 g0
+  noremap <silent> $ g$
+
   " Change buffers
   nnoremap <silent> <C-h> :bprevious<CR>
   nnoremap <silent> <C-l> :bnext<CR>
