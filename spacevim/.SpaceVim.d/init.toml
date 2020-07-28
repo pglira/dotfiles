@@ -47,10 +47,16 @@ name = 'unite'
 name = 'lang#latex'
 
 [[layers]]
-name = "lang#julia"
+name = 'lang#julia'
+
+[[layers]]
+name = 'lang#matlab'
 
 [[custom_plugins]]
-repo = "vifm/vifm.vim"
+repo = 'vifm/vifm.vim'
 
 [[custom_plugins]]
-repo = "ap/vim-css-color"
+repo = 'ap/vim-css-color'
+
+[[custom_plugins]]
+repo = 'benmills/vimux'
