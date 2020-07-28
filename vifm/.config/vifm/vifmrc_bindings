@@ -23,7 +23,8 @@ nnoremap ,d :dragon<CR>
 
 " alt key combinations
 nnoremap <M-b> :fzfdirbookmarks<cr>
-nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
+" nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
+nnoremap <M-d> :cd ~/Downloads/vimb<cr>
 nnoremap <M-f> :fzffilebookmarks<cr>
 nnoremap <M-h> :tabprevious<cr>
 nnoremap <M-l> :tabnext<cr>
