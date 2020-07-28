@@ -48,7 +48,7 @@ function! myconfig#after() abort
   set ignorecase
   set smartcase
 
-  " Disable replacement of symbols in tex files
+  " Latex
   let g:tex_conceal = "" 
 
   " Julia
