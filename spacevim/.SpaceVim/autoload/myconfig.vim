@@ -29,7 +29,7 @@ function! myconfig#after() abort
   nnoremap <F9> :call SpaceVim#util#CopyToClipboard()<CR>
 
   " Clipboard
-  vnoremap <C-y> "*y :let @+=@*<CR>
+  vnoremap <silent> <C-y> "*y :let @+=@*<CR>
   map <C-p> "*P
 
   " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy, which is the default
