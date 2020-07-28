@@ -1,5 +1,7 @@
 function! myconfig#before() abort
   call SpaceVim#custom#SPC('nore', ['f', 'f'], 'EditVifm', 'open file', 1)
+  " Help
+  call SpaceVim#custom#SPC('nore', ['h', 'h'], 'vertical botright help', 'Open VIM help file', 1)
 
   " Set black background (from https://vim.fandom.com/wiki/Override_Colors_in_a_Color_Scheme)
   autocmd ColorScheme * highlight Normal guibg=#111111 | highlight Terminal guibg=#111111
