@@ -21,9 +21,12 @@
     statusline_separator = "arrow"
     statusline_inactive_separator = "arrow"
     buffer_index_type = 4
-    enable_tabline_filetype_icon = true
+    enable_tabline_filetype_icon = false
     enable_statusline_mode = true
     filemanager = ""
+    max_column = 100
+    autocomplete_parens = false
+    default_indent = 2
     bootstrap_before = "myconfig#before"
     bootstrap_after = "myconfig#after"
 
