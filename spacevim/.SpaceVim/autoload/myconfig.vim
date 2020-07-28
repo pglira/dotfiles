@@ -16,8 +16,8 @@ function! myconfig#after() abort
   vnoremap <C-j> 5j
 
   " Change buffers
-  nnoremap <C-h> :bprevious<CR>
-  nnoremap <C-l> :bnext<CR>
+  nnoremap <silent> <C-h> :bprevious<CR>
+  nnoremap <silent> <C-l> :bnext<CR>
 
   " Copy filepath to clipboard
   nnoremap <F9> :call SpaceVim#util#CopyToClipboard()<CR>
