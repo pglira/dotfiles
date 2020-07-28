@@ -46,4 +46,10 @@ function! myconfig#after() abort
   " Disable replacement of symbols in tex files
   let g:tex_conceal = "" 
 
+  " Julia
+  autocmd FileType julia setlocal shiftwidth=4 softtabstop=4 expandtab
+
+  " Matlab
+  autocmd FileType matlab setlocal shiftwidth=4 softtabstop=4 expandtab
+
 endfunction
