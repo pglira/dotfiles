@@ -47,6 +47,9 @@ name = 'colorscheme'
 name = 'unite'
 
 [[layers]]
+name = 'git'
+
+[[layers]]
 name = 'lang#latex'
 
 [[layers]]
