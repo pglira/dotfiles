@@ -53,6 +53,9 @@ name = 'git'
 name = 'lang#latex'
 
 [[layers]]
+name = 'lang#sh'
+
+[[layers]]
 name = 'lang#julia'
 
 [[layers]]
