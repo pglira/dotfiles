@@ -5,9 +5,12 @@ function! myconfig#before() abort
 
   " Vimux
   call SpaceVim#custom#SPCGroupName(['v'], '+Vimux')
-  call SpaceVim#custom#SPC('nore', ['v', 's'], 'call myfunctions#VimuxSetFileToRun()', 'Set file to run', 1)
-  call SpaceVim#custom#SPC('nore', ['v', 'v'], 'call myfunctions#VimuxRunFile()', 'Run file', 1)
-  call SpaceVim#custom#SPC('nore', ['v', 't'], 'call myfunctions#VimuxSlime()', 'Run selected text', 1)
+  call SpaceVim#custom#SPC('nore', ['v', 's'], 'call myfunctions#VimuxSetFileToRun()', 
+        \'Set file to run', 1)
+  call SpaceVim#custom#SPC('nore', ['v', 'v'], 'call myfunctions#VimuxSaveAllAndRunFile()', 
+        \'Save all and run file', 1)
+  call SpaceVim#custom#SPC('nore', ['v', 't'], 'call myfunctions#VimuxSlime()', 
+        \'Run selected text', 1)
 
   " Help
   call SpaceVim#custom#SPC('nore', ['h', 'h'], 'vertical botright help', 'Open VIM help file', 1)

@@ -1,13 +1,15 @@
 function! myfunctions#VimuxSetFileToRun()
   let g:vimux_file_to_run = expand("%:p")
   let g:vimux_dir_of_file_to_run = expand("%:p:h")
+  echomsg "File set to \"" . g:vimux_file_to_run . "\""
 endfunction
 
-function! myfunctions#VimuxRunFile()
+function! myfunctions#VimuxSaveAllAndRunFile()
   if !exists("g:vimux_dir_of_file_to_run") || !exists("g:vimux_file_to_run")
     echomsg "Set file first!"
     return
   endif
+  execute "wall!"
   if &filetype=='matlab'
     call VimuxRunCommand("cd(\"" . g:vimux_dir_of_file_to_run . "\");
         \ run(\"" . g:vimux_file_to_run . "\")")
