@@ -12,9 +12,9 @@ set spell-checking=true
 set webgl=true
 set history-max-items=30000
 set hint-keys=asdfghjkl
-set download-path=~/Downloads/vimb
-# set download-use-external=true
-# set download-command=/bin/sh -c "vimb_download.sh %s $VIMB_URI $VIMB_USER_AGENT $VIMB_COOKIES > /tmp/vimb_download_debug-stdout.txt 2> /tmp/vimb_download_debug-stderr.txt"
+# set download-path=~/Downloads/vimb
+set download-use-external=true
+set download-command=/bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "vimb_download.sh %s $VIMB_URI $VIMB_USER_AGENT $VIMB_COOKIES" C-m'
 
 nmap + zI
 nmap - zO
