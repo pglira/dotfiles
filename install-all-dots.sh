@@ -17,6 +17,7 @@ case "$(hostname)" in
         ./install-program-dots.sh keepmenu
         ./install-program-dots.sh jetbrains
         ./install-program-dots.sh latex
+        ./install-program-dots.sh matlab
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
         ./install-program-dots.sh newsboat
@@ -42,6 +43,7 @@ case "$(hostname)" in
         ./install-program-dots.sh keepmenu
         ./install-program-dots.sh jetbrains
         ./install-program-dots.sh latex
+        ./install-program-dots.sh matlab
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
         ./install-program-dots.sh newsboat
