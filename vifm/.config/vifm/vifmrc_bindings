@@ -3,13 +3,14 @@ nnoremap A cw
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 
-nnoremap ,bb :edit /home/philipp/Dropbox/dot/bash/.config/dir-bookmarks<cr>
-nnoremap ,ff :edit /home/philipp/Dropbox/dot/bash/.config/file-bookmarks<cr>
-nnoremap ,ee :write | edit "/home/philipp/Dropbox/dot/vifm/.config/vifm/vifmrc"<cr>
-nnoremap ,w :set wrap!<cr>
+nnoremap <space>bb :edit /home/philipp/Dropbox/dot/bash/.config/dir-bookmarks<cr>
+nnoremap <space>ff :edit /home/philipp/Dropbox/dot/bash/.config/file-bookmarks<cr>
+nnoremap <space>ee :write | edit "/home/philipp/Dropbox/dot/vifm/.config/vifm/vifmrc"<cr>
+nnoremap <space>d :dragon<CR>
+nnoremap <space>w :set wrap!<cr>
 nnoremap // :locate<space>
 nnoremap < 4<c-w><
-nnoremap <Space> t<Down>
+nnoremap , t<Down>
 nnoremap > 4<c-w>>
 nnoremap H za
 nnoremap S :sort<cr>
@@ -19,7 +20,6 @@ nnoremap s :shell<cr>
 nnoremap zs :sync %d<CR><Tab>
 nnoremap q :quit<CR>
 nnoremap o :only<CR>
-nnoremap ,d :dragon<CR>
 
 " alt key combinations
 nnoremap <M-b> :fzfdirbookmarks<cr>
