@@ -27,6 +27,7 @@ nmap <F9> :shellcmd! /bin/sh -c 'echo -n "$VIMB_URI" | xclip -selection clipboar
 nmap <Space>s :shellcmd! /bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "media-download.sh \"$VIMB_URI\" --target-dir $MEDIA_SYNC --notification" C-m'<CR>
 nmap <Space>w :shellcmd! /bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "media-download.sh \"$VIMB_URI\" --target-dir $MEDIA_WAIT --notification" C-m'<CR>
 nmap <C-g> Y:tabopen goo <C-R>"<CR>"
+nmap <Space>c :shellcmd! /bin/sh -c 'google-chrome --app="$VIMB_URI"'<CR>
 
 # GUI colors
 set completion-css=color:#d3d0c8;background-color:#444444;font:11pt JetBrains Mono;

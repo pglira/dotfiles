@@ -238,6 +238,8 @@ for_window [class="jetbrains-clion" title="Push Commits to"] floating disable
 for_window [class="jetbrains-clion" title="win0"] floating enable, move position center
 for_window [class="Vimb"] title_format " %class: %title"
 for_window [title="vimb_editor"] floating enable, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+for_window [class="Google-chrome"] title_format " %class: %title"
+for_window [class="Google-chrome"] floating disable
 
 # Screenshots #################################################################
 
