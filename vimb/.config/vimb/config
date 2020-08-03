@@ -1,4 +1,7 @@
 set accelerated-2d-canvas=true
+set download-command=/bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "vimb_download.sh %s $VIMB_URI $VIMB_USER_AGENT $VIMB_COOKIES" C-m'
+# set download-path=~/Downloads/vimb
+set download-use-external=true
 set editor-command=alacritty -t "vimb_editor" -e vim %s
 set home-page=about:blank
 set incsearch=true
