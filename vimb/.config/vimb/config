@@ -3,21 +3,21 @@ set download-command=/bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux
 # set download-path=~/Downloads/vimb
 set download-use-external=true
 set editor-command=alacritty -t "vimb_editor" -e vim %s
+set hint-keys=asdfghjkl
+set history-max-items=30000
 set home-page=about:blank
 set incsearch=true
 set input-autohide=true
 set javascript-can-access-clipboard=true
+set media-playback-allows-inline=true
+set media-playback-requires-user-gesture=false
 set monospace-font-size=12
 set monospace-font=JetBrains Mono
+set plugins=true
 set smooth-scrolling=true
 set spell-checking-languages=en,de
 set spell-checking=true
 set webgl=true
-set history-max-items=30000
-set hint-keys=asdfghjkl
-# set download-path=~/Downloads/vimb
-set download-use-external=true
-set download-command=/bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "vimb_download.sh %s $VIMB_URI $VIMB_USER_AGENT $VIMB_COOKIES" C-m'
 
 nmap + zI
 nmap - zO
