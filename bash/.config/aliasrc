@@ -9,7 +9,8 @@ alias grep='grep --color=auto' \
     fgrep='fgrep --color=auto' \
     egrep='egrep --color=auto'
 
-alias c='cd $(vifm --choose-dir -)' \
+alias b='cd $(cat $DIR_BOOKMARKS | fzf)' \
+    c='cd $(vifm --choose-dir -)' \
     v="$EDITOR" \
     k="fzf_kill.sh" \
     ka="killall" \
