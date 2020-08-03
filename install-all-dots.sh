@@ -9,6 +9,7 @@ case "$(hostname)" in
         ./install-program-dots.sh alacritty --merge-tags "own_colorscheme font-L1AS12"
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "L1AS12"
+        ./install-program-dots.sh castero
         ./install-program-dots.sh dunst
         ./install-program-dots.sh fonts
         ./install-program-dots.sh i3 --merge-tags "work"
@@ -35,6 +36,7 @@ case "$(hostname)" in
         ./install-program-dots.sh alacritty --merge-tags "own_colorscheme font-N1AS21"
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "L1AS19"
+        ./install-program-dots.sh castero
         ./install-program-dots.sh dunst
         ./install-program-dots.sh fonts
         ./install-program-dots.sh i3 --merge-tags "work"
