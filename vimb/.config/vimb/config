@@ -1,6 +1,6 @@
 set accelerated-2d-canvas=true
 set download-command=/bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "vimb_download.sh %s $VIMB_URI $VIMB_USER_AGENT $VIMB_COOKIES" C-m'
-# set download-path=~/Downloads/vimb
+set download-path=~/Downloads/vimb
 set download-use-external=true
 set editor-command=alacritty -t "vimb_editor" -e vim %s
 set hint-keys=asdfghjkl
@@ -24,6 +24,7 @@ nmap - zO
 nmap 0 zz
 nmap <C-j> 5j
 nmap <C-k> 5k
+nmap <C-w> :set download-use-external!<CR>
 nmap <C-y> Y
 nmap <C-b> :set dark-mode!<CR>
 nmap <F9> :shellcmd! /bin/sh -c 'echo -n "$VIMB_URI" | xclip -selection clipboard'<CR>
