@@ -11,8 +11,9 @@ alias grep='grep --color=auto' \
 
 alias b='cd $(cat $DIR_BOOKMARKS | fzf)' \
     c='cd $(vifm --choose-dir -)' \
-    v="$EDITOR" \
+    f='$EDITOR $(cat $FILE_BOOKMARKS | fzf)' \
     k="fzf_kill.sh" \
+    v="$EDITOR" \
     ka="killall" \
     xk="xkill" \
     ai="sudo apt-get install" \
