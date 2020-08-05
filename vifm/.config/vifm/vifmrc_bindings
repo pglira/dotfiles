@@ -15,17 +15,17 @@ nnoremap > 4<c-w>>
 nnoremap H za
 nnoremap S :sort<cr>
 nnoremap VV :%select<cr>
+nnoremap b :fzfdirbookmarks<cr>
 nnoremap e :v<cr>
+nnoremap f :fzffilebookmarks<cr>
 nnoremap s :shell<cr>
-nnoremap zs :sync %d<CR><Tab>
+nnoremap zs :sync %d<cr><Tab>
 nnoremap q :quit<CR>
 nnoremap o :only<CR>
 
 " alt key combinations
-nnoremap <M-b> :fzfdirbookmarks<cr>
 " nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
 nnoremap <M-d> :cd ~/Downloads/vimb<cr>
-nnoremap <M-f> :fzffilebookmarks<cr>
 nnoremap <M-h> :tabprevious<cr>
 nnoremap <M-l> :tabnext<cr>
 nnoremap <M-q> :tabclose<cr>
