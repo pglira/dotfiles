@@ -41,7 +41,6 @@ set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager
 set $scratchpad_systemmonitor --no-startup-id $TERMINAL -t "scratchpad_systemmonitor" -e tmux_start_scratchpad_systemmonitor.sh
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
-set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
 set $scratchpad_whatsapp --no-startup-id vimb --class=scratchpad_whatsapp web.whatsapp.com
 
 set $scratchpad_percentage 90
@@ -197,9 +196,6 @@ for_window [class="scratchpad_whatsapp"] floating enable, move scratchpad
 bindsym $mod+Shift+w exec $scratchpad_whatsapp
 bindsym $mod+w [class="scratchpad_whatsapp"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-for_window [class="scrcpy" instance="scrcpy"] floating enable, move scratchpad
-bindsym $mod+Shift+c exec $scratchpad_scrcpy
-bindsym $mod+c [class="scrcpy" instance="scrcpy"] scratchpad show, move position center
 
 # Scratchpad - general settings ###############################################
 
