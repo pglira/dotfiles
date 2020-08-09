@@ -24,8 +24,8 @@ nnoremap q :quit<CR>
 nnoremap o :only<CR>
 
 " alt key combinations
-" nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
-nnoremap <M-d> :cd ~/Downloads/vimb<cr>
+nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
+" nnoremap <M-d> :cd ~/Downloads/vimb<cr>
 nnoremap <M-h> :tabprevious<cr>
 nnoremap <M-l> :tabnext<cr>
 nnoremap <M-q> :tabclose<cr>
