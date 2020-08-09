@@ -243,10 +243,10 @@ for_window [class="Google-chrome"] floating disable
 # bindsym $mod+Print --release exec --no-startup-id "bash i3_scrot -w"
 # bindsym $mod+Shift+Print --release exec --no-startup-id "bash i3_scrot -s"
 
-bindsym Print exec --no-startup-id "shutter --full --profile=pg"
-bindsym $mod+Print exec --no-startup-id "shutter --window --profile=pg"
-bindsym $mod+Shift+Print exec --no-startup-id "shutter --select --profile=pg"
-bindsym $mod+Ctrl+Print exec --no-startup-id "shutter --redo --profile=pg"
+bindsym Print exec --no-startup-id "ksnip --fullscreen --save"
+bindsym $mod+Print exec --no-startup-id "ksnip --active --save"
+bindsym $mod+Shift+Print exec --no-startup-id "ksnip --rectarea --save"
+bindsym $mod+Ctrl+Print exec --no-startup-id "ksnip --lastrectarea --save"
 
 # Container and workspaces ####################################################
 

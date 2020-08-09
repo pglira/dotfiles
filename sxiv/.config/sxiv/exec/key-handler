@@ -19,6 +19,7 @@ C-x C-w: Set wallpaper with nitrogen
 -------------------------------------------------
 C-x C-g: Open image in gimp
 C-x C-i: Open image in irfanview
+C-x C-k: Open image in ksnip
 C-x C-n: Open image in nomacs
 C-x C-v: Open image in xnview
 "
@@ -133,6 +134,15 @@ C-x C-v: Open image in xnview
         done
         irfanview "$last_file" &
         notify-send "sxiv: Open image '$last_file' in irfanview."
+        ;;
+
+    # Open image in ksnip
+    "C-k")
+        while read file; do
+            last_file=$file
+        done
+        ksnip --edit "$last_file" &
+        notify-send "sxiv: Open image '$last_file' in ksnip."
         ;;
 
     # Open image in nomacs
