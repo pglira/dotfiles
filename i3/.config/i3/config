@@ -42,6 +42,7 @@ set $scratchpad_systemmonitor --no-startup-id $TERMINAL -t "scratchpad_systemmon
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
 set $scratchpad_rambox --no-startup-id "$HOME/Dropbox/prg-lin/Rambox-0.7.5-linux-x86_64.AppImage"
+set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
 
 set $scratchpad_percentage 90
 set $highlight_color #0087FF
@@ -196,6 +197,10 @@ bindsym $mod+x [class="KeePassXC" instance="keepassxc"] scratchpad show, resize 
 for_window [class="Rambox"] floating enable, move scratchpad
 bindsym $mod+Shift+w exec $scratchpad_rambox
 bindsym $mod+w [class="Rambox"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+
+for_window [class="scrcpy" instance="scrcpy"] floating enable, move scratchpad
+bindsym $mod+Shift+c exec $scratchpad_scrcpy
+bindsym $mod+c [class="scrcpy" instance="scrcpy"] scratchpad show, move position center
 
 # Scratchpad - general settings ###############################################
 
