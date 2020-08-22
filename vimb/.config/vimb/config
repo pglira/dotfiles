@@ -44,5 +44,3 @@ set input-error-css=color:#f2777a;background-color:#444444;font:11pt JetBrains M
 set status-css=color:#ffcc66;background-color:#444444;font:11pt JetBrains Mono;
 set status-ssl-css=color:#99cc99;background-color:#444444;font:11pt JetBrains Mono;
 set status-ssl-invalid-css=color:#f2777a;background-color:#444444;font:11pt JetBrains Mono
-
-autocmd LoadStarting https://web.whatsapp.com/* set user-agent=googlebot
