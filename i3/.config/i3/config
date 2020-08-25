@@ -133,7 +133,6 @@ mode "$mode_system" {
 
 # Start programs (with Shift like start)
 bindsym $mod+Shift+d exec dunst_start.sh &
-bindsym $mod+Shift+m exec $matlab
 bindsym $mod+Shift+t exec $terminal
 bindsym $mod+Shift+v exec vimb
 
@@ -175,8 +174,8 @@ bindsym $mod+Shift+n exec $scratchpad_media
 bindsym $mod+n [title="scratchpad_media"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [title="scratchpad_moc"] floating enable, move scratchpad
-bindsym $mod+Shift+a exec $scratchpad_moc
-bindsym $mod+a [title="scratchpad_moc"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+bindsym $mod+Shift+m exec $scratchpad_moc
+bindsym $mod+m [title="scratchpad_moc"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [title="scratchpad_filemanager"] floating enable, move scratchpad
 bindsym $mod+Shift+space exec $scratchpad_filemanager
