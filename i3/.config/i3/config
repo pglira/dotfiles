@@ -35,7 +35,7 @@ set $terminal --no-startup-id $TERMINAL
 set $matlab --no-startup-id $TERMINAL -t "matlab" -e tmux_start_matlab.sh
 set $scratchpad_terminal --no-startup-id $TERMINAL -t "scratchpad_terminal" -e tmux_start_scratchpad_terminal.sh
 set $scratchpad_python --no-startup-id $TERMINAL -t "scratchpad_python" -e python3
-set $scratchpad_media --no-startup-id $TERMINAL -t "scratchpad_media" -e tmux_start_scratchpad_media.sh
+set $scratchpad_newsboat --no-startup-id $TERMINAL -t "scratchpad_newsboat" -e tmux_start_scratchpad_newsboat.sh
 set $scratchpad_moc --no-startup-id $TERMINAL -t "scratchpad_moc" -e tmux_start_scratchpad_moc.sh
 set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager" -e tmux_start_scratchpad_filemanager.sh
 set $scratchpad_systemmonitor --no-startup-id $TERMINAL -t "scratchpad_systemmonitor" -e tmux_start_scratchpad_systemmonitor.sh
@@ -69,7 +69,7 @@ exec --no-startup-id "feh --bg-scale $WALLPAPER"
 # scratchpad applications
 exec $scratchpad_terminal
 exec $scratchpad_glances
-exec $scratchpad_media
+exec $scratchpad_newsboat
 exec $scratchpad_moc
 exec $scratchpad_filemanager
 exec $scratchpad_systemmonitor
@@ -169,9 +169,9 @@ for_window [title="scratchpad_python"] floating enable, move scratchpad
 bindsym $mod+Shift+y exec $scratchpad_python
 bindsym $mod+y [title="scratchpad_python"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-for_window [title="scratchpad_media"] floating enable, move scratchpad
-bindsym $mod+Shift+n exec $scratchpad_media
-bindsym $mod+n [title="scratchpad_media"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+for_window [title="scratchpad_newsboat"] floating enable, move scratchpad
+bindsym $mod+Shift+n exec $scratchpad_newsboat
+bindsym $mod+n [title="scratchpad_newsboat"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [title="scratchpad_moc"] floating enable, move scratchpad
 bindsym $mod+Shift+m exec $scratchpad_moc
