@@ -23,6 +23,7 @@ command! mpv mpv %f %i &
 command! reload :write | restart
 command! run !! ./%f
 command! v tmux new-window -n %f vim %f %i &
+command! emacs emacsclient -n %f %i &
 command! vgrep vim "+grep %a"
 command! zip zip -r %a.zip %f
 command! adddate add_date.sh %f
