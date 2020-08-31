@@ -16,8 +16,7 @@ nnoremap H za
 nnoremap S :sort<cr>
 nnoremap VV :%select<cr>
 nnoremap b :fzfdirbookmarks<cr>
-nnoremap e :v<cr>
-nnoremap E :emacs<cr>
+nnoremap e :e<cr>
 nnoremap f :fzffilebookmarks<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
