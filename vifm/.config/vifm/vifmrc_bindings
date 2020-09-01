@@ -20,22 +20,23 @@ nnoremap e :e<cr>
 nnoremap f :fzffilebookmarks<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
-nnoremap q :quit<CR>
 nnoremap o :only<CR>
+nnoremap q :tabclose<cr>
+nnoremap Q :quit<cr>
 
 " alt key combinations
-nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
+" nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
 " nnoremap <M-d> :cd ~/Downloads/vimb<cr>
-nnoremap <M-h> :tabprevious<cr>
-nnoremap <M-l> :tabnext<cr>
-nnoremap <M-q> :tabclose<cr>
-nnoremap <M-t> :tabnew<cr>
+nnoremap <M-d> :cd ~/Downloads<cr>
 nnoremap <M-u> :!ncdu<cr>
 nnoremap <M-s> :if layoutis('only') | split | else | only | endif<cr>
 
 " control key combinations
 nnoremap <C-j> 5j
 nnoremap <C-k> 5k
+nnoremap <C-h> :tabprevious<cr>
+nnoremap <C-l> :tabnext<cr>
+nnoremap <C-t> :tabnew<cr>
 
 " f keys
 nnoremap <f2> :rename<cr>
