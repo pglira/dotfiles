@@ -23,6 +23,8 @@ endfunction
 function! myconfig#after() abort
   call SpaceVim#logger#info("bootstrap_after called")
 
+  nnoremap <silent> Q :quit<CR>
+
   " Move faster
   nnoremap <C-k> 5k
   nnoremap <C-j> 5j
@@ -35,7 +37,8 @@ function! myconfig#after() abort
   noremap <silent> 0 g0
   noremap <silent> $ g$
 
-  " Change buffers
+  " Buffers
+  nnoremap <silent> q :bdelete<CR>
   nnoremap <silent> <C-h> :bprevious<CR>
   nnoremap <silent> <C-l> :bnext<CR>
 
