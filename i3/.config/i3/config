@@ -43,6 +43,7 @@ set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e
 set $scratchpad_keepassxc --no-startup-id keepassxc
 set $scratchpad_firefox --no-startup-id firefox --class="scratchpad_firefox"
 set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
+set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
 
 set $scratchpad_percentage 90
 set $highlight_color #0087FF
@@ -77,6 +78,7 @@ exec $scratchpad_downloads
 exec $scratchpad_python
 exec $scratchpad_keepassxc
 exec $scratchpad_firefox
+exec $scratchpad_editor
 
 # Keyboard & mouse ############################################################
 
@@ -201,6 +203,10 @@ for_window [class="scrcpy" instance="scrcpy"] floating enable, move scratchpad
 bindsym $mod+Shift+c exec $scratchpad_scrcpy
 bindsym $mod+c [class="scrcpy" instance="scrcpy"] scratchpad show, move position center
 
+for_window [title="scratchpad_editor"] floating enable, move scratchpad
+bindsym $mod+Shift+e exec $scratchpad_editor
+bindsym $mod+e [title="scratchpad_editor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+
 # Scratchpad - general settings ###############################################
 
 # move arbitrary window to scratchpad
@@ -295,7 +301,7 @@ bindsym $mod+Shift+f floating toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+p layout toggle split
 
 # switch to workspace with urgent window automatically
 # for_window [urgent="latest"] focus

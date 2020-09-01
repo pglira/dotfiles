@@ -22,7 +22,7 @@ command! ln !ln -s %d/%f %D
 command! mpv mpv %f %i &
 command! reload :write | restart
 command! run !! ./%f
-command! e tmux new-window -n %f $EDITOR %f %i &
+command! e $EDITOR %f %i & notify-send "\"%f\" sent to editor"
 command! vgrep vim "+grep %a"
 command! zip zip -r %a.zip %f
 command! adddate add_date.sh %f
