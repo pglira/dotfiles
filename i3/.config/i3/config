@@ -44,7 +44,7 @@ set $scratchpad_browser --no-startup-id brave-browser --class="scratchpad_browse
 set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
 set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
 
-set $scratchpad_percentage 90
+set $scratchpad_percentage 92
 set $highlight_color #0087FF
 
 # Autostart ###################################################################
