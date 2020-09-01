@@ -207,6 +207,8 @@ for_window [title="scratchpad_editor"] floating enable, move scratchpad
 bindsym $mod+Shift+e exec $scratchpad_editor
 bindsym $mod+e [title="scratchpad_editor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
+bindsym $mod+Delete [title="scratchpad"] move scratchpad
+
 # Scratchpad - general settings ###############################################
 
 # move arbitrary window to scratchpad
