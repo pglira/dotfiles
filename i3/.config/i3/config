@@ -37,7 +37,6 @@ set $scratchpad_python --no-startup-id $TERMINAL -t "scratchpad_python" -e pytho
 set $scratchpad_newsboat --no-startup-id $TERMINAL -t "scratchpad_newsboat" -e tmux_start_scratchpad_newsboat.sh
 set $scratchpad_moc --no-startup-id $TERMINAL -t "scratchpad_moc" -e tmux_start_scratchpad_moc.sh
 set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager" -e tmux_start_scratchpad_filemanager.sh
-set $scratchpad_systemmonitor --no-startup-id $TERMINAL -t "scratchpad_systemmonitor" -e tmux_start_scratchpad_systemmonitor.sh
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
 set $scratchpad_browser --no-startup-id brave-browser --class="scratchpad_browser"
@@ -72,7 +71,6 @@ exec $scratchpad_glances
 exec $scratchpad_newsboat
 exec $scratchpad_moc
 exec $scratchpad_filemanager
-exec $scratchpad_systemmonitor
 exec $scratchpad_downloads
 exec $scratchpad_python
 exec $scratchpad_keepassxc
@@ -182,10 +180,6 @@ for_window [title="scratchpad_filemanager"] floating enable, move scratchpad
 bindsym $mod+Shift+space exec $scratchpad_filemanager
 bindsym $mod+space [title="scratchpad_filemanager"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-for_window [title="scratchpad_systemmonitor"] floating enable, move scratchpad
-bindsym $mod+Shift+g exec $scratchpad_systemmonitor
-bindsym $mod+g [title="scratchpad_systemmonitor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
-
 for_window [title="scratchpad_downloads"] floating enable, move scratchpad
 bindsym $mod+Shift+o exec $scratchpad_downloads
 bindsym $mod+o [title="scratchpad_downloads"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
@@ -206,7 +200,7 @@ for_window [title="scratchpad_editor"] floating enable, move scratchpad
 bindsym $mod+Shift+e exec $scratchpad_editor
 bindsym $mod+e [title="scratchpad_editor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-bindsym $mod+Delete exec i3_hide-scratchpad-windows.sh
+bindsym $mod+Escape exec i3_hide-scratchpad-windows.sh
 
 # Scratchpad - general settings ###############################################
 
