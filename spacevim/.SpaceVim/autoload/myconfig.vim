@@ -23,7 +23,8 @@ endfunction
 function! myconfig#after() abort
   call SpaceVim#logger#info("bootstrap_after called")
 
-  nnoremap <silent> Q :quit<CR>
+  " Unmap q as in spacevim it calls a function (https://github.com/SpaceVim/SpaceVim/issues/217)
+  unmap q
 
   " Move faster
   nnoremap <C-k> 5k
@@ -38,10 +39,10 @@ function! myconfig#after() abort
   noremap <silent> $ g$
 
   " Buffers
-  nnoremap <silent> q :bdelete<CR>
+  nnoremap <silent> <C-w> :bdelete<CR>
   nnoremap <silent> <C-h> :bprevious<CR>
   nnoremap <silent> <C-l> :bnext<CR>
-  nnoremap <silent> w :write<CR>
+  nnoremap <silent> <C-s> :write<CR>
 
   " Copy filepath to clipboard
   nnoremap <F9> :call SpaceVim#util#CopyToClipboard()<CR>
