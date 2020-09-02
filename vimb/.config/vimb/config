@@ -22,6 +22,7 @@ set webgl=true
 nmap + zI
 nmap - zO
 nmap 0 zz
+nmap q :q<CR>
 nmap <C-b> :set dark-mode!<CR>
 nmap <C-g> Y:tabopen goo <C-R>"<CR>"
 nmap <C-j> 5j
