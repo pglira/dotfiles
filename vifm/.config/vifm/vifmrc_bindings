@@ -17,12 +17,12 @@ nnoremap S :sort<cr>
 nnoremap VV :%select<cr>
 nnoremap b :fzfdirbookmarks<cr>
 nnoremap e :e<cr>
+nnoremap E :vscode<cr>
 nnoremap f :fzffilebookmarks<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
 nnoremap o :only<CR>
-nnoremap q :tabclose<cr>
-nnoremap Q :quit<cr>
+nnoremap q :quit<cr>
 
 " alt key combinations
 " nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
@@ -37,6 +37,7 @@ nnoremap <C-k> 5k
 nnoremap <C-h> :tabprevious<cr>
 nnoremap <C-l> :tabnext<cr>
 nnoremap <C-t> :tabnew<cr>
+nnoremap <C-w> :tabclose<cr>
 
 " f keys
 nnoremap <f2> :rename<cr>
