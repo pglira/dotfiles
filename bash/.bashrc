@@ -83,3 +83,6 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse $FZF_COLORS"
 # https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
 [[ $- != *i* ]] && return
 [[ -z "$TMUX" ]] && exec tmux
+
+# Disable C-s in terminal so that it can be used in other programe, e.g. vim
+stty -ixon
