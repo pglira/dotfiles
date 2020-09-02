@@ -30,7 +30,8 @@ nmap <C-w> :set download-use-external!<CR>
 nmap <C-y> Y
 nmap <F9> :shellcmd! /bin/sh -c 'echo -n "$VIMB_URI" | xclip -selection clipboard'<CR>
 nmap <Space>a :shellcmd! /bin/sh -c 'vimb_update-adblock.sh'<CR>
-nmap <Space>c :shellcmd! /bin/sh -c 'google-chrome --app="$VIMB_URI"'<CR>
+nmap <Space>b :shellcmd! /bin/sh -c 'brave-browser "$VIMB_URI" && notify-send "Website sent to brave browser."'<CR>
+nmap <Space>c :shellcmd! /bin/sh -c 'google-chrome --app="$VIMB_URI" && notify-send "Website sent to google chrome."'<CR>
 nmap <Space>i :shellcmd! /bin/sh -c 'vimb --incognito'<CR>
 nmap <Space>s :shellcmd! /bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "media-download.sh \"$VIMB_URI\" --target-dir $MEDIA_SYNC --notification" C-m'<CR>
 nmap <Space>w :shellcmd! /bin/sh -c 'tmux new-window -t scratchpad_downloads && tmux send-key -t scratchpad_downloads "media-download.sh \"$VIMB_URI\" --target-dir $MEDIA_WAIT --notification" C-m'<CR>
