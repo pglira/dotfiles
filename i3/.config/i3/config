@@ -195,8 +195,8 @@ bindsym $mod+Shift+x exec $scratchpad_keepassxc
 bindsym $mod+x [class="KeePassXC" instance="keepassxc"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [class="scratchpad_browser"] floating enable, move scratchpad
-bindsym $mod+Shift+w exec $scratchpad_browser
-bindsym $mod+w [class="scratchpad_browser"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+bindsym $mod+Shift+b exec $scratchpad_browser
+bindsym $mod+b [class="scratchpad_browser"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [class="scrcpy" instance="scrcpy"] floating enable, move scratchpad
 bindsym $mod+Shift+c exec $scratchpad_scrcpy
