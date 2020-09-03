@@ -24,6 +24,7 @@ command! reload :write | restart
 command! run !! ./%f
 command! e open-file-in-scratchpad-editor.sh %f %i &
 command! vscode code -r %f %i & notify-send ""%f" sent to vscode" &
+command! viewless tmux new-window -n %f less %f
 command! vgrep vim "+grep %a"
 command! zip zip -r %a.zip %f
 command! adddate add_date.sh %f

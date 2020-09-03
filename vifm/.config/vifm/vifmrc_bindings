@@ -37,14 +37,14 @@ nnoremap <C-k> 5k
 nnoremap <C-h> :tabprevious<cr>
 nnoremap <C-l> :tabnext<cr>
 nnoremap <C-t> :tabnew<cr>
-nnoremap <C-w> :tabclose<cr>
+" nnoremap <C-w> :tabclose<cr>
 
 " f keys
 nnoremap <f2> :rename<cr>
 " nnoremap <f3> :!less %f<cr>
 nnoremap <f3> :!glogg %f %i & xdotool key Super_L+space &<cr>
 " nnoremap <f4> :edit<cr>
-nnoremap <f4> :v<cr>
+nnoremap <f4> :viewless<cr>
 " nnoremap <f5> :copy &<cr>
 nnoremap <f5> :cp<cr>
 " nnoremap <f6> :move &<cr>
