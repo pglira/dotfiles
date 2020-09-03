@@ -143,6 +143,7 @@ bindsym $mod+Mod1+d exec cd $HOME/Dropbox/dot && ./install-all-dots.sh
 bindsym $mod+Mod1+e exec ibus emoji
 bindsym $mod+Mod1+f exec copy_path_to_file.sh
 bindsym $mod+Mod1+g exec search_for_marked_text_in_browser.sh
+bindsym $mod+Mod1+h exec dmenu_sysmon.sh
 bindsym $mod+Mod1+i exec dmenu_insert-snippet.sh
 bindsym $mod+Mod1+l exec open_latex-pdf.sh
 bindsym $mod+Mod1+m exec open_man_as_pdf.sh
