@@ -24,6 +24,8 @@ nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
 nnoremap o :only<CR>
 nnoremap q :quit<cr>
+nnoremap + :chmod+x<cr>
+nnoremap - :chmod-x<cr>
 
 " alt key combinations
 " nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
