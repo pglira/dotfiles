@@ -19,6 +19,7 @@ nnoremap b :fzfdirbookmarks<cr>
 nnoremap e :e<cr>
 nnoremap E :vscode<cr>
 nnoremap f :fzffilebookmarks<cr>
+nnoremap r :fzfrepos<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
 nnoremap o :only<CR>
