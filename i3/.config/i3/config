@@ -186,9 +186,9 @@ for_window [title="scratchpad_downloads"] floating enable, move scratchpad
 bindsym $mod+Shift+o exec $scratchpad_downloads
 bindsym $mod+o [title="scratchpad_downloads"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-for_window [class="KeePassXC" instance="keepassxc"] floating enable, move scratchpad
+for_window [class="KeePassXC" instance="keepassxc" title="KeePassXC"] floating enable, move scratchpad
 bindsym $mod+Shift+x exec $scratchpad_keepassxc
-bindsym $mod+x [class="KeePassXC" instance="keepassxc"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+bindsym $mod+x [class="KeePassXC" instance="keepassxc" title="KeePassXC"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [class="scratchpad_browser" window_role="browser"] floating enable, move scratchpad
 bindsym $mod+Shift+b exec $scratchpad_browser
