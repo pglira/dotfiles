@@ -22,6 +22,7 @@ alias b='cd $(cat $DIR_BOOKMARKS | fzf)' \
     cp="cp -v" \
     mv="mv -v" \
     rm="rm -v" \
-    lg="lazygit"
+    lg="lazygit" \
+    df="df --human-readable"
 
 alias ros="ros_source-ws.sh"
