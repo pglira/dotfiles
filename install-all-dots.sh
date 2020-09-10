@@ -11,7 +11,7 @@ case "$(hostname)" in
         ./install-program-dots.sh bash --merge-tags "L1AS12"
         ./install-program-dots.sh dunst
         ./install-program-dots.sh fonts
-        ./install-program-dots.sh i3 --merge-tags "work"
+        ./install-program-dots.sh i3 --merge-tags "work i3-gaps"
         ./install-program-dots.sh i3blocks
         ./install-program-dots.sh ipe
         ./install-program-dots.sh keepmenu
