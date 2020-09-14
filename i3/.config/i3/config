@@ -136,10 +136,11 @@ bindsym $mod+Shift+b exec $browser
 
 # Actions
 bindsym $mod+Mod1+a exec dmenu_open-work-pdf.sh
+bindsym $mod+Mod1+b exec dmenu_browser-bookmarks.sh
 bindsym $mod+Mod1+c exec dmenu_run $DMENU_OPTIONS -p "command:" -l 20
 bindsym $mod+Mod1+d exec cd $HOME/Dropbox/dot && ./install-all-dots.sh
 bindsym $mod+Mod1+e exec dmenu_edit-file.sh
-bindsym $mod+Mod1+f exec dmenu_copy-path-of-file.sh
+bindsym $mod+Mod1+f exec dmenu_simple-file-manager.sh ~/Dropbox
 bindsym $mod+Mod1+g exec search_for_marked_text_in_browser.sh
 bindsym $mod+Mod1+h exec dmenu_sysmon.sh
 bindsym $mod+Mod1+j exec ibus emoji
