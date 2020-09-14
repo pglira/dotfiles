@@ -15,7 +15,6 @@ command! diffmeld meld %f %F &
 command! diffpdf diffpdf %f %F &
 command! diffvim vim -d %f %F
 command! fzfdirbookmarks :set noquickview | :execute 'cd "'.system('cat $DIR_BOOKMARKS | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! fzffilebookmarks :set noquickview | :execute 'goto "'.system('cat $FILE_BOOKMARKS | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
 command! fzfrepos :set noquickview | :execute 'cd $REPOS/'.system('ls $REPOS | fzf --height 100 2>/dev/tty ').'%IU' | redraw
 command! rf :set noquickview | :execute 'goto "'.system('find . -type f | sort | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
 command! rd :set noquickview | :execute 'cd "'.system('find . -type d | sort | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
@@ -23,8 +22,6 @@ command! ln !ln -s %d/%f %D
 command! mpv mpv %f %i &
 command! reload :write | restart
 command! run !! ./%f
-command! e open-file-in-scratchpad-editor.sh %f %i &
-command! vscode code -r %f %i & notify-send ""%f" sent to vscode" &
 command! viewless tmux new-window -n %f less %f
 command! vgrep vim "+grep %a"
 command! zip zip -r %a.zip %f

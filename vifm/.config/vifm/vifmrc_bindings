@@ -3,8 +3,6 @@ nnoremap A cw
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 
-nnoremap <space>bb :edit /home/philipp/Dropbox/dot/bash/.config/dir-bookmarks<cr>
-nnoremap <space>ff :edit /home/philipp/Dropbox/dot/bash/.config/file-bookmarks<cr>
 nnoremap <space>ee :write | edit "/home/philipp/Dropbox/dot/vifm/.config/vifm/vifmrc"<cr>
 nnoremap <space>d :dragon<CR>
 nnoremap <space>w :set wrap!<cr>
@@ -16,21 +14,18 @@ nnoremap H za
 nnoremap S :sort<cr>
 nnoremap VV :%select<cr>
 nnoremap b :fzfdirbookmarks<cr>
-nnoremap e :e<cr>
-nnoremap E :vscode<cr>
-nnoremap f :fzffilebookmarks<cr>
+nnoremap e :!edit-file.sh %f %i<cr>
 nnoremap r :fzfrepos<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
-nnoremap o :only<CR>
+nnoremap o :!open-dir.sh %d %i<cr>
 nnoremap q :quit<cr>
 nnoremap + :chmod+x<cr>
 nnoremap - :chmod-x<cr>
 
 " alt key combinations
-" nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
-" nnoremap <M-d> :cd ~/Downloads/vimb<cr>
-nnoremap <M-d> :cd ~/Downloads<cr>
+nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
+" nnoremap <M-d> :cd ~/Downloads<cr>
 nnoremap <M-u> :!ncdu<cr>
 nnoremap <M-s> :if layoutis('only') | split | else | only | endif<cr>
 
