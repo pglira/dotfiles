@@ -6,7 +6,7 @@ Just my dotfiles. Feel free to use them.
 - **WM**: [i3](https://i3wm.org/) (with [i3blocks](https://github.com/vivien/i3blocks))
 - **Shell**: bash
 - **Terminal**: [alacritty](https://github.com/alacritty/alacritty) (with [tmux](https://github.com/tmux/tmux))
-- **Editor**: [vim](https://www.vim.org/)
+- **Text editors**: [vim](https://www.vim.org/) and [vscode](https://code.visualstudio.com/)
 - **File manager**: [vifm](https://vifm.info/)
 - **IDE**: [clion](https://www.jetbrains.com) with [ideavim](https://github.com/JetBrains/ideavim)
 - **Video player**: [mpv](https://mpv.io/)
