@@ -32,6 +32,7 @@ default_border pixel 6
 # Set variables ###############################################################
 
 set $terminal --no-startup-id $TERMINAL
+set $browser --no-startup-id $BROWSER
 set $scratchpad_terminal --no-startup-id $TERMINAL -t "scratchpad_terminal" -e tmux_start_scratchpad_terminal.sh
 set $scratchpad_python --no-startup-id $TERMINAL -t "scratchpad_python" -e python3
 set $scratchpad_newsboat --no-startup-id $TERMINAL -t "scratchpad_newsboat" -e tmux_start_scratchpad_newsboat.sh
@@ -39,7 +40,6 @@ set $scratchpad_moc --no-startup-id $TERMINAL -t "scratchpad_moc" -e tmux_start_
 set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager" -e tmux_start_scratchpad_filemanager.sh
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
-set $scratchpad_browser --no-startup-id brave-browser --class="scratchpad_browser"
 set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
 set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
 
@@ -74,7 +74,6 @@ exec $scratchpad_filemanager
 exec $scratchpad_downloads
 exec $scratchpad_python
 exec $scratchpad_keepassxc
-exec $scratchpad_browser
 exec $scratchpad_editor
 
 # Keyboard & mouse ############################################################
@@ -133,7 +132,7 @@ mode "$mode_system" {
 # Start programs (with Shift like start)
 bindsym $mod+Shift+d exec dunst_start.sh &
 bindsym $mod+Shift+t exec $terminal
-bindsym $mod+Shift+v exec vimb
+bindsym $mod+Shift+b exec $browser
 
 # Actions
 bindsym $mod+Mod1+a exec dmenu_open-work-pdf.sh
@@ -151,7 +150,6 @@ bindsym $mod+Mod1+o exec dmenu_open-dir.sh
 bindsym $mod+Mod1+p exec dmenu_open-paper.sh
 bindsym $mod+Mod1+s exec open-last-screenshot.sh
 bindsym $mod+Mod1+t exec dmenu_paste.sh
-bindsym $mod+Mod1+v exec dmenu_vimb-bookmarks.sh
 bindsym $mod+Mod1+w exec dmenu_websearch.sh
 bindsym $mod+Mod1+x exec keepmenu
 bindsym $mod+Mod1+y exec clipmenu $DMENU_OPTIONS
@@ -189,10 +187,6 @@ bindsym $mod+o [title="scratchpad_downloads"] scratchpad show, resize set $scrat
 for_window [class="KeePassXC" instance="keepassxc" title="KeePassXC"] floating enable, move scratchpad
 bindsym $mod+Shift+x exec $scratchpad_keepassxc
 bindsym $mod+x [class="KeePassXC" instance="keepassxc" title="KeePassXC"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
-
-for_window [class="scratchpad_browser" window_role="browser"] floating enable, move scratchpad
-bindsym $mod+Shift+b exec $scratchpad_browser
-bindsym $mod+b [class="scratchpad_browser" window_role="browser"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [class="scrcpy" instance="scrcpy"] floating enable, move scratchpad
 bindsym $mod+Shift+c exec $scratchpad_scrcpy

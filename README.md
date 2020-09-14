@@ -13,7 +13,6 @@ Just my dotfiles. Feel free to use them.
 - **Music player**: [moc](http://moc.daper.net/)
 - **Image viewer**: [sxiv](https://github.com/muennich/sxiv)
 - **PDF viewer**: [okular](https://okular.kde.org/)
-- **Web browser**: [vimb](https://github.com/fanglingsu/vimb)
 
 Programs I don't use anymore are moved to [``.archive``](.archive).
 
