@@ -24,4 +24,5 @@ alias b='cd $(cat $DIR_BOOKMARKS | fzf)' \
     lg='lazygit' \
     df='df --human-readable'
 
-alias ros="ros_source-ws.sh"
+alias ros="source ~/Dropbox/scripts19:35 ab
+20:02 a/ros_source-ws.sh"
