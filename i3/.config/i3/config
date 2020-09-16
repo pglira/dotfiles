@@ -42,6 +42,7 @@ set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e
 set $scratchpad_keepassxc --no-startup-id keepassxc
 set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
 set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
+set $scratchpad_browser --no-startup-id $BROWSER google-chrome --user-data-dir="~/.config/google-chrome-scratchpad" --class="scratchpad_browser"
 
 set $scratchpad_percentage 92
 set $highlight_color #0087FF
@@ -75,6 +76,7 @@ exec $scratchpad_downloads
 exec $scratchpad_python
 exec $scratchpad_keepassxc
 exec $scratchpad_editor
+exec $scratchpad_browser
 
 # Keyboard & mouse ############################################################
 
@@ -130,9 +132,9 @@ mode "$mode_system" {
 # Bindings: launch/focus applications #########################################
 
 # Start programs (with Shift like start)
+bindsym $mod+Shift+b exec $browser
 bindsym $mod+Shift+d exec dunst_start.sh &
 bindsym $mod+Shift+t exec $terminal
-bindsym $mod+Shift+b exec $browser
 
 # Actions
 bindsym $mod+Mod1+a exec dmenu_open-work-pdf.sh
@@ -196,6 +198,10 @@ bindsym $mod+c [class="scrcpy" instance="scrcpy"] scratchpad show, move position
 for_window [title="scratchpad_editor"] floating enable, move scratchpad
 bindsym $mod+Shift+e exec $scratchpad_editor
 bindsym $mod+e [title="scratchpad_editor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+
+for_window [class="scratchpad_browser" window_role="browser" instance="google-chrome"] floating enable, move scratchpad
+bindsym $mod+Shift+w exec $scratchpad_browser
+bindsym $mod+w [class="scratchpad_browser" window_role="browser" instance="google-chrome"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 bindsym $mod+Escape exec i3_hide-scratchpad-windows.sh
 
