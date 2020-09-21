@@ -42,7 +42,7 @@ set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e
 set $scratchpad_keepassxc --no-startup-id keepassxc
 set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
 set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
-set $scratchpad_browser --no-startup-id $BROWSER google-chrome --user-data-dir="~/.config/google-chrome-scratchpad" --class="scratchpad_browser"
+set $scratchpad_browser --no-startup-id google-chrome --user-data-dir="~/.config/google-chrome-scratchpad" --class="scratchpad_browser" https://web.whatsapp.com https://www.gmail.com https://calendar.google.com
 
 set $scratchpad_percentage 92
 set $highlight_color #0087FF
@@ -134,6 +134,7 @@ mode "$mode_system" {
 # Start programs (with Shift like start)
 bindsym $mod+Shift+b exec $browser
 bindsym $mod+Shift+d exec dunst_start.sh &
+bindsym $mod+Shift+i exec $browser --incognito
 bindsym $mod+Shift+t exec $terminal
 
 # Actions
