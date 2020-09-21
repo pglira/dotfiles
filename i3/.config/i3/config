@@ -110,8 +110,8 @@ client.background       #FFFFFF
 bindsym $mod+q kill
 bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu $DMENU_OPTIONS"
 # change transparency of current window
-# bindsym $mod+plus exec compton-trans -c -- -5
-# bindsym $mod+minus exec compton-trans -c +5
+bindsym $mod+plus exec compton-trans -c -- -5
+bindsym $mod+minus exec compton-trans -c +5
 
 # Set shut down, restart and locking features
 bindsym $mod+BackSpace mode "$mode_system"
@@ -142,7 +142,6 @@ bindsym $mod+Mod1+a exec dmenu_open-work-pdf.sh
 bindsym $mod+Mod1+b exec dmenu_browser-bookmarks.sh
 bindsym $mod+Mod1+c exec dmenu_run $DMENU_OPTIONS -p "command:" -l 20
 bindsym $mod+Mod1+d exec cd $HOME/Dropbox/dot && ./install-all-dots.sh
-bindsym $mod+Mod1+e exec dmenu_edit-file.sh
 bindsym $mod+Mod1+f exec dmenu_simple-file-manager.sh ~/Dropbox
 bindsym $mod+Mod1+g exec search_for_marked_text_in_browser.sh
 bindsym $mod+Mod1+h exec dmenu_sysmon.sh
@@ -150,7 +149,6 @@ bindsym $mod+Mod1+j exec ibus emoji
 bindsym $mod+Mod1+l exec dmenu_open-latex-pdf.sh
 bindsym $mod+Mod1+m exec dmenu_open-man-as-pdf.sh
 bindsym $mod+Mod1+n exec dmenu_select-monitors.sh
-bindsym $mod+Mod1+o exec dmenu_open-dir.sh
 bindsym $mod+Mod1+p exec dmenu_open-paper.sh
 bindsym $mod+Mod1+s exec open-last-screenshot.sh
 bindsym $mod+Mod1+t exec dmenu_paste.sh
