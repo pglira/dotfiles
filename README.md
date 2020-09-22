@@ -5,7 +5,7 @@ Just my dotfiles. Feel free to use them.
 - **Operating system**: mostly Ubuntu
 - **WM**: [i3](https://i3wm.org/) (with [i3blocks](https://github.com/vivien/i3blocks))
 - **Shell**: bash
-- **Terminal**: [alacritty](https://github.com/alacritty/alacritty) (with [tmux](https://github.com/tmux/tmux))
+- **Terminal**: [lxterminal](https://wiki.lxde.org/en/LXTerminal) (with [tmux](https://github.com/tmux/tmux))
 - **Text editors**: [vim](https://www.vim.org/) and [vscode](https://code.visualstudio.com/)
 - **File manager**: [vifm](https://vifm.info/)
 - **IDE**: [clion](https://www.jetbrains.com) with [ideavim](https://github.com/JetBrains/ideavim)
