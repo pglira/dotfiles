@@ -56,12 +56,12 @@ exec --no-startup-id ~/.dropbox-dist/dropboxd
 exec --no-startup-id nm-applet # network icon
 exec --no-startup-id xautolock -time 60 -locker blurlock.sh
 exec --no-startup-id udiskie
-exec --no-startup-id hsetroot -solid "#004876"
 exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
 exec --no-startup-id redshift -l 48:16 -t 6500:5000
 exec --no-startup-id numlockx on
 exec --no-startup-id i3_focus-last-window.py
 exec --no-startup-id clipmenud
+exec --no-startup-id hsetroot -solid "#004876"
 exec --no-startup-id "feh --bg-scale $WALLPAPER"
 
 # scratchpad applications
@@ -108,8 +108,8 @@ client.background       #FFFFFF
 bindsym $mod+q kill
 bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu $DMENU_OPTIONS"
 # change transparency of current window
-bindsym $mod+plus exec compton-trans -c -- -5
-bindsym $mod+minus exec compton-trans -c +5
+bindsym $mod+plus exec compton-trans -c -- -10
+bindsym $mod+minus exec compton-trans -c +10
 
 # Set shut down, restart and locking features
 bindsym $mod+BackSpace mode "$mode_system"
