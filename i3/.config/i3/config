@@ -130,10 +130,10 @@ mode "$mode_system" {
 # Bindings: launch/focus applications #########################################
 
 # Start programs (with Shift like start)
-bindsym $mod+Shift+b exec $browser
+bindsym $mod+Shift+b exec $BROWSER
 bindsym $mod+Shift+d exec dunst_start.sh &
-bindsym $mod+Shift+i exec $browser --incognito
-bindsym $mod+Shift+t exec $terminal
+bindsym $mod+Shift+i exec $BROWSER --incognito
+bindsym $mod+Shift+t exec $TERMINAL
 
 # Actions
 bindsym $mod+Mod1+a exec dmenu_open-work-pdf.sh
