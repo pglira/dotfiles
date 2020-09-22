@@ -31,8 +31,6 @@ default_border pixel 6
 
 # Set variables ###############################################################
 
-set $terminal --no-startup-id $TERMINAL
-set $browser --no-startup-id $BROWSER
 set $scratchpad_terminal --no-startup-id $TERMINAL -t "scratchpad_terminal" -e tmux_start_scratchpad_terminal.sh
 set $scratchpad_python --no-startup-id $TERMINAL -t "scratchpad_python" -e python3
 set $scratchpad_newsboat --no-startup-id $TERMINAL -t "scratchpad_newsboat" -e tmux_start_scratchpad_newsboat.sh
