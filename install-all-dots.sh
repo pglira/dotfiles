@@ -26,6 +26,7 @@ case "$(hostname)" in
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh spacevim
         ./install-program-dots.sh tmux
+        ./install-program-dots.sh texstudio
         ./install-program-dots.sh vifm
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
