@@ -7,8 +7,9 @@ case "$1" in
         notify-send \
 "
 C-x C-l: Write path of images to a text file
-C-x M-c: Copy image to clipboard in image format
+C-x c  : Copy image to clipboard in image format
 C-x C-d: Delete images
+C-x d  : Dragon
 C-x C-m: Move images to temp folder
 C-x C-y: Copy images to temp folder
 C-x C-r: Rotate images
@@ -36,7 +37,7 @@ C-x C-v: Open image in xnview
         ;;
 
     # Copy image to clipboard in image format
-    "M-c") # Alt-c
+    "c")
         while read file; do
             last_file=$file
         done
@@ -54,9 +55,14 @@ C-x C-v: Open image in xnview
     # Delete images
     "C-d")
         while read file; do
-            mv "$file" ~/.trash
+            rm "$file"
             notify-send "sxiv: Image '$file' deleted."
         done
+        ;;
+
+    # Dragon
+    "d")
+        tr '\n' '\0' | xargs -0 dragon -x -a
         ;;
 
     # Move images to temp folder
