@@ -15,6 +15,7 @@ nnoremap S :sort<cr>
 nnoremap VV :%select<cr>
 nnoremap b :fzfdirbookmarks<cr>
 nnoremap e :!edit-file.sh %f %i<cr>
+nnoremap n :set number!<cr>
 nnoremap r :fzfrepos<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
