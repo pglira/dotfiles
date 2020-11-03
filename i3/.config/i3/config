@@ -50,7 +50,7 @@ exec_always --no-startup-id setxkbmap de -variant nodeadkeys && xmodmap "$HOME/.
 exec_always --no-startup-id xrdb "$HOME/.Xresources"
 
 exec --no-startup-id "$HOME/Dropbox/wissensdb/serve_wissensdb.sh > /tmp/wissensdb_stdout.txt 2> /tmp/wissensdb_stderr.txt"
-exec --no-startup-id compton
+# exec --no-startup-id compton
 exec --no-startup-id ~/.dropbox-dist/dropboxd
 exec --no-startup-id nm-applet # network icon
 exec --no-startup-id xautolock -time 60 -locker blurlock.sh
