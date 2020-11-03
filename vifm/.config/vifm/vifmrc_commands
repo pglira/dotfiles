@@ -33,7 +33,7 @@ command! pdfgreprec tmux new-window -n pdfgrep && tmux send-keys "find . -name '
 command! greprec tmux new-window -n grep && tmux send-keys "rg --hidden \"%a\"" C-m
 command! renamepaper tmux new-window -n rename-paper rename-paper.sh %f
 command! mkcd :mkdir! %a | cd %a
-command! backup tmux new-window -n backup-to-backupdir backup-to-backupdir.sh %f %a
+command! backup tmux new-window -n backup-to-backupdir backup-to-backupdir.sh %f
 command! dragon xdotool key Super_L+space & dragon -x -a %f
 command! handbrake tmux new-window -n handbrake "handbrake_convert-for-cellphone.sh %D %f"
 " command! cp tmux new-window -n cp "cp -v -r %f %D && echo "Finished!" && read"
