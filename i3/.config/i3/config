@@ -62,6 +62,7 @@ exec --no-startup-id i3_focus-last-window.py
 exec --no-startup-id clipmenud
 exec --no-startup-id hsetroot -solid "#004876"
 exec --no-startup-id "feh --bg-scale $WALLPAPER"
+exec --no-startup-id onedrive --monitor --monitor-interval 60
 
 # scratchpad applications
 exec $scratchpad_terminal
