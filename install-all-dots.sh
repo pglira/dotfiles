@@ -5,7 +5,8 @@ set -e
 notify-send "Update of dotfiles started!"
 
 case "$(hostname)" in
-    L1AS12 )
+    L1AS12 ) # ws
+        ./install-program-dots.sh alacritty --merge-tags "font-L1AS12 own_colorscheme"
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "L1AS12"
         ./install-program-dots.sh dunst
@@ -16,7 +17,6 @@ case "$(hostname)" in
         ./install-program-dots.sh keepmenu
         ./install-program-dots.sh jetbrains
         ./install-program-dots.sh latex
-        ./install-program-dots.sh lxterminal
         ./install-program-dots.sh matlab
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
@@ -27,11 +27,13 @@ case "$(hostname)" in
         ./install-program-dots.sh spacevim
         ./install-program-dots.sh tmux
         ./install-program-dots.sh texstudio
+        ./install-program-dots.sh tigervnc
         ./install-program-dots.sh vifm
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
         ;;
-    L1AS19 )
+    L1AS19 ) # nb
+        ./install-program-dots.sh alacritty --merge-tags "font-N1AS21 own_colorscheme"
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "L1AS19"
         ./install-program-dots.sh dunst
@@ -42,7 +44,6 @@ case "$(hostname)" in
         ./install-program-dots.sh keepmenu
         ./install-program-dots.sh jetbrains
         ./install-program-dots.sh latex
-        ./install-program-dots.sh lxterminal
         ./install-program-dots.sh matlab
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
