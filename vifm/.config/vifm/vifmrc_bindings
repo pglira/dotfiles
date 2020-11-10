@@ -14,12 +14,12 @@ nnoremap H za
 nnoremap S :sort<cr>
 nnoremap VV :%select<cr>
 nnoremap b :fzfdirbookmarks<cr>
-nnoremap e :!edit-file.sh %f %i<cr>
+nnoremap e :!xdotool key Super_L+space & edit-file.sh %f %i<cr>
 nnoremap n :set number!<cr>
 nnoremap r :fzfrepos<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
-nnoremap o :!open-dir.sh %d %i<cr>
+nnoremap o :!xdotool key Super_L+space & open-dir.sh %d %i<cr>
 nnoremap q :quit<cr>
 nnoremap + :chmod+x<cr>
 nnoremap - :chmod-x<cr>
