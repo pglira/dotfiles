@@ -145,6 +145,7 @@ bindsym $mod+Mod1+j exec ibus emoji
 bindsym $mod+Mod1+l exec dmenu_open-latex-pdf.sh
 bindsym $mod+Mod1+m exec dmenu_open-man-as-pdf.sh
 bindsym $mod+Mod1+n exec dmenu_select-monitors.sh
+bindsym $mod+Mod1+o exec tmux new-window -t scratchpad_downloads && tmux send-keys -t scratchpad_downloads 'media-download.sh "" --notification --gui' C-m && tmux last-window
 bindsym $mod+Mod1+p exec dmenu_open-paper.sh
 bindsym $mod+Mod1+s exec open-last-screenshot.sh
 bindsym $mod+Mod1+t exec dmenu_paste.sh
