@@ -25,7 +25,7 @@ nnoremap + :chmod+x<cr>
 nnoremap - :chmod-x<cr>
 
 " alt key combinations
-nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
+nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>:2<cr><cr>
 " nnoremap <M-d> :cd ~/Downloads<cr>
 nnoremap <M-u> :!ncdu<cr>
 nnoremap <M-s> :if layoutis('only') | split | else | only | endif<cr>
