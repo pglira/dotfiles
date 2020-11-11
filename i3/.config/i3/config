@@ -201,14 +201,19 @@ bindsym $mod+Escape exec i3_hide-scratchpad-windows.sh
 
 # move arbitrary window to scratchpad
 bindsym $mod+Ctrl+F1, mark "scratchpad_F1", floating enable, move scratchpad
+bindsym $mod+Shift+F1, [con_mark="scratchpad_F1"] unmark
 bindsym $mod+F1 [con_mark="scratchpad_F1"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 bindsym $mod+Ctrl+F2, mark "scratchpad_F2", floating enable, move scratchpad
+bindsym $mod+Shift+F2, [con_mark="scratchpad_F2"] unmark
 bindsym $mod+F2 [con_mark="scratchpad_F2"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 bindsym $mod+Ctrl+F3, mark "scratchpad_F3", floating enable, move scratchpad
+bindsym $mod+Shift+F3, [con_mark="scratchpad_F3"] unmark
 bindsym $mod+F3 [con_mark="scratchpad_F3"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 bindsym $mod+Ctrl+F4, mark "scratchpad_F4", floating enable, move scratchpad
+bindsym $mod+Shift+F4, [con_mark="scratchpad_F4"] unmark
 bindsym $mod+F4 [con_mark="scratchpad_F4"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 bindsym $mod+Ctrl+F5, mark "scratchpad_F5", floating enable, move scratchpad
+bindsym $mod+Shift+F5, [con_mark="scratchpad_F5"] unmark
 bindsym $mod+F5 [con_mark="scratchpad_F5"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 # Application dependent settings ##############################################
