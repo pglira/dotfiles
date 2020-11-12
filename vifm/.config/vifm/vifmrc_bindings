@@ -13,8 +13,11 @@ nnoremap > 4<c-w>>
 nnoremap H za
 nnoremap S :sort<cr>
 nnoremap VV :%select<cr>
-nnoremap b :fzfdirbookmarks<cr>
+nnoremap d :fzfdirbookmarks<cr>
+nnoremap D :fzfrecursivedirs<cr>
 nnoremap e :!xdotool key Super_L+space & edit-file.sh %f %i<cr>
+nnoremap f :fzffilebookmarks<cr>
+nnoremap F :fzfrecursivefiles<cr>
 nnoremap n :set number!<cr>
 nnoremap r :fzfrepos<cr>
 nnoremap s :shell<cr>
@@ -23,6 +26,7 @@ nnoremap o :!xdotool key Super_L+space & open-dir.sh %d %i<cr>
 nnoremap q :quit<cr>
 nnoremap + :chmod+x<cr>
 nnoremap - :chmod-x<cr>
+nnoremap <delete> :delete<cr>
 
 " alt key combinations
 nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>:2<cr><cr>
