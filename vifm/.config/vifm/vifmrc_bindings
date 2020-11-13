@@ -32,7 +32,7 @@ nnoremap <delete> :delete<cr>
 nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>:2<cr><cr>
 " nnoremap <M-d> :cd ~/Downloads<cr>
 nnoremap <M-u> :!ncdu<cr>
-nnoremap <M-s> :if layoutis('only') | split | else | only | endif<cr>
+nnoremap <M-s> :cd ~/Dropbox/screenshots/PC/2020<cr>
 
 " control key combinations
 nnoremap <C-j> 5j
