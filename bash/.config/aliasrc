@@ -22,6 +22,7 @@ alias c='cd $(vifm --choose-dir -)' \
     cp='cp -v' \
     mv='mv -v' \
     rm='rm -v' \
+    rsync='rsync -v --progress' \
     lg='lazygit' \
     df='df --human-readable' \
     md='media-download.sh'
