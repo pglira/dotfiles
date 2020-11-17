@@ -14,11 +14,31 @@ command! df df -h %m 2> /dev/null
 command! diffmeld meld %f %F &
 command! diffpdf diffpdf %f %F &
 command! diffvim vim -d %f %F
-command! fzfdirbookmarks :set noquickview | :execute 'cd "'.system('cat $DIR_BOOKMARKS | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! fzffilebookmarks :set noquickview | :execute 'goto "'.system('cat $FILE_BOOKMARKS | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! fzfrepos :set noquickview | :execute 'cd $REPOS/'.system('ls $REPOS | fzf --height 100 2>/dev/tty ').'%IU' | redraw
-command! fzfrecursivefiles :set noquickview | :execute 'goto "'.system('find . -type f | sort | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
-command! fzfrecursivedirs :set noquickview | :execute 'cd "'.system('find . -type d | sort | fzf --height 100 2>/dev/tty ').'"%IU' | redraw
+command! fzfdirbookmarks :let $FZF_RES = term('cat $DIR_BOOKMARKS | sort | fzf --height 100 2>/dev/tty')
+             \|if $FZF_RES != ''
+             \|    cd $FZF_RES
+             \|endif
+             \|redraw
+command! fzffilebookmarks :let $FZF_RES = term('cat $FILE_BOOKMARKS | sort | fzf --height 100 2>/dev/tty')
+             \|if $FZF_RES != ''
+             \|    goto $FZF_RES
+             \|endif
+             \|redraw
+command! fzfrepos :let $FZF_RES = term('find $REPOS -mindepth 1 -maxdepth 2 -type l,d | sort | fzf --height 100 2>/dev/tty')
+             \|if $FZF_RES != ''
+             \|    cd $FZF_RES
+             \|endif
+             \|redraw
+command! fzfrecursivefiles :let $FZF_RES = term('find . -type f | sort | fzf --height 100 2>/dev/tty')
+             \|if $FZF_RES != ''
+             \|    goto $FZF_RES
+             \|endif
+             \|redraw
+command! fzfrecursivedirs :let $FZF_RES = term('find . -type d | sort | fzf --height 100 2>/dev/tty ')
+             \|if $FZF_RES != ''
+             \|    goto $FZF_RES
+             \|endif
+             \|redraw
 command! ln !ln -s %d/%f %D
 command! mpv mpv %f %i &
 command! reload :write | restart
