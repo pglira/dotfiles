@@ -243,6 +243,7 @@ for_window [title="vimb_editor"] floating enable, resize set 50 ppt 50 ppt, move
 for_window [class="Google-chrome"] title_format " %class: %title"
 for_window [class="Google-chrome"] floating disable
 for_window [class="Vivaldi-stable"] floating disable
+for_window [class="MATLAB"] title_format " %title"
 
 # Screenshots #################################################################
 
