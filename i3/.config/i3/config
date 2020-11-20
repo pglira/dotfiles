@@ -61,8 +61,7 @@ exec --no-startup-id redshift -l 48:16 -t 6500:5000
 exec --no-startup-id numlockx on
 exec --no-startup-id i3_focus-last-window.py
 exec --no-startup-id clipmenud
-exec --no-startup-id hsetroot -solid "#004876"
-exec --no-startup-id "feh --bg-scale $WALLPAPER"
+# exec --no-startup-id hsetroot -solid "#004876"
 
 # scratchpad applications
 exec $scratchpad_terminal
