@@ -57,7 +57,6 @@ exec --no-startup-id nm-applet # network icon
 exec --no-startup-id xautolock -time 60 -locker blurlock.sh
 exec --no-startup-id udiskie
 exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
-exec --no-startup-id redshift -l 48:16 -t 6500:5000
 exec --no-startup-id numlockx on
 exec --no-startup-id i3_focus-last-window.py
 exec --no-startup-id clipmenud
@@ -65,7 +64,6 @@ exec --no-startup-id clipmenud
 
 # scratchpad applications
 exec $scratchpad_terminal
-exec $scratchpad_glances
 exec $scratchpad_newsboat
 exec $scratchpad_moc
 exec $scratchpad_filemanager
