@@ -58,6 +58,32 @@ case "$(hostname)" in
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
         ;;
+    philipp-nb ) # new nb
+        ./install-program-dots.sh alacritty --merge-tags "font-philipp-nb own_colorscheme"
+        ./install-program-dots.sh appimages
+        ./install-program-dots.sh bash
+        ./install-program-dots.sh dunst
+        ./install-program-dots.sh fonts
+        ./install-program-dots.sh i3 --merge-tags "work"
+        ./install-program-dots.sh i3blocks
+        ./install-program-dots.sh ipe
+        ./install-program-dots.sh keepmenu
+        ./install-program-dots.sh jetbrains
+        ./install-program-dots.sh latex
+        ./install-program-dots.sh matlab
+        ./install-program-dots.sh moc
+        ./install-program-dots.sh mpv
+        ./install-program-dots.sh newsboat
+        ./install-program-dots.sh passwords --merge-tags "work"
+        ./install-program-dots.sh readline
+        ./install-program-dots.sh sxiv
+        ./install-program-dots.sh spacevim
+        ./install-program-dots.sh texstudio
+        ./install-program-dots.sh tmux
+        ./install-program-dots.sh vifm
+        ./install-program-dots.sh xmodmap
+        ./install-program-dots.sh xresources
+        ;;
 esac
 
 notify-send "Update of dotfiles completed!"
