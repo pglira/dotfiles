@@ -59,9 +59,8 @@ case "$(hostname)" in
         ./install-program-dots.sh xresources
         ;;
     philipp-nb ) # new nb
-        ./install-program-dots.sh alacritty --merge-tags "font-philipp-nb own_colorscheme"
         ./install-program-dots.sh appimages
-        ./install-program-dots.sh bash
+        ./install-program-dots.sh bash --merge-tags "philipp-nb"
         ./install-program-dots.sh dunst
         ./install-program-dots.sh fonts
         ./install-program-dots.sh i3 --merge-tags "work"
@@ -70,6 +69,7 @@ case "$(hostname)" in
         ./install-program-dots.sh keepmenu
         ./install-program-dots.sh jetbrains
         ./install-program-dots.sh latex
+        ./install-program-dots.sh lxterminal
         ./install-program-dots.sh matlab
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
