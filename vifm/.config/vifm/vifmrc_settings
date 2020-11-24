@@ -107,7 +107,3 @@ set viewcolumns=*{name}..,16{mtime},7{}.
 " set dotfiles
 
 set locateprg="find | grep -i %a"
-
-" Custom sorting
-autocmd DirEnter ~/Dropbox/medien/Playlist/Video-Sync setlocal sort=-mtime
-autocmd DirEnter ~/Dropbox/medien/Playlist/Video-Warteschlange setlocal sort=-mtime
