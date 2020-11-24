@@ -18,11 +18,12 @@ C-x C-x: Cut image(s) to clipboard as files
 C-x F9 : Copy image path to clipboard
 C-x C-w: Set wallpaper with nitrogen
 -------------------------------------------------
-C-x C-g: Open image in gimp
-C-x C-i: Open image in irfanview
-C-x C-k: Open image in ksnip
-C-x C-n: Open image in nomacs
-C-x C-v: Open image in xnview
+C-x C-1: Open image in gimp
+C-x C-2: Open image in irfanview
+C-x C-3: Open image in ksnip
+C-x C-4: Open image in nomacs
+C-x C-5: Open image in xnview
+C-x C-6: Open image in gpicview
 "
         ;;
 
@@ -125,7 +126,7 @@ C-x C-v: Open image in xnview
         ;;
 
     # Open image in Gimp
-    "C-g")
+    "C-1")
         while read file; do
             last_file=$file
         done
@@ -134,7 +135,7 @@ C-x C-v: Open image in xnview
         ;;
 
     # Open image in irfanview
-    "C-i")
+    "C-2")
         while read file; do
             last_file=$file
         done
@@ -143,7 +144,7 @@ C-x C-v: Open image in xnview
         ;;
 
     # Open image in ksnip
-    "C-k")
+    "C-3")
         while read file; do
             last_file=$file
         done
@@ -152,7 +153,7 @@ C-x C-v: Open image in xnview
         ;;
 
     # Open image in nomacs
-    "C-n")
+    "C-4")
         while read file; do
             last_file=$file
         done
@@ -161,12 +162,21 @@ C-x C-v: Open image in xnview
         ;;
 
     # Open image in xnview
-    "C-v")
+    "C-5")
         while read file; do
             last_file=$file
         done
         xnview.AppImage "$(pwd)/$last_file" &
         notify-send "sxiv: Open image '$(pwd)/$last_file' in xnview."
+        ;;
+
+    # Open image in gpicview
+    "C-6")
+        while read file; do
+            last_file=$file
+        done
+        gpicview "$(pwd)/$last_file" &
+        notify-send "sxiv: Open image '$(pwd)/$last_file' in gpicview."
         ;;
 
 esac
