@@ -48,7 +48,7 @@ set $highlight_color #0087FF
 
 exec_always --no-startup-id setxkbmap de -variant nodeadkeys && xmodmap "$HOME/.Xmodmap"
 exec_always --no-startup-id xrdb "$HOME/.Xresources"
-exec_always --no-startup-id "feh --bg-scale $WALLPAPER"
+exec_always --no-startup-id "feh --bg-fill $WALLPAPER"
 
 exec --no-startup-id "$HOME/Dropbox/wissensdb/serve_wissensdb.sh > /tmp/wissensdb_stdout.txt 2> /tmp/wissensdb_stderr.txt"
 # exec --no-startup-id compton
