@@ -44,10 +44,10 @@ interval=10
 # OUTLABEL=up: 
 # #TREAT_UNKNOWN_AS_UP=0
 
-[bri]
-interval=once
-signal=12
-# signal no. must correspond to no. in i3-config
+# [bri]
+# interval=once
+# signal=12
+# # signal no. must correspond to no. in i3-config
 
 [vol]
 interval=once
