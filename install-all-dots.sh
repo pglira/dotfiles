@@ -32,7 +32,7 @@ case "$(hostname)" in
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
         ;;
-    L1AS19 ) # nb
+    L1AS19 ) # old nb
         ./install-program-dots.sh alacritty --merge-tags "font-N1AS21 own_colorscheme"
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "L1AS19"
@@ -58,7 +58,7 @@ case "$(hostname)" in
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
         ;;
-    philipp-nb ) # new nb
+    L1AAS45 ) # new nb
         ./install-program-dots.sh appimages
         ./install-program-dots.sh bash --merge-tags "philipp-nb"
         ./install-program-dots.sh dunst
