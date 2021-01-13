@@ -107,3 +107,6 @@ set viewcolumns=*{name}..,16{mtime},7{}.
 " set dotfiles
 
 set locateprg="find | grep -i %a"
+
+" No lag for file previews
+set previewoptions+=graphicsdelay:0
