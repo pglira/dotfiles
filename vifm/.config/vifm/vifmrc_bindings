@@ -4,7 +4,7 @@ nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 
 nnoremap <space>ee :write | edit "/home/philipp/Dropbox/dot/vifm/.config/vifm/vifmrc"<cr>
-nnoremap <space>d :dragon<cr>
+nnoremap <space>d :!xdotool key Super_L+space & dragon -x -a %f<cr>
 nnoremap <space>w :set wrap!<cr>
 nnoremap // :locate<space>
 nnoremap < 4<c-w><
@@ -29,9 +29,9 @@ nnoremap - :chmod-x<cr>
 nnoremap <delete> :delete<cr>
 
 " alt key combinations
-nnoremap <M-d> :cd ~/Downloads<cr>=2020<cr>G<cr>
+nnoremap <M-d> :cd ~/Downloads<cr>=2021<cr>G<cr>
 nnoremap <M-u> :!ncdu<cr>
-nnoremap <M-s> :cd ~/Dropbox/screenshots/PC/2020<cr>
+nnoremap <M-s> :cd ~/Dropbox/screenshots/PC/2021<cr>
 
 " control key combinations
 nnoremap <C-j> 5j
