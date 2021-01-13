@@ -60,7 +60,7 @@ case "$(hostname)" in
         ;;
     L1AAS45 ) # new nb
         ./install-program-dots.sh appimages
-        ./install-program-dots.sh bash --merge-tags "philipp-nb"
+        ./install-program-dots.sh bash --merge-tags "L1AAS45"
         ./install-program-dots.sh dunst
         ./install-program-dots.sh fonts
         ./install-program-dots.sh i3 --merge-tags "work"
