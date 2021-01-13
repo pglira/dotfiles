@@ -244,6 +244,7 @@ for_window [class="Google-chrome"] title_format " %class: %title"
 for_window [class="Google-chrome"] floating disable
 for_window [class="Vivaldi-stable"] floating disable
 for_window [class="MATLAB"] title_format " %title"
+# for_window [class="MATLAB" title="Figure"] floating enable
 for_window [class="okular"] title_format " %title"
 for_window [class="Lxterminal"] title_format " %title"
 
