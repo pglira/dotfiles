@@ -51,6 +51,7 @@ exec_always --no-startup-id xrdb "$HOME/.Xresources"
 exec_always --no-startup-id "feh --bg-fill $WALLPAPER"
 
 exec --no-startup-id "$HOME/Dropbox/wissensdb/serve_wissensdb.sh > /tmp/wissensdb_stdout.txt 2> /tmp/wissensdb_stderr.txt"
+exec --no-startup-id "$HOME/Dropbox/prg-lin/overleaf/serve_overleaf.sh > /tmp/overleaf_stdout.txt 2> /tmp/overleaf_stderr.txt"
 exec --no-startup-id compton --vsync opengl-swc --backend glx -b
 exec --no-startup-id ~/.dropbox-dist/dropboxd
 exec --no-startup-id nm-applet # network icon
@@ -126,13 +127,14 @@ mode "$mode_system" {
 # Bindings: launch/focus applications #########################################
 
 # Start programs (with Shift like start)
+bindsym $mod+Shift+a exec dmenu_matlab.sh
 bindsym $mod+Shift+b exec $BROWSER
 bindsym $mod+Shift+d exec dunst_start.sh &
 bindsym $mod+Shift+i exec $BROWSER --incognito
 bindsym $mod+Shift+t exec $TERMINAL
 
 # Actions
-bindsym $mod+Mod1+a exec dmenu_open-work-pdf.sh
+bindsym $mod+Mod1+a exec dmenu_ait-mkdocs.sh
 bindsym $mod+Mod1+b exec dmenu_browser-bookmarks.sh
 bindsym $mod+Mod1+c exec dmenu_run $DMENU_OPTIONS -p "command:" -l 20
 bindsym $mod+Mod1+d exec cd $HOME/Dropbox/dot && ./install-all-dots.sh
