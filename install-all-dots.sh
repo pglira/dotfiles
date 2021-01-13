@@ -21,7 +21,7 @@ case "$(hostname)" in
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
         ./install-program-dots.sh newsboat
-        ./install-program-dots.sh passwords --merge-tags "work"
+        ./install-program-dots.sh passwords
         ./install-program-dots.sh readline
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh spacevim
@@ -48,7 +48,7 @@ case "$(hostname)" in
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
         ./install-program-dots.sh newsboat
-        ./install-program-dots.sh passwords --merge-tags "work"
+        ./install-program-dots.sh passwords
         ./install-program-dots.sh readline
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh spacevim
@@ -74,7 +74,7 @@ case "$(hostname)" in
         ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
         ./install-program-dots.sh newsboat
-        ./install-program-dots.sh passwords --merge-tags "work"
+        ./install-program-dots.sh passwords
         ./install-program-dots.sh readline
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh spacevim
