@@ -214,8 +214,8 @@ save_playlist           = w
 go_to_playing_file      = c
 go_to_a_directory       = C
 playlist_full_paths     = P
-plist_move_up           = +
-plist_move_down         = -
+plist_move_up           = -
+plist_move_down         = +
 
 remove_dead_entries     = Y
 volume_down_1           = <
