@@ -2,6 +2,7 @@ function! myconfig#before() abort
 
   " Open file with vifm
   call SpaceVim#custom#SPC('nore', ['f', 'f'], 'EditVifm', 'Open file', 1)
+  call SpaceVim#custom#SPC('nore', ['q'], 'write|bdelete', 'Write and delete buffer', 1)
 
   " Vimux
   call SpaceVim#custom#SPCGroupName(['v'], '+Vimux')
