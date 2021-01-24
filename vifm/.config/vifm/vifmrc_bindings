@@ -16,6 +16,7 @@ nnoremap VV :%select<cr>
 nnoremap d :fzfdirbookmarks<cr>
 nnoremap D :fzfrecursivedirs<cr>
 nnoremap e :!xdotool key Super_L+space & edit-file.sh %f %i<cr>
+nnoremap E :!tmux new-window -n "%f" "vim %f"<cr>
 nnoremap f :fzffilebookmarks<cr>
 nnoremap F :fzfrecursivefiles<cr>
 nnoremap n :set number!<cr>
