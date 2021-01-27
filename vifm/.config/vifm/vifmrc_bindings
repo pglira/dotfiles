@@ -30,7 +30,7 @@ nnoremap - :chmod-x<cr>
 nnoremap <delete> :delete<cr>
 
 " alt key combinations
-nnoremap <M-d> :cd ~/Downloads<cr>=2021<cr>G<cr>
+nnoremap <M-d> :cd ~/Downloads<cr>=/<cr>G<cr>
 nnoremap <M-u> :!ncdu<cr>
 nnoremap <M-s> :cd ~/Dropbox/screenshots/PC/2021<cr>
 
