@@ -57,10 +57,10 @@ exec --no-startup-id ~/.dropbox-dist/dropboxd
 exec --no-startup-id nm-applet # network icon
 exec --no-startup-id xautolock -time 60 -locker blurlock.sh
 exec --no-startup-id udiskie
-exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
 exec --no-startup-id numlockx on
-exec --no-startup-id i3_focus-last-window.py
 exec --no-startup-id clipmenud
+exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
+exec --no-startup-id "sh -c 'sleep 2 && i3_focus-last-window.py'"
 # exec --no-startup-id hsetroot -solid "#004876"
 
 # scratchpad applications
