@@ -352,6 +352,7 @@ bindsym $mod+Shift+k exec i3_new-workspace.sh
 
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+asciicircum exec i3_focus-last-window.py --switch
+bindsym $mod+w exec i3_open-next-free-workspace.py
 
 # Move container and workspaces ###############################################
 
