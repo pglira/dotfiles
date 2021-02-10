@@ -25,23 +25,23 @@ interval=30
 interval=10
 
 # [ip-address]
-# label=ip: 
+# label=ip:
 # interval=60
 
 # [ssid]
-# label=ssid: 
+# label=ssid:
 # interval=10
 
 # [wlan]
-# label=wlanqlt: 
+# label=wlanqlt:
 # INTERFACE=wlan0
 # interval=10
 
 # [bandwidth]
 # interval=1
 # #INTERFACE=eth0
-# INLABEL=down: 
-# OUTLABEL=up: 
+# INLABEL=down:
+# OUTLABEL=up:
 # #TREAT_UNKNOWN_AS_UP=0
 
 # [bri]
@@ -72,7 +72,10 @@ interval=1
 
 [apt]
 signal=1
-interval=3600
+interval=600
+
+[rsnapshot]
+interval=600
 
 # [up]
 # interval=1
