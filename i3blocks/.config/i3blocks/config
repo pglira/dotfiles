@@ -86,6 +86,9 @@ interval=1
 [gmail]
 interval=10
 
+[taskwarrior]
+interval=10
+
 # [td]
 # interval=1
 
