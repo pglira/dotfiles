@@ -10,14 +10,17 @@ alias grep='grep --color=auto' \
     egrep='egrep --color=auto'
 
 alias c='cd $(vifm --choose-dir -)' \
-    d='cd $(cat $DIR_BOOKMARKS | fzf)' \
-    f='$EDITOR $(cat $FILE_BOOKMARKS | fzf)' \
+    D='cd $(cat $DIR_BOOKMARKS | fzf)' \
+    F='$EDITOR $(cat $FILE_BOOKMARKS | fzf)' \
+    L='cd $(find $LATEXDIR -mindepth 1 -maxdepth 2 -type l,d | sort | fzf)' \
+    J='cd $(find $PRJDIR -mindepth 1 -maxdepth 1 -type l,d | sort | fzf)' \
+    R='cd $(find $REPOSDIR -mindepth 1 -maxdepth 2 -type l,d | sort | fzf)' \
     e='$EDITOR' \
     k='fzf_kill.sh' \
-    r='cd $REPOS/$(find $REPOS -mindepth 1 -maxdepth 2 -type l,d | sort | fzf)' \
     ka='killall' \
     xk='xkill' \
     ai='sudo apt-get install' \
+    aii='fzf_apt.sh' \
     as='apt-cache search' \
     cp='cp -v' \
     mv='mv -v' \
@@ -25,7 +28,9 @@ alias c='cd $(vifm --choose-dir -)' \
     rsync='rsync -v --progress' \
     lg='lazygit' \
     df='df --human-readable' \
-    md='media-download.sh'
+    md='media-download.sh' \
+    dmenu='dmenu ${DMENU_OPTIONS}'\
+    t='task'
 
 alias ros="source ~/Dropbox/scripts/ros_source-ws.sh" \
     cm="catkin_make"
