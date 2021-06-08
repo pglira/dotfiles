@@ -25,8 +25,16 @@
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.tif,*.tiff
+        \ {View in vimiv}
+        \ xdotool key Super_L+space & vimiv ""%c"" %i &,
         \ {View in sxiv}
         \ xdotool key Super_L+space & vifm_sxiv.sh ""%c"" -q %i &
+
+" Point clouds
+" Filetypes taken from https://www.cloudcompare.org/doc/wiki/index.php?title=FILE_I/O
+filextype *.las,*.laz,*.bin,*.sbf,*.e57,*.pcd,*.ply,*.obj,*.vtk,*.stl,*.shp,*.xyz
+        \ {View in cloud compare}
+        \ xdotool key Super_L+space & cloudcompare.CloudCompare ""%c"" %i &
 
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
         \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,

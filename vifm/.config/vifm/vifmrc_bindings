@@ -4,7 +4,6 @@ nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 
 nnoremap <space>ee :write | edit "/home/philipp/Dropbox/dot/vifm/.config/vifm/vifmrc"<cr>
-nnoremap <space>d :!xdotool key Super_L+space & dragon -x -a %f<cr>
 nnoremap <space>w :set wrap!<cr>
 nnoremap // :locate<space>
 nnoremap < 4<c-w><
@@ -13,41 +12,53 @@ nnoremap > 4<c-w>>
 nnoremap H za
 nnoremap S :sort<cr>
 nnoremap VV :%select<cr>
-nnoremap d :fzfdirbookmarks<cr>
-nnoremap D :fzfrecursivedirs<cr>
-nnoremap e :!xdotool key Super_L+space & edit-file.sh %f %i<cr>
+nnoremap e :!xdotool key Super_L+space & process-file.sh %f %i<cr>
 nnoremap E :!tmux new-window -n "%f" "vim %f"<cr>
-nnoremap f :fzffilebookmarks<cr>
-nnoremap F :fzfrecursivefiles<cr>
+nnoremap i :!xdotool key Super_L+space & process-image.sh %f %i<cr>
 nnoremap n :set number!<cr>
-nnoremap r :fzfrepos<cr>
+nnoremap m :!xdotool key Super_L+space && dragon -x -a %f &<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
-nnoremap o :!xdotool key Super_L+space & open-dir.sh %d %i<cr>
+nnoremap o :!xdotool key Super_L+space & process-dir.sh %d %i<cr>
 nnoremap q :quit<cr>
 nnoremap + :chmod+x<cr>
 nnoremap - :chmod-x<cr>
-nnoremap <delete> :delete<cr>
+
+nnoremap D :fzfdirbookmarks<cr>
+nnoremap F :fzffilebookmarks<cr>
+nnoremap L :fzflatex<cr>
+nnoremap J :fzfprj<cr>
+nnoremap R :fzfrepos<cr>
 
 " alt key combinations
-nnoremap <M-d> :cd ~/Downloads<cr>=/<cr>G<cr>
+nnoremap <M-d> :cd ~/Downloads<cr>=202.-..-../<cr>G<cr>
 nnoremap <M-u> :!ncdu<cr>
 nnoremap <M-s> :cd ~/Dropbox/screenshots/PC/2021<cr>
 
 " control key combinations
+nnoremap <C-d> :fdd<cr>
+nnoremap <C-f> :fd<cr>
 nnoremap <C-j> 5j
 nnoremap <C-k> 5k
 nnoremap <C-h> :tabprevious<cr>
 nnoremap <C-l> :tabnext<cr>
 nnoremap <C-t> :tabnew<cr>
+nnoremap <C-s> :fzfrecursivesearchinfiles<cr>
 " nnoremap <C-w> :tabclose<cr>
+nnoremap <silent> <C-v> :if layoutis('only')
+                       \|    vsplit
+                       \|    execute 'wincmd H'
+                       \|else
+                       \|    only
+                       \|endif<cr>
 
 " f keys
 nnoremap <f2> :rename<cr>
 " nnoremap <f3> :!less %f<cr>
 nnoremap <f3> :!glogg %f %i & xdotool key Super_L+space &<cr>
 " nnoremap <f4> :edit<cr>
-nnoremap <f4> :viewless<cr>
+" nnoremap <f4> :viewless<cr>
+nnoremap <f4> ::bat<cr>
 " nnoremap <f5> :copy &<cr>
 nnoremap <f5> :cp<cr>
 " nnoremap <f6> :move &<cr>
@@ -59,7 +70,6 @@ nnoremap <f8> :rm<cr>
 nnoremap <f9> :!printf "\n%%s" %f:p | tail -c+2 | xclip -selection clipboard %i<cr>
 nnoremap <f10> :!printf "%%s" %d | xclip -selection clipboard %i<cr>
 nnoremap <f11> :!printf "\n%%s" %f:. | tail -c+2 | xclip -selection clipboard %i<cr>
-" nnoremap <f12> :if layoutis('only') | vsplit | view! | else | only | endif<cr>
 nnoremap <silent> <f12> :if layoutis('only')
                        \|    vsplit
                        \|    execute 'wincmd H'
