@@ -1,0 +1,14 @@
+{
+    "abbrev": "",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "New item",
+    "shortcut": "Ctrl+M,Ctrl+T",
+    "tag": [
+        "\\item %|"
+    ],
+    "trigger": ""
+}

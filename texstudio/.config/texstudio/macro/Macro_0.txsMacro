@@ -1,0 +1,16 @@
+{
+    "abbrev": "",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "Itemize environment",
+    "shortcut": "Ctrl+M,Ctrl+I",
+    "tag": [
+        "\\begin{itemize}",
+        "\t\\item %|",
+        "\\end{itemize}"
+    ],
+    "trigger": ""
+}
