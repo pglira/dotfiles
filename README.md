@@ -11,7 +11,7 @@ Just my dotfiles. Feel free to use them.
 - **IDE**: [clion](https://www.jetbrains.com) with [ideavim](https://github.com/JetBrains/ideavim)
 - **Video player**: [mpv](https://mpv.io/)
 - **Music player**: [moc](http://moc.daper.net/)
-- **Image viewer**: [sxiv](https://github.com/muennich/sxiv)
+- **Image viewer**: [vimiv](https://github.com/karlch/vimiv-qt)
 - **PDF viewer**: [okular](https://okular.kde.org/)
 
 Programs I don't use anymore are moved to [``.archive``](.archive).
