@@ -86,6 +86,3 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse $FZF_COLORS"
 
 # Disable C-s in terminal so that it can be used in other programe, e.g. vim
 stty -ixon
-
-source /home/philipp/anaconda3/etc/profile.d/conda.sh
-source /opt/ros/melodic/setup.bash
