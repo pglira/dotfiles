@@ -10,11 +10,16 @@ vnoremap <C-j> 5j
 map Y y$
 
 set scrolloff=1000
-
-set easymotion
-map <leader>jj <Plug>(easymotion-bd-f)
-
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
+
+" Relative numbers
+set relativenumber
+nnoremap <C-e> :set relativenumber!<CR>
+
+" Plugins
+set surround
+set easymotion
+map <leader>jj <Plug>(easymotion-bd-f)
