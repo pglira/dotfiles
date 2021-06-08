@@ -38,8 +38,8 @@ set $scratchpad_moc --no-startup-id $TERMINAL -t "scratchpad_moc" -e tmux_start_
 set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager" -e tmux_start_scratchpad_filemanager.sh
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
-set $scratchpad_scrcpy --no-startup-id notify-send "start scrcpy" && adb kill-server && adb start-server && scrcpy
-set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
+set $scratchpad_editor --no-startup-id vim -g --servername scratchpad_editor
+set $scratchpad_tasks --no-startup-id $TERMINAL -t "scratchpad_tasks" -e tmux_start_scratchpad_tasks.sh
 
 set $scratchpad_percentage 92
 set $highlight_color #0087FF
@@ -60,7 +60,7 @@ exec --no-startup-id udiskie
 exec --no-startup-id numlockx on
 exec --no-startup-id clipmenud
 exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
-exec --no-startup-id "sh -c 'sleep 2 && i3_focus-last-window.py'"
+exec --no-startup-id "sh -c 'sleep 2 && i3_focus-last-window.py > /tmp/i3_focus-last-window_stdout.txt 2> /tmp/i3_focus-last-window_stderr.txt'"
 # exec --no-startup-id hsetroot -solid "#004876"
 
 # scratchpad applications
@@ -72,6 +72,7 @@ exec $scratchpad_downloads
 exec $scratchpad_python
 exec $scratchpad_keepassxc
 exec $scratchpad_editor
+exec $scratchpad_tasks
 
 # Keyboard & mouse ############################################################
 
@@ -127,29 +128,30 @@ mode "$mode_system" {
 # Bindings: launch/focus applications #########################################
 
 # Start programs (with Shift like start)
-bindsym $mod+Shift+a exec dmenu_matlab.sh
 bindsym $mod+Shift+b exec $BROWSER
-bindsym $mod+Shift+d exec dunst_start.sh &
 bindsym $mod+Shift+i exec $BROWSER --incognito
 bindsym $mod+Shift+t exec $TERMINAL
 
 # Actions
-bindsym $mod+Mod1+a exec dmenu_ait-mkdocs.sh
+bindsym $mod+Mod1+a exec dmenu_run-command-on-item.py --search-dir $AITMKDOCSDIR --search-pattern "*.md" --command "process-file.sh %ITEM" --dmenu-options "$DMENU_OPTIONS -p mkdocs-file:" --show-relative-paths
 bindsym $mod+Mod1+b exec dmenu_browser-bookmarks.sh
-bindsym $mod+Mod1+c exec dmenu_run $DMENU_OPTIONS -p "command:" -l 20
+bindsym $mod+Mod1+c exec dmenu_run $DMENU_OPTIONS -p "command:"
 bindsym $mod+Mod1+d exec cd $HOME/Dropbox/dot && ./install-all-dots.sh
+bindsym $mod+Mod1+e exec ibus emoji
 bindsym $mod+Mod1+f exec dmenu_simple-filemanager.sh
 bindsym $mod+Mod1+g exec search_for_marked_text_in_browser.sh
 bindsym $mod+Mod1+h exec dmenu_sysmon.sh
 bindsym $mod+Mod1+i exec set-brightness.sh
-bindsym $mod+Mod1+j exec ibus emoji
-bindsym $mod+Mod1+l exec dmenu_open-latex-pdf.sh
-bindsym $mod+Mod1+m exec dmenu_open-man-as-pdf.sh
-bindsym $mod+Mod1+n exec dmenu_select-monitors.sh
+bindsym $mod+Mod1+k exec dmenu_kill-process.py --dmenu-options "$DMENU_OPTIONS -p kill:"
+bindsym $mod+Mod1+l exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/latex/projects" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p latex-pdf:"  --show-relative-paths
+bindsym $mod+Mod1+m exec dmenu_open-manpage.py --program "okular" --dmenu-options "$DMENU_OPTIONS -p manpage:"
+bindsym $mod+Mod1+n exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/scripts/output" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p output:"  --show-relative-paths
 bindsym $mod+Mod1+o exec tmux new-window -t scratchpad_downloads && tmux send-keys -t scratchpad_downloads 'media-download.sh "" --notification --gui' C-m && tmux last-window
-bindsym $mod+Mod1+p exec dmenu_open-paper.sh
+bindsym $mod+Mod1+p exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/literature" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p literature:"  --show-relative-paths
+bindsym $mod+Mod1+q exec quick-note.sh $NOTESDIR
+bindsym $mod+Mod1+r exec dmenu_relax-sounds.sh
 bindsym $mod+Mod1+s exec open-last-screenshot.sh
-bindsym $mod+Mod1+t exec dmenu_paste.sh
+bindsym $mod+Mod1+t exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/scripts/paste" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p paste:"  --show-relative-paths
 bindsym $mod+Mod1+v exec open-video-with-mpv.sh
 bindsym $mod+Mod1+w exec dmenu_websearch.sh
 bindsym $mod+Mod1+x exec keepmenu
@@ -189,13 +191,13 @@ for_window [class="KeePassXC" instance="keepassxc" title="KeePassXC"] floating e
 bindsym $mod+Shift+x exec $scratchpad_keepassxc
 bindsym $mod+x [class="KeePassXC" instance="keepassxc" title="KeePassXC"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-for_window [class="scrcpy" instance="scrcpy"] floating enable, move scratchpad
-bindsym $mod+Shift+c exec $scratchpad_scrcpy
-bindsym $mod+c [class="scrcpy" instance="scrcpy"] scratchpad show, move position center
-
-for_window [title="scratchpad_editor"] floating enable, move scratchpad
+for_window [class="Gvim" title="SCRATCHPAD_EDITOR"] floating enable, move scratchpad
 bindsym $mod+Shift+e exec $scratchpad_editor
-bindsym $mod+e [title="scratchpad_editor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+bindsym $mod+e [class="Gvim" title="SCRATCHPAD_EDITOR"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+
+for_window [title="scratchpad_tasks"] floating enable, move scratchpad
+bindsym $mod+Shift+a exec $scratchpad_tasks
+bindsym $mod+a [title="scratchpad_tasks"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 bindsym $mod+Escape exec i3_hide-scratchpad-windows.sh
 
@@ -235,33 +237,29 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [class="Zenity"] floating enable
 for_window [class="Yad"] floating enable
-for_window [class="Microsoft Teams - Preview" instance="microsoft teams - preview" title="Microsoft Teams Notification" window_role="browser-window"] floating enable
+# for_window [class="Microsoft Teams - Preview" instance="microsoft teams - preview" title="Microsoft Teams Notification" window_role="browser-window"] floating enable
 for_window [class="Ibus-ui-emojier"] floating enable
 for_window [class="jetbrains-clion" title="Commit Changes"] floating disable
 for_window [class="jetbrains-clion" title="Push Commits to"] floating disable
 for_window [class="jetbrains-clion" title="win0"] floating enable, move position center
-for_window [class="Vimb"] title_format " %class: %title"
-for_window [title="vimb_editor"] floating enable, resize set 50 ppt 50 ppt, move position center
 for_window [class="Google-chrome"] title_format " %class: %title"
 for_window [class="Google-chrome"] floating disable
 for_window [class="Vivaldi-stable"] title_format " %class: %title"
 for_window [class="Vivaldi-stable"] floating disable
 for_window [class="MATLAB"] title_format " %title"
-# for_window [class="MATLAB" title="Figure"] floating enable
+for_window [class="MATLAB" title="Figure"] floating enable
+for_window [class="MATLAB" title="AIT.*"] floating enable
 for_window [class="okular"] title_format " %title"
 for_window [class="Lxterminal"] title_format " %title"
 for_window [class="org-knopflerfish-framework-BundleThread"] title_format "%title"
+for_window [class="pyqt*"] floating enable
+for_window [class="optrals*"] floating enable
+for_window [class="ksnip"] floating disable
 
 # Screenshots #################################################################
 
-# bindsym Print exec --no-startup-id "bash i3_scrot"
-# bindsym $mod+Print --release exec --no-startup-id "bash i3_scrot -w"
-# bindsym $mod+Shift+Print --release exec --no-startup-id "bash i3_scrot -s"
-
-bindsym Print exec --no-startup-id "shutter --full --profile=pg"
-bindsym $mod+Print exec --no-startup-id "shutter --window --profile=pg"
-bindsym $mod+Shift+Print exec --no-startup-id "shutter --select --profile=pg"
-bindsym $mod+Ctrl+Print exec --no-startup-id "shutter --redo --profile=pg"
+bindsym $mod+Print exec --no-startup-id "dmenu_scrot.sh ${SCROTDIR}/work > /tmp/dmenu_scrot_stdout.txt 2> /tmp/dmenu_scrot_stderr.txt"
+bindsym Print exec --no-startup-id "dmenu_scrot.sh ${SCROTDIR}/private > /tmp/dmenu_scrot_stdout.txt 2> /tmp/dmenu_scrot_stderr.txt"
 
 # Container and workspaces ####################################################
 
@@ -314,8 +312,8 @@ focus_on_window_activation focus
 
 # Switch to other workspaces ##################################################
 
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "1:web"
+set $ws2 "2:msg"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -352,9 +350,12 @@ bindsym $mod+Shift+k exec i3_new-workspace.sh
 
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+asciicircum exec i3_focus-last-window.py --switch
-bindsym $mod+w exec i3_open-next-free-workspace.py
+bindsym $mod+g exec i3_goto-next-free-workspace.py
+bindsym $mod+w exec i3_dmenu_change-window.py --item-format "{workspace.name}: {container.window_class} - {container.name}" --group-by none ${DMENU_OPTIONS}
 
 # Move container and workspaces ###############################################
+
+bindsym $mod+Shift+w exec i3_move-window-to-next-free-workspace.py
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
