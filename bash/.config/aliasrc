@@ -32,5 +32,5 @@ alias c='cd $(vifm --choose-dir -)' \
     dmenu='dmenu ${DMENU_OPTIONS}'\
     t='task'
 
-alias ros="source ~/Dropbox/scripts/ros_source-ws.sh" \
+alias ros="source ~/oc/Linux/scripts/ros_source-ws.sh" \
     cm="catkin_make"

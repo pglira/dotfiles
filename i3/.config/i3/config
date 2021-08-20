@@ -50,10 +50,10 @@ exec_always --no-startup-id setxkbmap de -variant nodeadkeys && xmodmap "$HOME/.
 exec_always --no-startup-id xrdb "$HOME/.Xresources"
 exec_always --no-startup-id "feh --bg-fill $WALLPAPER"
 
-exec --no-startup-id "$HOME/Dropbox/wissensdb/serve_wissensdb.sh > /tmp/wissensdb_stdout.txt 2> /tmp/wissensdb_stderr.txt"
-exec --no-startup-id "$HOME/Dropbox/prg-lin/overleaf/serve_overleaf.sh > /tmp/overleaf_stdout.txt 2> /tmp/overleaf_stderr.txt"
+exec --no-startup-id "$HOME/oc/WissensDB/serve_wissensdb.sh > /tmp/mkdocs-wissensdb_stdout.txt 2> /tmp/mkdocs-wissensdb_stderr.txt"
+exec --no-startup-id "$HOME/ait/mkdocs/serve_mkdocs-ait.sh > /tmp/mkdocs-ait_stdout.txt 2> /tmp/mkdocs-ait_stderr.txt"
 exec --no-startup-id compton --vsync opengl-swc --backend glx -b
-exec --no-startup-id ~/.dropbox-dist/dropboxd
+exec --no-startup-id owncloud
 exec --no-startup-id nm-applet # network icon
 exec --no-startup-id xautolock -time 60 -locker blurlock.sh
 exec --no-startup-id udiskie
@@ -143,15 +143,15 @@ bindsym $mod+Mod1+g exec search_for_marked_text_in_browser.sh
 bindsym $mod+Mod1+h exec dmenu_sysmon.sh
 bindsym $mod+Mod1+i exec set-brightness.sh
 bindsym $mod+Mod1+k exec dmenu_kill-process.py --dmenu-options "$DMENU_OPTIONS -p kill:"
-bindsym $mod+Mod1+l exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/latex/projects" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p latex-pdf:"  --show-relative-paths
+bindsym $mod+Mod1+l exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Latex/projects" --search-pattern "main.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p latex-pdf:" --show-relative-paths
 bindsym $mod+Mod1+m exec dmenu_open-manpage.py --program "okular" --dmenu-options "$DMENU_OPTIONS -p manpage:"
-bindsym $mod+Mod1+n exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/scripts/output" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p output:"  --show-relative-paths
+bindsym $mod+Mod1+n exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts/output" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p output:" --show-relative-paths
 bindsym $mod+Mod1+o exec tmux new-window -t scratchpad_downloads && tmux send-keys -t scratchpad_downloads 'media-download.sh "" --notification --gui' C-m && tmux last-window
-bindsym $mod+Mod1+p exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/literature" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p literature:"  --show-relative-paths
-bindsym $mod+Mod1+q exec quick-note.sh $NOTESDIR
-bindsym $mod+Mod1+r exec dmenu_relax-sounds.sh
+bindsym $mod+Mod1+p exec dmenu_run-command-on-item.py --search-dir "$LITERATUREDIR" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p literature:" --show-relative-paths
+bindsym $mod+Mod1+q exec quick-note.sh
 bindsym $mod+Mod1+s exec open-last-screenshot.sh
-bindsym $mod+Mod1+t exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/scripts/paste" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p paste:"  --show-relative-paths
+bindsym $mod+Mod1+t exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts/paste" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p paste:" --show-relative-paths
+bindsym $mod+Mod1+u exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p script:" --show-relative-paths
 bindsym $mod+Mod1+v exec open-video-with-mpv.sh
 bindsym $mod+Mod1+w exec dmenu_websearch.sh
 bindsym $mod+Mod1+x exec keepmenu
@@ -413,7 +413,7 @@ font pango:JetBrains Mono 10
 bar {
         # I don't know if FontAwesome has an effect here
         font pango:JetBrains Mono, FontAwesome 10
-        # status_command i3status -c $HOME/Dropbox/dot/i3status.conf
+        # status_command i3status -c $HOME/oc/Linux/dot/i3status.conf
         status_command i3blocks -c $HOME/.config/i3blocks/config
         position bottom
         separator_symbol " "

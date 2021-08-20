@@ -32,8 +32,7 @@ nnoremap R :fzfrepos<cr>
 
 " alt key combinations
 nnoremap <M-d> :cd ~/Downloads<cr>=202.-..-../<cr>G<cr>
-nnoremap <M-u> :!ncdu<cr>
-nnoremap <M-s> :cd ~/Dropbox/screenshots/PC/2021<cr>
+nnoremap <M-s> :cd ~/oc/Screenshots/PC/2021<cr>
 
 " control key combinations
 nnoremap <C-d> :fdd<cr>

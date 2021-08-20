@@ -1,6 +1,6 @@
 " For mapping the colors from .dircolors to this file:
 " 1. delete all lines after the line containg "colors from .dircolors"
-" 2. run vifm-convert-dircolors -e >> /home/philipp/Dropbox/dot/.vifm/colors/pg.vifm
+" 2. run vifm-convert-dircolors -e >> /home/philipp/oc/Linux/dot/.vifm/colors/pg.vifm
 
 " Available style values (some of them can be combined): 
 " - bold 

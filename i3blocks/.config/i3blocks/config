@@ -1,4 +1,4 @@
-command=~/Dropbox/scripts/statusbar/$BLOCK_NAME.sh
+command=~/oc/Linux/scripts/statusbar/$BLOCK_NAME.sh
 markup=pango
 text_color="#ffffff"
 bg_default_color="#222222"
