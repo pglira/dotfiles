@@ -30,7 +30,8 @@ alias c='cd $(vifm --choose-dir -)' \
     df='df --human-readable' \
     md='media-download.sh' \
     dmenu='dmenu ${DMENU_OPTIONS}'\
-    t='task'
+    t='task' \
+    dict='dict.cc.py'
 
 alias ros="source ~/oc/Linux/scripts/ros_source-ws.sh" \
     cm="catkin_make"
