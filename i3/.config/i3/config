@@ -34,7 +34,7 @@ default_border pixel 6
 set $scratchpad_terminal --no-startup-id $TERMINAL -t "scratchpad_terminal" -e tmux_start_scratchpad_terminal.sh
 set $scratchpad_python --no-startup-id $TERMINAL -t "scratchpad_python" -e python3
 set $scratchpad_newsboat --no-startup-id $TERMINAL -t "scratchpad_newsboat" -e tmux_start_scratchpad_newsboat.sh
-set $scratchpad_moc --no-startup-id $TERMINAL -t "scratchpad_moc" -e tmux_start_scratchpad_moc.sh
+set $scratchpad_music --no-startup-id "flatpak run org.kde.elisa"
 set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager" -e tmux_start_scratchpad_filemanager.sh
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
@@ -61,17 +61,18 @@ exec --no-startup-id clipmenud
 exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
 exec --no-startup-id "sh -c 'sleep 2 && i3_focus-last-window.py > /tmp/i3_focus-last-window_stdout.txt 2> /tmp/i3_focus-last-window_stderr.txt'"
 # exec --no-startup-id hsetroot -solid "#004876"
+exec --no-startup-id "quick-notes_monitor.sh $AITNOTESDIR"
+exec --no-startup-id "quick-notes_monitor.sh $NOTESDIR"
 
 # scratchpad applications
 exec $scratchpad_terminal
 exec $scratchpad_newsboat
-exec $scratchpad_moc
+exec $scratchpad_music
 exec $scratchpad_filemanager
 exec $scratchpad_downloads
 exec $scratchpad_python
 exec $scratchpad_keepassxc
 exec $scratchpad_editor
-exec $scratchpad_tasks
 
 # Keyboard & mouse ############################################################
 
@@ -135,12 +136,13 @@ bindsym $mod+Shift+t exec $TERMINAL
 bindsym $mod+Mod1+a exec dmenu_run-command-on-item.py --search-dir $AITMKDOCSDIR --search-pattern "*.md" --command "process-file.sh %ITEM" --dmenu-options "$DMENU_OPTIONS -p mkdocs-file:" --show-relative-paths
 bindsym $mod+Mod1+b exec dmenu_browser-bookmarks.sh
 bindsym $mod+Mod1+c exec dmenu_run $DMENU_OPTIONS -p "command:"
-bindsym $mod+Mod1+d exec cd $HOME/Dropbox/dot && ./install-all-dots.sh
+bindsym $mod+Mod1+d exec cd $HOME/oc/Linux/dot && ./install-all-dots.sh
 bindsym $mod+Mod1+e exec ibus emoji
-bindsym $mod+Mod1+f exec dmenu_simple-filemanager.sh
-bindsym $mod+Mod1+g exec search_for_marked_text_in_browser.sh
+# bindsym $mod+Mod1+f
+bindsym $mod+Mod1+g exec search-for-marked-text-in-webbrowser.sh
 bindsym $mod+Mod1+h exec dmenu_sysmon.sh
 bindsym $mod+Mod1+i exec set-brightness.sh
+# bindsym $mod+Mod1+j
 bindsym $mod+Mod1+k exec dmenu_kill-process.py --dmenu-options "$DMENU_OPTIONS -p kill:"
 bindsym $mod+Mod1+l exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Latex/projects" --search-pattern "main.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p latex-pdf:" --show-relative-paths
 bindsym $mod+Mod1+m exec dmenu_open-manpage.py --program "okular" --dmenu-options "$DMENU_OPTIONS -p manpage:"
@@ -148,6 +150,7 @@ bindsym $mod+Mod1+n exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Lin
 bindsym $mod+Mod1+o exec tmux new-window -t scratchpad_downloads && tmux send-keys -t scratchpad_downloads 'media-download.sh "" --notification --gui' C-m && tmux last-window
 bindsym $mod+Mod1+p exec dmenu_run-command-on-item.py --search-dir "$LITERATUREDIR" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p literature:" --show-relative-paths
 bindsym $mod+Mod1+q exec quick-note.sh
+bindsym $mod+Mod1+r exec dmenu_run-command-on-item.py --search-dir "$HOME/Dropbox/code/repos/polyglot/snippets" --search-pattern "*.*" --command "gnome-text-editor %ITEM" --dmenu-options "$DMENU_OPTIONS -p snippets:" --show-relative-paths
 bindsym $mod+Mod1+s exec open-last-screenshot.sh
 bindsym $mod+Mod1+t exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts/paste" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p paste:" --show-relative-paths
 bindsym $mod+Mod1+u exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p script:" --show-relative-paths
@@ -174,9 +177,9 @@ for_window [title="scratchpad_newsboat"] floating enable, move scratchpad
 bindsym $mod+Shift+n exec $scratchpad_newsboat
 bindsym $mod+n [title="scratchpad_newsboat"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-for_window [title="scratchpad_moc"] floating enable, move scratchpad
-bindsym $mod+Shift+m exec $scratchpad_moc
-bindsym $mod+m [title="scratchpad_moc"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+for_window [class="elisa" title="^Elisa$"] floating enable, move scratchpad
+bindsym $mod+Shift+m exec $scratchpad_music
+bindsym $mod+m [class="elisa" title="^Elisa$"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [title="scratchpad_filemanager"] floating enable, move scratchpad
 bindsym $mod+Shift+space exec $scratchpad_filemanager
@@ -235,7 +238,8 @@ for_window [class="Yad"] floating enable
 # for_window [class="Microsoft Teams - Preview" instance="microsoft teams - preview" title="Microsoft Teams Notification" window_role="browser-window"] floating enable
 for_window [class="Ibus-ui-emojier"] floating enable
 for_window [class="jetbrains-clion" title="Commit Changes"] floating disable
-for_window [class="jetbrains-clion" title="Push Commits to"] floating disable
+for_window [class="jetbrains-clion" title="Settings"] floating disable
+for_window [class="jetbrains-clion" title="Push Commits"] floating disable
 for_window [class="jetbrains-clion" title="win0"] floating enable, move position center
 for_window [class="Google-chrome"] title_format " %class: %title"
 for_window [class="Google-chrome"] floating disable
@@ -250,6 +254,8 @@ for_window [class="org-knopflerfish-framework-BundleThread"] title_format "%titl
 for_window [class="pyqt*"] floating enable
 for_window [class="optrals*"] floating enable
 for_window [class="ksnip"] floating disable
+for_window [class="ksnip" instance="ksnip" title="Warning - ksnip"] floating enable
+for_window [class="Lxterminal" title="edit-quick-note"] floating enable, resize set 500 px 500 px, move position center
 
 # Screenshots #################################################################
 
