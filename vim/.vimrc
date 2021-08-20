@@ -141,21 +141,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " User interface """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" gvim: hide ...
-set guioptions-=m  " ... menu bar
-set guioptions-=T  " ... toolbar
-set guioptions-=r  " ... scrollbar
-
-" font
-set guifont=JetBrains\ Mono\ 12
-
-" https://superuser.com/a/1540227/1031101
-colors koehler
-highlight LineNr guifg=DarkGray
-highlight Search guibg='Purple' guifg=#FFFFFF
-highlight String guifg=#FF5733
-highlight Visual guibg=#000000
-highlight Pmenu guifg=#000000 guibg=#808080"
+colors molokai
+hi Visual cterm=none ctermbg=33
 
 " Vertical line
 set colorcolumn=101

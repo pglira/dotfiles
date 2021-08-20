@@ -38,8 +38,7 @@ set $scratchpad_moc --no-startup-id $TERMINAL -t "scratchpad_moc" -e tmux_start_
 set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager" -e tmux_start_scratchpad_filemanager.sh
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
-set $scratchpad_editor --no-startup-id vim -g --servername scratchpad_editor
-set $scratchpad_tasks --no-startup-id $TERMINAL -t "scratchpad_tasks" -e tmux_start_scratchpad_tasks.sh
+set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
 
 set $scratchpad_percentage 92
 set $highlight_color #0087FF
@@ -191,13 +190,9 @@ for_window [class="KeePassXC" instance="keepassxc" title="KeePassXC"] floating e
 bindsym $mod+Shift+x exec $scratchpad_keepassxc
 bindsym $mod+x [class="KeePassXC" instance="keepassxc" title="KeePassXC"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-for_window [class="Gvim" title="SCRATCHPAD_EDITOR"] floating enable, move scratchpad
+for_window [title="scratchpad_editor"] floating enable, move scratchpad
 bindsym $mod+Shift+e exec $scratchpad_editor
-bindsym $mod+e [class="Gvim" title="SCRATCHPAD_EDITOR"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
-
-for_window [title="scratchpad_tasks"] floating enable, move scratchpad
-bindsym $mod+Shift+a exec $scratchpad_tasks
-bindsym $mod+a [title="scratchpad_tasks"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+bindsym $mod+e [title="scratchpad_editor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 bindsym $mod+Escape exec i3_hide-scratchpad-windows.sh
 
