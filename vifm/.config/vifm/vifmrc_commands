@@ -72,6 +72,7 @@ command! pdfgrep tmux new-window -n pdfgrep && tmux send-keys "find . -name '*.p
 command! pdfcrop pdfcrop %f %f:r_cropped.pdf
 command! pdfshrink gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=%f:r_shrinked.pdf %f
 command! renamepaper tmux new-window -n rename-paper rename-paper.sh %f
+command! rp :renamepaper
 command! mkcd :mkdir! %a | cd %a
 command! backup tmux new-window -n backup-to-backupdir backup-to-backupdir.sh %f
 command! handbrake tmux new-window -n handbrake "handbrake_convert-for-cellphone.sh %D %f"
