@@ -19,21 +19,23 @@ nnoremap <C-l> :bnext<CR>
 " Enable/disable relative line numbers
 nnoremap <C-e> :set relativenumber!<CR>
 
-" Bubble single lines
-nmap <C-Up> :m .-2<CR>
-nmap <C-Down> :m  .+1<CR>
-
-" Bubble multiple lines
-vnoremap <silent> <C-Up> @='"zxk"zP`[V`]'<CR>
-vnoremap <silent> <C-Down> @='"zx"zp`[V`]'<CR>
-
 " Repeat macro q until the end of file
 nnoremap <C-@> VG:norm@q<CR>
+
+" Toggle wrap
+" https://vi.stackexchange.com/a/2363
+execute "set <M-w>=\ew"
+nnoremap <M-w> :ToggleWrap<CR>
+
+" Write and close buffer
+nnoremap <C-w> :w<CR>
+nnoremap <C-q> :bd<CR>
 
 " New commands """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Delete trailing spaces
 command! TrimWhitespace call TrimWhitespace()
+command! ToggleWrap call ToggleWrap()
 
 " Plugins """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -299,3 +301,4 @@ function! TrimWhitespace()
   keeppatterns %s/\s\+$//e
   call winrestview(l:save)
 endfunction
+
