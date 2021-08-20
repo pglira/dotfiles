@@ -3,7 +3,6 @@ nnoremap A cw
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 
-nnoremap <space>ee :write | edit "/home/philipp/Dropbox/dot/vifm/.config/vifm/vifmrc"<cr>
 nnoremap <space>w :set wrap!<cr>
 nnoremap // :locate<space>
 nnoremap < 4<c-w><
@@ -15,7 +14,6 @@ nnoremap VV :%select<cr>
 nnoremap e :!xdotool key Super_L+space & process-file.sh %f %i<cr>
 nnoremap E :!tmux new-window -n "%f" "vim %f"<cr>
 nnoremap i :!xdotool key Super_L+space & process-image.sh %f %i<cr>
-nnoremap n :set number!<cr>
 nnoremap m :!xdotool key Super_L+space && dragon -x -a %f &<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
@@ -23,6 +21,7 @@ nnoremap o :!xdotool key Super_L+space & process-dir.sh %d %i<cr>
 nnoremap q :quit<cr>
 nnoremap + :chmod+x<cr>
 nnoremap - :chmod-x<cr>
+nnoremap <esc> zM:noh<cr>
 
 nnoremap D :fzfdirbookmarks<cr>
 nnoremap F :fzffilebookmarks<cr>
@@ -32,6 +31,7 @@ nnoremap R :fzfrepos<cr>
 
 " alt key combinations
 nnoremap <M-d> :cd ~/Downloads<cr>=202.-..-../<cr>G<cr>
+nnoremap <M-u> :!gdu<cr>
 nnoremap <M-s> :cd ~/oc/Screenshots/PC/2021<cr>
 
 " control key combinations
