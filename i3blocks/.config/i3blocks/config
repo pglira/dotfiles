@@ -67,8 +67,11 @@ interval=1
 # [bat2]
 # interval=1
 
-[bandwidth]
-interval=1
+# [bandwidth]
+# interval=1
+
+# [speedtest]
+# interval=3600
 
 [apt]
 signal=1
@@ -86,8 +89,8 @@ interval=1
 [gmail]
 interval=10
 
-[taskwarrior]
-interval=10
+# [taskwarrior]
+# interval=10
 
 # [td]
 # interval=1
