@@ -8,9 +8,8 @@ Just my dotfiles. Feel free to use them.
 - **Terminal**: [lxterminal](https://wiki.lxde.org/de/LXTerminal) (with [tmux](https://github.com/tmux/tmux))
 - **Text editors**: [vim](https://www.vim.org/) and [vscode](https://code.visualstudio.com/)
 - **File manager**: [vifm](https://vifm.info/)
-- **IDE**: [clion](https://www.jetbrains.com) with [ideavim](https://github.com/JetBrains/ideavim)
+- **IDE**: [clion](https://www.jetbrains.com)
 - **Video player**: [mpv](https://mpv.io/)
-- **Music player**: [moc](http://moc.daper.net/)
 - **Image viewer**: [vimiv](https://github.com/karlch/vimiv-qt)
 - **PDF viewer**: [okular](https://okular.kde.org/)
 
