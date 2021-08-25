@@ -14,7 +14,7 @@ alias c='cd $(vifm --choose-dir -)' \
     F='$EDITOR $(cat $FILE_BOOKMARKS | fzf)' \
     L='cd $(find $LATEXDIR -mindepth 1 -maxdepth 2 -type l,d | sort | fzf)' \
     J='cd $(find $PRJDIR -mindepth 1 -maxdepth 1 -type l,d | sort | fzf)' \
-    R='cd $(find $REPOSDIR -mindepth 1 -maxdepth 2 -type l,d | sort | fzf)' \
+    R='REPOSDIRWITHSPACEDELIM=$(echo $REPOSDIR | sed "s/:/ /g") && cd $(find $REPOSDIRWITHSPACEDELIM -mindepth 1 -maxdepth 1 -type l,d | sort | fzf)' \
     e='$EDITOR' \
     k='fzf_kill.sh' \
     ka='killall' \
