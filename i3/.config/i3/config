@@ -59,7 +59,6 @@ exec --no-startup-id udiskie
 exec --no-startup-id numlockx on
 exec --no-startup-id clipmenud
 exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
-exec --no-startup-id "sh -c 'sleep 2 && i3_focus-last-window.py > /tmp/i3_focus-last-window_stdout.txt 2> /tmp/i3_focus-last-window_stderr.txt'"
 # exec --no-startup-id hsetroot -solid "#004876"
 exec --no-startup-id "quick-notes_monitor.sh $AITNOTESDIR"
 exec --no-startup-id "quick-notes_monitor.sh $NOTESDIR"
@@ -256,6 +255,7 @@ for_window [class="optrals*"] floating enable
 for_window [class="ksnip"] floating disable
 for_window [class="ksnip" instance="ksnip" title="Warning - ksnip"] floating enable
 for_window [class="Lxterminal" title="edit-quick-note"] floating enable, resize set 500 px 500 px, move position center
+for_window [class="gnuplot_qt"] floating enable, move position center
 
 # Screenshots #################################################################
 
@@ -350,7 +350,6 @@ bindsym --whole-window $mod+Shift+button5 workspace next
 bindsym $mod+Shift+k exec i3_new-workspace.sh
 
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+asciicircum exec i3_focus-last-window.py --switch
 bindsym $mod+g exec i3_goto-next-free-workspace.py
 bindsym $mod+w exec i3_dmenu_change-window.py --item-format "{workspace.name}: {container.window_class} - {container.name}" --group-by none ${DMENU_OPTIONS}
 
