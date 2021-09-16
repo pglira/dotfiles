@@ -138,7 +138,7 @@ bindsym $mod+Mod1+b exec dmenu_browser-bookmarks.sh
 bindsym $mod+Mod1+c exec dmenu_run $DMENU_OPTIONS -p "command:"
 bindsym $mod+Mod1+d exec cd $HOME/oc/Linux/dot && ./install-all-dots.sh
 bindsym $mod+Mod1+e exec ibus emoji
-# bindsym $mod+Mod1+f
+bindsym $mod+Mod1+f exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Artefakte" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p artefakte:" --show-relative-paths
 bindsym $mod+Mod1+g exec search-for-marked-text-in-webbrowser.sh
 bindsym $mod+Mod1+h exec dmenu_sysmon.sh
 bindsym $mod+Mod1+i exec set-brightness.sh
@@ -351,8 +351,9 @@ bindsym --whole-window $mod+Shift+button5 workspace next
 bindsym $mod+Shift+k exec i3_new-workspace.sh
 
 bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+asciicircum exec i3_cycle_windows
 bindsym $mod+g exec i3_goto-next-free-workspace.py
-bindsym $mod+w exec i3_dmenu_change-window.py --item-format "{workspace.name}: {container.window_class} - {container.name}" --group-by none ${DMENU_OPTIONS}
+bindsym $mod+w exec i3_dmenu_change-window.py --item-format "{workspace.name}: {container.window_class} - {container.name}" ${DMENU_OPTIONS}
 
 # Move container and workspaces ###############################################
 
