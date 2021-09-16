@@ -16,3 +16,6 @@ prefs.editor_closes_dialog = nil
 
 -- Minimum size of dialog window for creating/editing text objects
 prefs.editor_size = { 600, 400 }
+
+-- Zoom with mouse wheel (instead of pan)
+prefs.scroll.pan = false
