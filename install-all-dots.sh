@@ -35,6 +35,7 @@ case "$(hostname)" in
         ./install-program-dots.sh vimiv
         ./install-program-dots.sh xmodmap
         ./install-program-dots.sh xresources
+        ./install-program-dots.sh zsh
         ;;
 esac
 
