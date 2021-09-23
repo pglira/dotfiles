@@ -34,7 +34,7 @@ command! fzfprj :let $FZF_RES = term('find $PRJDIR -mindepth 1 -maxdepth 1 -type
              \|    cd $FZF_RES
              \|endif
              \|redraw
-command! fzfrepos :let $FZF_RES = term('find $(echo $REPOSDIR | sed "s/:/ /g") -mindepth 1 -maxdepth 1 -type l,d | sort | fzf --height 100 2>/dev/tty')
+command! fzfrepos :let $FZF_RES = term('fzf_choose-repo.sh 2>/dev/tty')
              \|if $FZF_RES != ''
              \|    cd $FZF_RES
              \|endif
