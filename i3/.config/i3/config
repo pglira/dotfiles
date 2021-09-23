@@ -63,6 +63,7 @@ exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
 # exec --no-startup-id hsetroot -solid "#004876"
 exec --no-startup-id "quick-notes_monitor.sh $AITNOTESDIR"
 exec --no-startup-id "quick-notes_monitor.sh $NOTESDIR"
+exec --no-startup-id alttab-start.sh
 
 # scratchpad applications
 exec $scratchpad_terminal
