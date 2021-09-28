@@ -71,6 +71,7 @@ command! pdfgrepwd tmux new-window -n pdfgrep && tmux send-keys "pdfgrep -i \"%a
 command! pdfgrep tmux new-window -n pdfgrep && tmux send-keys "find . -name '*.pdf' -print0 | xargs -0 pdfgrep -i \"%a\"" C-m
 command! pdfcrop pdfcrop %f %f:r_cropped.pdf
 command! pdfshrink gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=%f:r_shrinked.pdf %f
+command! pdftopng pdftoppm %f %f:r -png -r 300
 command! renamepaper tmux new-window -n rename-paper rename-paper.sh %f
 command! rp :renamepaper
 command! mkcd :mkdir! %a | cd %a
