@@ -3,7 +3,6 @@ HISTFILE=~/oc/Linux/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 setopt appendhistory notify
-bindkey -v
 zstyle :compinstall filename '/home/philipp/.zshrc'
 autoload -Uz compinit && compinit
 
@@ -46,6 +45,11 @@ eval $(dircolors -b $HOME/.dircolors)
 bindkey -r "^R"
 bindkey -r "^S"
 bindkey "^R" fzf-history-widget
+
+# edit command with $EDITOR (default is ^x^e)
+bindkey '^e' edit-command-line
+
+unsetopt flow_control
 
 # aliases
 alias ls='ls --color=auto --group-directories-first'
@@ -94,3 +98,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+source /opt/ros/melodic/setup.zsh
