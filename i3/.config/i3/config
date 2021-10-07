@@ -275,6 +275,7 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+asciicircum focus right
 
 # move focused window
 bindsym $mod+Ctrl+h move left
