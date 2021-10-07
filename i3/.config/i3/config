@@ -353,7 +353,6 @@ bindsym --whole-window $mod+Shift+button5 workspace next
 bindsym $mod+Shift+k exec i3_new-workspace.sh
 
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+asciicircum exec i3_cycle_windows
 bindsym $mod+g exec i3_goto-next-free-workspace.py
 bindsym $mod+w exec i3_dmenu_change-window.py --group-by none --item-format "{workspace.name}: {container.window_class} - {container.name}" ${DMENU_OPTIONS}
 
