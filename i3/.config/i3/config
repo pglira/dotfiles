@@ -151,7 +151,7 @@ bindsym $mod+Mod1+n exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Lin
 bindsym $mod+Mod1+o exec tmux new-window -t scratchpad_downloads && tmux send-keys -t scratchpad_downloads 'media-download.sh "" --notification --gui' C-m && tmux last-window
 bindsym $mod+Mod1+p exec dmenu_run-command-on-item.py --search-dir "$LITERATUREDIR" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p literature:" --show-relative-paths
 bindsym $mod+Mod1+q exec quick-note.sh
-bindsym $mod+Mod1+r exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Repos/snippets" --search-pattern "*.*" --command "gnome-text-editor %ITEM" --dmenu-options "$DMENU_OPTIONS -p snippets:" --show-relative-paths
+bindsym $mod+Mod1+r exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Repos/snippets" --search-pattern "*.*" --command "textadept %ITEM" --dmenu-options "$DMENU_OPTIONS -p snippets:" --show-relative-paths
 bindsym $mod+Mod1+s exec open-last-screenshot.sh
 bindsym $mod+Mod1+t exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts/paste" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p paste:" --show-relative-paths
 bindsym $mod+Mod1+u exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p script:" --show-relative-paths
