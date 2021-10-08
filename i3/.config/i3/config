@@ -275,7 +275,7 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+asciicircum focus right
+bindsym $mod+asciicircum focus next
 
 # move focused window
 bindsym $mod+Ctrl+h move left
@@ -358,7 +358,7 @@ bindsym $mod+w exec i3_dmenu_change-window.py --group-by none --item-format "{wo
 
 # Move container and workspaces ###############################################
 
-bindsym $mod+Shift+w exec i3_move-window-to-next-free-workspace.py
+bindsym $mod+Shift+g exec i3_move-window-to-next-free-workspace.py
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
