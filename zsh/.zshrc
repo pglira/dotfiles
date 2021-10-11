@@ -47,6 +47,7 @@ bindkey -r "^S"
 bindkey "^R" fzf-history-widget
 
 # edit command with $EDITOR (default is ^x^e)
+autoload edit-command-line
 bindkey '^e' edit-command-line
 
 unsetopt flow_control
