@@ -25,6 +25,7 @@ case "$(hostname)" in
         ./install-program-dots.sh pandoc
         ./install-program-dots.sh passwords
         ./install-program-dots.sh readline
+        ./install-program-dots.sh rofi
         ./install-program-dots.sh ssh
         ./install-program-dots.sh sxiv
         ./install-program-dots.sh taskwarrior

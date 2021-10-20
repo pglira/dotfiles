@@ -105,7 +105,7 @@ client.background       #FFFFFF
 # Bindings: i3 commands #######################################################
 
 bindsym $mod+q kill
-bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu $DMENU_OPTIONS"
+bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu $DMENU_OPTIONS -p run:"
 # change transparency of current window
 bindsym $mod+plus exec compton-trans -c -- -10
 bindsym $mod+minus exec compton-trans -c +10
@@ -158,7 +158,7 @@ bindsym $mod+Mod1+u exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Lin
 bindsym $mod+Mod1+v exec open-video-with-mpv.sh
 bindsym $mod+Mod1+w exec dmenu_websearch.sh
 bindsym $mod+Mod1+x exec keepmenu
-bindsym $mod+Mod1+y exec clipmenu $DMENU_OPTIONS
+# bindsym $mod+Mod1+y
 bindsym $mod+Mod1+z exec dunst_show-clipboard-contents.sh
 
 # Bindings: scratchpad ########################################################
