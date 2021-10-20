@@ -242,6 +242,7 @@ for_window [class="jetbrains-clion" title="Commit Changes"] floating disable
 for_window [class="jetbrains-clion" title="Settings"] floating disable
 for_window [class="jetbrains-clion" title="Push Commits"] floating disable
 for_window [class="jetbrains-clion" title="win0"] floating enable, move position center
+for_window [class="jetbrains-clion" title="Change Signature"] floating enable, resize set 500 px 500 px, move position center
 for_window [class="Google-chrome"] title_format " %class: %title"
 for_window [class="Google-chrome"] floating disable
 for_window [class="Vivaldi-stable"] title_format " %class: %title"
