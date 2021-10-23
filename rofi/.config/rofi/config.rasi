@@ -40,7 +40,7 @@ configuration {
     background-color: transparent;
 }
 #window {
-    border:     5;
+    border:     6;
     padding:    10;
     background-color: @background;
 }
@@ -62,7 +62,7 @@ configuration {
 #listview {
     fixed-height: 0;
     border:       1px solid 0px 0px ;
-    padding:      2px 0px 0px ;
+    padding:      4px 0px 0px ;
 }
 #element {
     border: 0;
