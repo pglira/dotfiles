@@ -9,22 +9,14 @@ autoload -Uz compinit && compinit
 autoload -U colors && colors
 PROMPT="%F{015}%K{032}[%?][%d]:%F{default}%K{default} "
 
-# Plugins
-source /usr/share/zsh-antigen/antigen.zsh
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle heroku
-# antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
-# antigen bundle dirhistory
-# antigen bundle jeffreytse/zsh-vi-mode
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-# Tell Antigen that you're done.
-antigen apply
+# Plugins with antibody (installation: https://getantibody.github.io)
+source <(antibody init)
+antibody bundle zsh-users/zsh-autosuggestions
+antibody bundle zsh-users/zsh-completions
+antibody bundle zsh-users/zsh-syntax-highlighting
+antibody bundle robbyrussell/oh-my-zsh path:plugins/dirhistory
+antibody bundle robbyrussell/oh-my-zsh path:plugins/git
+antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -47,7 +39,7 @@ bindkey -r "^S"
 bindkey "^R" fzf-history-widget
 
 # edit command with $EDITOR (default is ^x^e)
-autoload edit-command-line
+autoload -U edit-command-line && zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 unsetopt flow_control
