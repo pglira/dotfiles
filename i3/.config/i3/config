@@ -254,15 +254,16 @@ for_window [class="jetbrains-clion" title="Settings"] floating disable
 for_window [class="jetbrains-clion" title="Push Commits"] floating disable
 for_window [class="jetbrains-clion" title="win0"] floating enable, move position center
 for_window [class="jetbrains-clion" title="Change Signature"] floating enable, resize set 500 px 500 px, move position center
+for_window [class="jetbrains-clion"] title_format " CLion: %title"
 for_window [class="Google-chrome"] title_format " %class: %title"
 for_window [class="Google-chrome"] floating disable
-for_window [class="Vivaldi-stable"] title_format " %class: %title"
+for_window [class="Vivaldi-stable"] title_format " Vivaldi: %title"
 for_window [class="Vivaldi-stable"] floating disable
 for_window [class="MATLAB"] title_format " %title"
 for_window [class="MATLAB" title="Figure"] floating enable
 for_window [class="MATLAB" title="AIT.*"] floating enable
 for_window [class="okular"] title_format " %title"
-for_window [class="Lxterminal"] title_format " %title"
+for_window [class="Lxterminal"] title_format " Terminal"
 for_window [class="org-knopflerfish-framework-BundleThread"] title_format "%title"
 for_window [class="pyqt*"] floating enable
 for_window [class="optrals*"] floating enable
@@ -271,6 +272,7 @@ for_window [class="ksnip" instance="ksnip" title="Warning - ksnip"] floating ena
 for_window [class="Lxterminal" title="edit-quick-note"] floating enable, resize set 500 px 500 px, move position center
 for_window [class="gnuplot_qt"] floating enable, move position center
 for_window [class="kwrite"] floating enable, resize set 800 px 600 px, move position center
+for_window [class="Wine"] title_format " %class: %title"
 
 # Screenshots #################################################################
 
