@@ -39,6 +39,7 @@ set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
 set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
+set $scratchpad_teams --no-startup-id teams
 
 set $scratchpad_percentage 92
 set $highlight_color #0087FF
@@ -169,6 +170,10 @@ bindsym $mod+Mod1+z exec dunst_show-clipboard-contents.sh
 for_window [title="scratchpad_terminal"] floating enable, move scratchpad
 bindsym $mod+Shift+Return exec $scratchpad_terminal
 bindsym $mod+Return [title="scratchpad_terminal"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+
+for_window [class="Microsoft Teams" instance="microsoft teams"] floating enable, move scratchpad
+bindsym $mod+Shift+c exec $scratchpad_msteams
+bindsym $mod+c [class="Microsoft Teams" instance="microsoft teams"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [title="scratchpad_python"] floating enable, move scratchpad
 bindsym $mod+Shift+y exec $scratchpad_python
