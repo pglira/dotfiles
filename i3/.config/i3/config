@@ -170,9 +170,9 @@ bindsym $mod+Mod1+z exec dunst_show-clipboard-contents.sh
 # First binding: start application
 # Second binding: show application
 
-for_window [title="ait/other/todo.txt"] floating enable, move scratchpad
+for_window [class="kwrite" instance="kwrite" title="ait/other/todo.txt"] floating enable, move scratchpad
 bindsym $mod+Shift+a exec $scratchpad_todo
-bindsym $mod+a [title="ait/other/todo.txt"] scratchpad show, move position center
+bindsym $mod+a [class="kwrite" instance="kwrite" title="ait/other/todo.txt"] scratchpad show, move position center
 
 for_window [title="scratchpad_terminal"] floating enable, move scratchpad
 bindsym $mod+Shift+Return exec $scratchpad_terminal
