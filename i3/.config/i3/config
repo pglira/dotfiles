@@ -76,6 +76,7 @@ exec $scratchpad_downloads
 exec $scratchpad_python
 exec $scratchpad_keepassxc
 exec $scratchpad_editor
+exec $scratchpad_teams
 exec $scratchpad_todo
 
 # Keyboard & mouse ############################################################
@@ -179,7 +180,7 @@ bindsym $mod+Return [title="scratchpad_terminal"] scratchpad show, resize set $s
 
 for_window [class="Microsoft Teams" instance="microsoft teams"] floating enable, move scratchpad
 bindsym $mod+Shift+c exec $scratchpad_msteams
-bindsym $mod+c [class="Microsoft Teams" instance="microsoft teams"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+bindsym $mod+c [class="Microsoft Teams" instance="microsoft teams"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center, border pixel 6
 
 for_window [title="scratchpad_python"] floating enable, move scratchpad
 bindsym $mod+Shift+y exec $scratchpad_python
