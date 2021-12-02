@@ -2,6 +2,7 @@
 nnoremap A cw
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
+nnoremap cr cW<c-u>
 
 nnoremap <space>w :set wrap!<cr>
 nnoremap // :locate<space>
