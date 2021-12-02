@@ -273,6 +273,8 @@ for_window [class="Lxterminal" title="edit-quick-note"] floating enable, resize 
 for_window [class="gnuplot_qt"] floating enable, move position center
 for_window [class="kwrite"] floating enable, resize set 800 px 600 px, move position center
 for_window [class="Wine"] title_format " %class: %title"
+for_window [title="montage.py" window_role="imagemagick"] floating enable
+for_window [title="gif.py" window_role="imagemagick"] floating enable
 
 # Screenshots #################################################################
 
