@@ -5,6 +5,7 @@ SAVEHIST=100000
 setopt appendhistory notify
 zstyle :compinstall filename '/home/philipp/.zshrc'
 autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
 
 autoload -U colors && colors
 PROMPT="%F{015}%K{032}[%?][%d]:%F{default}%K{default} "
@@ -24,6 +25,33 @@ export FZF_DEFAULT_COMMAND="find ." # find also hidden files
 # https://minsw.github.io/fzf-color-picker/
 export FZF_COLORS="--color=preview-fg:#ffffff,fg:#999999,bg:#111111,hl:#ffff00 --color=fg+:#ffffff,bg+:#0087ff,hl+:#ffff00 --color=info:#ffff00,prompt:#ffffff,pointer:#ffffff --color=marker:#ffffff,spinner:#ffff00,header:#0087ff"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse $FZF_COLORS"
+
+export FZF_COMPLETION_OPTS="--info=inline"
+
+# Use fd instead of the default find command for listing path candidates
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# (EXPERIMENTAL) Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+  cd) fzf "$@" --preview 'tree -C {} | head -200' ;;
+  export | unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+  ssh) fzf "$@" --preview 'dig {}' ;;
+  *) fzf "$@" ;;
+  esac
+}
 
 eval $(dircolors -b $HOME/.dircolors)
 
@@ -73,22 +101,23 @@ alias df='df --human-readable'
 alias md='media-download.sh'
 alias dmenu='dmenu ${DMENU_OPTIONS}'
 alias dict='dict.cc.py'
-alias ros="source ~/oc/Linux/scripts/ros_source-ws.sh"
 alias cm="catkin_make"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/philipp/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/philipp/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/home/philipp/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/philipp/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/philipp/anaconda3/bin:$PATH"
-    fi
+  if [ -f "/home/philipp/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/home/philipp/anaconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/home/philipp/anaconda3/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# ROS
 source /opt/ros/melodic/setup.zsh
+source ros_functions.sh
