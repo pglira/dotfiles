@@ -17,6 +17,7 @@ nnoremap E :!tmux new-window -n "%f" "vim %f"<cr>
 nnoremap i :!xdotool key Super_L+space & process-image.sh %f %i<cr>
 nnoremap m :!xdotool key Super_L+space && dragon -x -a %f &<cr>
 nnoremap n :!xdotool key Super_L+space & nautilus %d %i<cr>
+nnoremap r :!xdotool key Super_L+space & thunar -B %f %i<cr>
 nnoremap s :shell<cr>
 nnoremap zs :sync %d<cr><Tab>
 nnoremap o :!xdotool key Super_L+space & process-dir.sh %d %i<cr>
