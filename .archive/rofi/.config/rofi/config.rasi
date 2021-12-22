@@ -6,7 +6,10 @@ configuration {
  lines: 20;
  width: 60;
  bw: 0;
- matching: "regex";
+ matching: "glob"; // options: normal, regex, glob, fuzzy
+ sort: true;
+ levenshtein-sort: true; // only use if matching = fuzzy
+ tokenize: true;
 }
 
 * {
