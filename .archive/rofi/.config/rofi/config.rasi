@@ -8,7 +8,7 @@ configuration {
  bw: 0;
  matching: "glob"; // options: normal, regex, glob, fuzzy
  sort: true;
- levenshtein-sort: true; // only use if matching = fuzzy
+ // levenshtein-sort: true; // only use if matching = fuzzy
  tokenize: true;
 }
 
