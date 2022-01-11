@@ -34,13 +34,12 @@ default_border pixel 6
 set $scratchpad_terminal --no-startup-id $TERMINAL -t "scratchpad_terminal" -e tmux_start_scratchpad_terminal.sh
 set $scratchpad_python --no-startup-id $TERMINAL -t "scratchpad_python" -e python3
 set $scratchpad_newsboat --no-startup-id $TERMINAL -t "scratchpad_newsboat" -e tmux_start_scratchpad_newsboat.sh
-set $scratchpad_music --no-startup-id "flatpak run org.kde.elisa"
+set $scratchpad_music --no-startup-id elisa
 set $scratchpad_filemanager --no-startup-id $TERMINAL -t "scratchpad_filemanager" -e tmux_start_scratchpad_filemanager.sh
 set $scratchpad_downloads --no-startup-id $TERMINAL -t "scratchpad_downloads" -e tmux_start_scratchpad_downloads.sh
 set $scratchpad_keepassxc --no-startup-id keepassxc
-set $scratchpad_editor --no-startup-id $TERMINAL -t "scratchpad_editor" -e tmux_start_scratchpad_editor.sh
 set $scratchpad_teams --no-startup-id teams
-set $scratchpad_todo --no-startup-id kwrite ~/ait/other/todo.txt
+set $scratchpad_todo --no-startup-id kwrite /data/ait/other/todo.txt
 
 set $scratchpad_percentage 92
 set $highlight_color #0087FF
@@ -51,49 +50,32 @@ exec_always --no-startup-id setxkbmap de -variant nodeadkeys && xmodmap "$HOME/.
 exec_always --no-startup-id xrdb "$HOME/.Xresources"
 exec_always --no-startup-id "feh --bg-fill $WALLPAPER"
 
-exec --no-startup-id "$HOME/oc/WissensDB/serve_wissensdb.sh > /tmp/mkdocs-wissensdb_stdout.txt 2> /tmp/mkdocs-wissensdb_stderr.txt"
-exec --no-startup-id "$HOME/ait/mkdocs/serve_mkdocs-ait.sh > /tmp/mkdocs-ait_stdout.txt 2> /tmp/mkdocs-ait_stderr.txt"
-exec --no-startup-id "$HOME/oc/Repos/pglira.github.io/serve_pglira.sh > /tmp/jekyll-pglira_stdout.txt 2> /tmp/jekyll-pglira_stderr.txt"
+exec --no-startup-id "/data/own/WissensDB/serve_wissensdb.sh > /tmp/mkdocs-wissensdb_stdout.txt 2> /tmp/mkdocs-wissensdb_stderr.txt"
+exec --no-startup-id "/data/ait/mkdocs/serve_mkdocs-ait.sh > /tmp/mkdocs-ait_stdout.txt 2> /tmp/mkdocs-ait_stderr.txt"
 exec --no-startup-id compton --vsync opengl-swc --backend glx -b
-exec --no-startup-id owncloud
-exec --no-startup-id nm-applet # network icon
 exec --no-startup-id xautolock -time 60 -locker blurlock.sh
-exec --no-startup-id udiskie
 exec --no-startup-id numlockx on
 exec --no-startup-id clipmenud
 exec --no-startup-id "sh -c 'sleep 2 && dunst_start.sh'"
-# exec --no-startup-id hsetroot -solid "#004876"
 exec --no-startup-id "quick-notes_monitor.sh $AITNOTESDIR"
 exec --no-startup-id "quick-notes_monitor.sh $NOTESDIR"
 exec --no-startup-id alttab-start.sh
 
 # scratchpad applications
-exec $scratchpad_terminal
-exec $scratchpad_newsboat
-exec $scratchpad_music
-exec $scratchpad_filemanager
-exec $scratchpad_downloads
-exec $scratchpad_python
-exec $scratchpad_keepassxc
-exec $scratchpad_editor
-exec $scratchpad_teams
-exec $scratchpad_todo
+exec --no-startup-id $scratchpad_terminal
+exec --no-startup-id $scratchpad_newsboat
+exec --no-startup-id $scratchpad_music
+exec --no-startup-id $scratchpad_filemanager
+exec --no-startup-id $scratchpad_downloads
+exec --no-startup-id $scratchpad_python
+exec --no-startup-id $scratchpad_keepassxc
+exec --no-startup-id "sh -c 'sleep 5 && teams'"
+exec --no-startup-id $scratchpad_todo
 
 # Keyboard & mouse ############################################################
 
 # modifier and middle mouse button over any part of the window kills the window
 bindsym --whole-window $mod+button2 kill
-
-# xinput list --> list of input devices
-# xinput list-props 13 --> properties of input device with id=13
-# turn touchpad (id=13) off
-exec --no-startup-id xinput set-prop "AlpsPS/2 ALPS DualPoint TouchPad" 137 0
-# set properties for stick (id=14)
-# exec --no-startup-id xinput set-prop "AlpsPS/2 ALPS DualPoint Stick" 268 5
-# 268 corresponds to "Device Accel Constant Deceleration"
-# it seems to be sometimes 268, sometimes 262
-exec --no-startup-id xinput set-prop "AlpsPS/2 ALPS DualPoint Stick" 262 5
-exec --no-startup-id xinput set-prop "AlpsPS/2 ALPS DualPoint Stick" 268 5
 
 # Colors ######################################################################
 
@@ -135,30 +117,31 @@ mode "$mode_system" {
 # Start programs (with Shift like start)
 bindsym $mod+Shift+b exec $BROWSER
 bindsym $mod+Shift+i exec $BROWSER --incognito
+bindsym $mod+Shift+s exec systemsettings5
 bindsym $mod+Shift+t exec $TERMINAL
 
 # Actions
 bindsym $mod+Mod1+a exec dmenu_run-command-on-item.py --search-dir $AITMKDOCSDIR --search-pattern "*.md" --command "process-file.sh %ITEM" --dmenu-options "$DMENU_OPTIONS -p mkdocs-file:" --show-relative-paths
 bindsym $mod+Mod1+b exec dmenu_browser-bookmarks.sh
 bindsym $mod+Mod1+c exec dmenu_run $DMENU_OPTIONS -p "command:"
-bindsym $mod+Mod1+d exec cd $HOME/oc/Linux/dot && ./install-all-dots.sh
+bindsym $mod+Mod1+d exec cd /data/own/Linux/dot && ./install-all-dots.sh
 bindsym $mod+Mod1+e exec ibus emoji
-bindsym $mod+Mod1+f exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Artefakte" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p artefakte:" --show-relative-paths
+bindsym $mod+Mod1+f exec dmenu_run-command-on-item.py --search-dir "/data/own/Artefakte" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p artefakte:" --show-relative-paths
 bindsym $mod+Mod1+g exec search-for-marked-text-in-webbrowser.sh
 bindsym $mod+Mod1+h exec dmenu_sysmon.sh
 bindsym $mod+Mod1+i exec set-brightness.sh
 # bindsym $mod+Mod1+j
 bindsym $mod+Mod1+k exec dmenu_kill-process.py --dmenu-options "$DMENU_OPTIONS -p kill:"
-bindsym $mod+Mod1+l exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Latex/projects" --search-pattern "main.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p latex-pdf:" --show-relative-paths
+bindsym $mod+Mod1+l exec dmenu_run-command-on-item.py --search-dir "/data/own/Latex/projects" --search-pattern "main.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p latex-pdf:" --show-relative-paths
 bindsym $mod+Mod1+m exec dmenu_open-manpage.py --program "okular" --dmenu-options "$DMENU_OPTIONS -p manpage:"
-bindsym $mod+Mod1+n exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts/output" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p output:" --show-relative-paths
+bindsym $mod+Mod1+n exec dmenu_run-command-on-item.py --search-dir "/data/own/Linux/scripts/output" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p output:" --show-relative-paths
 bindsym $mod+Mod1+o exec tmux new-window -t scratchpad_downloads && tmux send-keys -t scratchpad_downloads 'media-download.sh "" --notification --gui' C-m && tmux last-window
 bindsym $mod+Mod1+p exec dmenu_run-command-on-item.py --search-dir "$LITERATUREDIR" --search-pattern "*.pdf" --command "okular %ITEM" --dmenu-options "$DMENU_OPTIONS -p literature:" --show-relative-paths
 bindsym $mod+Mod1+q exec quick-note.sh
-bindsym $mod+Mod1+r exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Repos/snippets" --search-pattern "[!.]*.*" --command "process-file.sh %ITEM" --dmenu-options "$DMENU_OPTIONS -p snippets:" --show-relative-paths
+bindsym $mod+Mod1+r exec dmenu_repo.sh
 bindsym $mod+Mod1+s exec open-last-screenshot.sh
-bindsym $mod+Mod1+t exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts/paste" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p paste:" --show-relative-paths
-bindsym $mod+Mod1+u exec dmenu_run-command-on-item.py --search-dir "$HOME/oc/Linux/scripts" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p script:" --show-relative-paths
+bindsym $mod+Mod1+t exec dmenu_run-command-on-item.py --search-dir "/data/own/Linux/scripts/paste" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p paste:" --show-relative-paths
+bindsym $mod+Mod1+u exec dmenu_run-command-on-item.py --search-dir "/data/own/Linux/scripts" --search-pattern "*.sh" --command "bash %ITEM" --dmenu-options "$DMENU_OPTIONS -p script:" --show-relative-paths
 bindsym $mod+Mod1+v exec open-video-with-mpv.sh
 bindsym $mod+Mod1+w exec dmenu_websearch.sh
 bindsym $mod+Mod1+x exec keepmenu
@@ -170,16 +153,16 @@ bindsym $mod+Mod1+z exec dunst_show-clipboard-contents.sh
 # First binding: start application
 # Second binding: show application
 
-for_window [class="kwrite" instance="kwrite" title="ait/other/todo.txt"] floating enable, move scratchpad
+for_window [class="kwrite" instance="kwrite" title="todo.txt"] floating enable, move scratchpad
 bindsym $mod+Shift+a exec $scratchpad_todo
-bindsym $mod+a [class="kwrite" instance="kwrite" title="ait/other/todo.txt"] scratchpad show, move position center
+bindsym $mod+a [class="kwrite" instance="kwrite" title="todo.txt"] scratchpad show, move position center
 
 for_window [title="scratchpad_terminal"] floating enable, move scratchpad
 bindsym $mod+Shift+Return exec $scratchpad_terminal
 bindsym $mod+Return [title="scratchpad_terminal"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 for_window [class="Microsoft Teams" instance="microsoft teams"] floating enable, move scratchpad
-bindsym $mod+Shift+c exec $scratchpad_msteams
+bindsym $mod+Shift+c exec $scratchpad_teams
 bindsym $mod+c [class="Microsoft Teams" instance="microsoft teams"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center, border pixel 6
 
 for_window [title="scratchpad_python"] floating enable, move scratchpad
@@ -202,13 +185,9 @@ for_window [title="scratchpad_downloads"] floating enable, move scratchpad
 bindsym $mod+Shift+o exec $scratchpad_downloads
 bindsym $mod+o [title="scratchpad_downloads"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
-for_window [class="KeePassXC" instance="keepassxc" title="KeePassXC"] floating enable, move scratchpad
+for_window [class="keepassxc" instance="keepassxc" title="KeePassXC"] floating enable, move scratchpad
 bindsym $mod+Shift+x exec $scratchpad_keepassxc
-bindsym $mod+x [class="KeePassXC" instance="keepassxc" title="KeePassXC"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
-
-for_window [title="scratchpad_editor"] floating enable, move scratchpad
-bindsym $mod+Shift+e exec $scratchpad_editor
-bindsym $mod+e [title="scratchpad_editor"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
+bindsym $mod+x [class="keepassxc" instance="keepassxc" title="KeePassXC"] scratchpad show, resize set $scratchpad_percentage ppt $scratchpad_percentage ppt, move position center
 
 bindsym $mod+Escape exec i3_hide-scratchpad-windows.sh
 
@@ -271,10 +250,25 @@ for_window [class="ksnip"] floating disable
 for_window [class="ksnip" instance="ksnip" title="Warning - ksnip"] floating enable
 for_window [class="Lxterminal" title="edit-quick-note"] floating enable, resize set 500 px 500 px, move position center
 for_window [class="gnuplot_qt"] floating enable, move position center
-for_window [class="kwrite"] floating enable, resize set 800 px 600 px, move position center
+for_window [class="kwrite"] floating enable, resize set 1000 px 600 px, move position center
 for_window [class="Wine"] title_format " %class: %title"
 for_window [title="montage.py" window_role="imagemagick"] floating enable
 for_window [title="gif.py" window_role="imagemagick"] floating enable
+for_window [class="pico8"] floating enable
+
+# https://userbase.kde.org/Tutorials/Using_Other_Window_Managers_with_Plasma
+for_window [title="Desktop — Plasma"] kill, floating enable, border none
+for_window [class="plasmashell"] floating enable
+for_window [class="Plasma"] floating enable, border none
+for_window [title="plasma-desktop"] floating enable, border none
+for_window [title="win7"] floating enable, border none
+for_window [class="krunner"] floating enable, border none
+for_window [class="Kmix"] floating enable, border none
+for_window [class="Klipper"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
 
 # Screenshots #################################################################
 
@@ -433,7 +427,6 @@ font pango:JetBrains Mono 10
 bar {
         # I don't know if FontAwesome has an effect here
         font pango:JetBrains Mono, FontAwesome 10
-        # status_command i3status -c $HOME/oc/Linux/dot/i3status.conf
         status_command i3blocks -c $HOME/.config/i3blocks/config
         position bottom
         separator_symbol " "
@@ -459,10 +452,10 @@ bar {
 # Reload/exit i3 ##############################################################
 
 # reload the configuration file
-# bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+Ctrl+r restart
 
 # Special keys ################################################################
 
@@ -470,10 +463,10 @@ bindsym $mod+Shift+r restart
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
 # bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+11 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+11 i3blocks
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+11 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+11 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id  amixer -q -D pulse sset Master 5%- && pkill -RTMIN+11 i3blocks
+bindsym XF86AudioMute exec --no-startup-id  amixer -q -D pulse sset Master toggle && pkill -RTMIN+11 i3blocks
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && pkill -RTMIN+12 i3blocks
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && pkill -RTMIN+12 i3blocks
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && pkill -RTMIN+12 i3blocks
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && pkill -RTMIN+12 i3blocks
