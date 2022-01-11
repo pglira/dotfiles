@@ -1,13 +1,14 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-set -e
+set -eu
 
 notify-send "Update of dotfiles started!"
 
 case "$(hostname)" in
-    L1AAS45 ) # new nb
+    L1AAS45 )
         ./install-program-dots.sh appimages
-        ./install-program-dots.sh bash --merge-tags "L1AAS45"
+        ./install-program-dots.sh bash
+        ./install-program-dots.sh bookmarks
         ./install-program-dots.sh dunst
         ./install-program-dots.sh fonts
         ./install-program-dots.sh gdb
@@ -15,22 +16,17 @@ case "$(hostname)" in
         ./install-program-dots.sh i3blocks
         ./install-program-dots.sh ipe
         ./install-program-dots.sh keepmenu
-        ./install-program-dots.sh jetbrains
         ./install-program-dots.sh latex
         ./install-program-dots.sh lxterminal
         ./install-program-dots.sh matlab
-        ./install-program-dots.sh moc
         ./install-program-dots.sh mpv
         ./install-program-dots.sh newsboat
         ./install-program-dots.sh pandoc
         ./install-program-dots.sh passwords
+        ./install-program-dots.sh pico8
         ./install-program-dots.sh readline
-        ./install-program-dots.sh rofi
         ./install-program-dots.sh ssh
-        ./install-program-dots.sh sxiv
-        ./install-program-dots.sh taskwarrior
         ./install-program-dots.sh texstudio
-        ./install-program-dots.sh textadept
         ./install-program-dots.sh tmux
         ./install-program-dots.sh vifm
         ./install-program-dots.sh vim
