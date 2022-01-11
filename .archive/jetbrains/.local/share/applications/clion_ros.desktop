@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=CLion-ROS
+Icon=/home/philipp/clion/bin/clion.svg
+Exec=ros_clion-start.sh
+Comment=The Drive to Develop
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-clion
