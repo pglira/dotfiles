@@ -1,4 +1,4 @@
-command=~/oc/Linux/scripts/statusbar/$BLOCK_NAME.sh
+command=/data/own/Linux/scripts/statusbar/$BLOCK_NAME.sh
 markup=pango
 text_color="#ffffff"
 bg_default_color="#222222"
@@ -61,8 +61,8 @@ signal=11
 # BAT_NUMBER=0
 interval=10
 
-[temp-and-fan]
-interval=1
+# [temp-and-fan]
+# interval=1
 
 # [bat2]
 # interval=1
